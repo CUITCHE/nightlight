@@ -8,8 +8,8 @@
 
 #import "FMDBTempDBTests.h"
 
-static string testDatabasePath = "/tmp/tmp.db";
-static string populatedDatabasePath = "/tmp/tmp-populated.db";
+static string testDatabasePath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"tmp.db"].UTF8String;
+static string populatedDatabasePath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"tmp-populated.db"].UTF8String;
 
 @interface FMDBTempDBTests ()
 
