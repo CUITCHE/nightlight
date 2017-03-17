@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB0D5DDC1E7BE867002A8CBC /* Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0D5DDB1E7BE867002A8CBC /* Base.framework */; };
 		FB9227901E7BD2AD00128B17 /* FMDBCPP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9227861E7BD2AD00128B17 /* FMDBCPP.framework */; };
-		FB9227A21E7BD2BB00128B17 /* Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9227A11E7BD2BB00128B17 /* Base.framework */; };
 		FB9227A41E7BD2C400128B17 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9227A31E7BD2C400128B17 /* libsqlite3.tbd */; };
 		FB9227B01E7BD2E200128B17 /* FMDatabase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB9227A61E7BD2E200128B17 /* FMDatabase.cpp */; };
 		FB9227B11E7BD2E200128B17 /* FMDatabase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB9227A61E7BD2E200128B17 /* FMDatabase.cpp */; };
@@ -44,11 +44,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FB0D5DDB1E7BE867002A8CBC /* Base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Base.framework; path = "../../../Library/Developer/Xcode/DerivedData/nightlight-dftdiqmqmbbgaweswrlohfqjnrdw/Build/Products/Debug-iphonesimulator/Base.framework"; sourceTree = "<group>"; };
 		FB9227861E7BD2AD00128B17 /* FMDBCPP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FMDBCPP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB92278A1E7BD2AD00128B17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB92278F1E7BD2AD00128B17 /* FMDBCPPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FMDBCPPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB9227961E7BD2AD00128B17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FB9227A11E7BD2BB00128B17 /* Base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Base.framework; path = "../../../Library/Developer/Xcode/DerivedData/nightlight-dftdiqmqmbbgaweswrlohfqjnrdw/Build/Products/Debug-iphoneos/Base.framework"; sourceTree = "<group>"; };
 		FB9227A31E7BD2C400128B17 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		FB9227A61E7BD2E200128B17 /* FMDatabase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FMDatabase.cpp; sourceTree = "<group>"; };
 		FB9227A71E7BD2E200128B17 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
@@ -79,8 +79,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB0D5DDC1E7BE867002A8CBC /* Base.framework in Frameworks */,
 				FB9227A41E7BD2C400128B17 /* libsqlite3.tbd in Frameworks */,
-				FB9227A21E7BD2BB00128B17 /* Base.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,8 +143,8 @@
 		FB9227A01E7BD2BB00128B17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FB0D5DDB1E7BE867002A8CBC /* Base.framework */,
 				FB9227A31E7BD2C400128B17 /* libsqlite3.tbd */,
-				FB9227A11E7BD2BB00128B17 /* Base.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -506,6 +506,7 @@
 				FB92279C1E7BD2AD00128B17 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FB92279D1E7BD2AD00128B17 /* Build configuration list for PBXNativeTarget "FMDBCPPTests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +515,7 @@
 				FB92279F1E7BD2AD00128B17 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
