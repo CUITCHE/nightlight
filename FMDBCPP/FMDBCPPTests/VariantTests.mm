@@ -10,7 +10,7 @@
 #include "Variant.hpp"
 #include "Date.hpp"
 
-using namespace FMDB_CPP;
+using namespace _CC;
 using namespace std;
 
 @interface VariantTests : XCTestCase

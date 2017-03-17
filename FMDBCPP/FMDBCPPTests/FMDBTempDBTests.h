@@ -9,7 +9,8 @@
 #import <XCTest/XCTest.h>
 #include "FMDatabase.h"
 
-using namespace __FMDB_NSPEC();
+using namespace cc::FMDB_CPP;
+using namespace _cc;
 
 @protocol FMDBTempDBTests <NSObject>
 
