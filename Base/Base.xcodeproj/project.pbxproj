@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB0D5DDA1E7BE7C3002A8CBC /* BaseTest.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB0D5DD91E7BE7C3002A8CBC /* BaseTest.mm */; };
 		FB9226DD1E7BCE7E00128B17 /* Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9226D31E7BCE7E00128B17 /* Base.framework */; };
 		FB9226E21E7BCE7E00128B17 /* BaseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FB9226E11E7BCE7E00128B17 /* BaseTests.m */; };
 		FB9226E41E7BCE7E00128B17 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = FB9226D61E7BCE7E00128B17 /* Base.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -82,6 +83,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FB0D5DD91E7BE7C3002A8CBC /* BaseTest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BaseTest.mm; sourceTree = "<group>"; };
 		FB9226D31E7BCE7E00128B17 /* Base.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Base.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB9226D61E7BCE7E00128B17 /* Base.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
 		FB9226D71E7BCE7E00128B17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 		FB9226E01E7BCE7E00128B17 /* BaseTests */ = {
 			isa = PBXGroup;
 			children = (
+				FB0D5DD91E7BE7C3002A8CBC /* BaseTest.mm */,
 				FB9226E11E7BCE7E00128B17 /* BaseTests.m */,
 				FB9226E31E7BCE7E00128B17 /* Info.plist */,
 			);
@@ -397,6 +400,7 @@
 				FB92273B1E7BCF7300128B17 /* Object.cpp in Sources */,
 				FB9227431E7BCF7300128B17 /* String.cpp in Sources */,
 				FB9227511E7BCF7300128B17 /* Variant.cpp in Sources */,
+				FB0D5DDA1E7BE7C3002A8CBC /* BaseTest.mm in Sources */,
 				FB9227281E7BCF7300128B17 /* Date.cpp in Sources */,
 				FB92274B1E7BCF7300128B17 /* tprintf.cpp in Sources */,
 			);
@@ -549,6 +553,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8652TQR753;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"TEST=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = BaseTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hejunqiu.BaseTests;
@@ -560,6 +569,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 8652TQR753;
+				GCC_PREPROCESSOR_DEFINITIONS = "TEST=1";
 				INFOPLIST_FILE = BaseTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hejunqiu.BaseTests;
@@ -586,6 +596,7 @@
 				FB9226E91E7BCE7E00128B17 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FB9226EA1E7BCE7E00128B17 /* Build configuration list for PBXNativeTarget "BaseTests" */ = {
 			isa = XCConfigurationList;
@@ -594,6 +605,7 @@
 				FB9226EC1E7BCE7E00128B17 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
