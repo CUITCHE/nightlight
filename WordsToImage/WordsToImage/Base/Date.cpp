@@ -114,8 +114,7 @@ Date Date::dateFromString(const string &dateString) NOEXCEPT
 
     struct tm validate_tm{0};
     if (memcmp(&tm, &validate_tm, sizeof(struct tm)) == 0) {
-        const char *s = dateString.c_str();
-        double count = std::stof(!strcmp(s, "") ? "0" : s);
+        double count = std::stof(dateString.c_str());
         Date date = dateEpoch();
         date += TimeInterval(count);
         return date;

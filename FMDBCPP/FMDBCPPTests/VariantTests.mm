@@ -7,8 +7,8 @@
 //
 
 #import <XCTest/XCTest.h>
-#include "Variant.hpp"
-#include "Date.hpp"
+#include <Base/Variant.hpp>
+#include <Base/Date.hpp>
 
 using namespace _CC;
 using namespace std;

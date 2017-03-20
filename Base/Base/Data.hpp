@@ -41,6 +41,7 @@ public:
     uinteger length() const NOEXCEPT;
     uinteger capacity() const NOEXCEPT;
     void clear() NOEXCEPT;
+    void resize(uinteger nszie) NOEXCEPT;
 
     void deleteBytesInRange(Range range) NOEXCEPT(false);
 

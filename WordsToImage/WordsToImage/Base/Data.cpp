@@ -7,7 +7,7 @@
 //
 
 #include "Data.hpp"
-#include "Object.inl"
+#include "Object.h"
 #include "Exception.hpp"
 #include <stdlib.h>
 #include <memory.h>
@@ -94,6 +94,12 @@ void Data::clear() NOEXCEPT
 {
     D_D(Data);
     d.data.clear();
+}
+
+void Data::resize(uinteger nszie) NOEXCEPT
+{
+    D_D(Data);
+    d.data.resize(nszie);
 }
 
 void Data::deleteBytesInRange(Range range) NOEXCEPT(false)
@@ -188,7 +194,7 @@ void Data::insert(const void *b, uinteger length, uinteger pos) NOEXCEPT(false)
 		throwException(RangeException, "Parameter:pos(%llu) should not greater than string's length(%llu)", pos, this->length());
 	}
     D_D(Data);
-    d.data.insert(d.data.begin() + pos, *(byte *)b, *((const byte *)b + length));
+    d.data.insert(d.data.cbegin() + pos, (byte *)b, (byte *)b + length);
 }
 
 void Data::insert(const Data &data, uinteger pos) NOEXCEPT(false)

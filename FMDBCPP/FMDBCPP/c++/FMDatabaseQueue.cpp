@@ -7,7 +7,7 @@
 //
 
 #include "FMDatabaseQueue.h"
-#include "Variant.hpp"
+#include <Base/Variant.hpp>
 #include <sqlite3.h>
 #include <thread>
 #include <mutex>

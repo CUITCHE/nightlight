@@ -7,7 +7,7 @@
 //
 
 #include "String.hpp"
-#include "Object.inl"
+#include "Object.h"
 //#include "String.inl"
 #include "Data.hpp"
 #include "tprintf.hpp"

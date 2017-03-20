@@ -13,8 +13,8 @@
 #include <unordered_set>
 #include <functional>
 #include "FMDBDefs.h"
-#include "Variant.hpp"
-#include "Error.hpp"
+#include <Base/Variant.hpp>
+#include <Base/Error.hpp>
 #include "FMResultSet.h"
 
 using std::unordered_map;

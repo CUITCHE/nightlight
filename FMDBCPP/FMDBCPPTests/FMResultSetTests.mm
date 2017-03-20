@@ -9,8 +9,8 @@
 #import "FMDBTempDBTests.h"
 #import "FMDatabase.h"
 #import "FMResultSet.h"
-#include "Variant.hpp"
-#include "Date.hpp"
+#include <Base/Variant.hpp>
+#include <Base/Date.hpp>
 
 #if FMDB_SQLITE_STANDALONE
 #import <sqlite3/sqlite3.h>

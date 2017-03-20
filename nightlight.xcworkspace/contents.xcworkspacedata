@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:WordsToImage/WordsToImage.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Base/Base.xcodeproj">
    </FileRef>
    <FileRef

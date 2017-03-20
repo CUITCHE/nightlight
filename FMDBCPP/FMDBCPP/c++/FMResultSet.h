@@ -11,9 +11,9 @@
 
 #include <unordered_map>
 #include "FMDBDefs.h"
-#include "Date.hpp"
-#include "Error.hpp"
-#include "Variant.hpp"
+#include <Base/Date.hpp>
+#include <Base/Error.hpp>
+#include <Base/Variant.hpp>
 
 using std::unordered_map;
 
