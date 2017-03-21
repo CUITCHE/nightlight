@@ -8,7 +8,7 @@
 
 #include "Object.hpp"
 #include "TaggedPointer.h"
-#include "Object.inl"
+#include "ObjectPrivate.h"
 
 CC_BEGIN
 

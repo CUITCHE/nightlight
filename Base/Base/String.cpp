@@ -7,14 +7,14 @@
 //
 
 #include "String.hpp"
-#include "Object.inl"
+#include "ObjectPrivate.h"
 //#include "String.inl"
 #include "Data.hpp"
 #include "tprintf.hpp"
 #include "Algorithm.hpp"
 #include "Exception.hpp"
 #include "TaggedPointer.h"
-#include "TaggedPointer.inl"
+#include "TaggedPointer"
 #include <ostream>
 #include <stdlib.h>
 #include <string.h>

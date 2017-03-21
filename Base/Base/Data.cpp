@@ -7,7 +7,7 @@
 //
 
 #include "Data.hpp"
-#include "Object.inl"
+#include "ObjectPrivate.h"
 #include "Exception.hpp"
 #include <stdlib.h>
 #include <memory.h>

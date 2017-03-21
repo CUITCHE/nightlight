@@ -11,7 +11,7 @@
 
 #include "Object.hpp"
 #include "Range.hpp"
-#include "Iterator.inl"
+#include "iterator"
 #include <functional>
 #include <iosfwd>
 

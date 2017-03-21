@@ -8,9 +8,9 @@
 
 #include "Number.hpp"
 #include "TaggedPointer.h"
-#include "TaggedPointer.inl"
+#include "TaggedPointer"
 #include "String.hpp"
-#include "Object.inl"
+#include "ObjectPrivate.h"
 
 CC_BEGIN
 

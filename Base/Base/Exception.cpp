@@ -17,7 +17,7 @@
 #include "Number.hpp"
 #include <exception>
 #include <cstdlib>
-#include "Object.inl"
+#include "ObjectPrivate.h"
 
 using namespace std;
 

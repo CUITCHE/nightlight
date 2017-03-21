@@ -1,13 +1,13 @@
 //
-//  usings.inl
+//  usings
 //  collection_codes
 //
 //  Created by hejunqiu on 2017/2/27.
 //  Copyright © 2017年 CHE. All rights reserved.
 //
 
-#ifndef USINGS_INL
-#define USINGS_INL
+#ifndef USINGS
+#define USINGS
 
 #include "defines.h"
 
@@ -32,4 +32,4 @@ using TimeInterval = std::chrono::duration<double>;
 
 CC_END
 
-#endif /* USINGS_INL */
+#endif /* USINGS */

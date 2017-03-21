@@ -10,8 +10,8 @@
 #define TaggedPointer_h
 
 #include <stdint.h>
-#include "_float.inl"
-#include "_double.inl"
+#include "_float"
+#include "_double"
 
 #define TAG_MASK 0x8000000000000001ull
 #define ISTAGGEDPOINTER() (uintptr_t)this & TAG_MASK

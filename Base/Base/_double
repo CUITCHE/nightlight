@@ -1,13 +1,13 @@
 //
-//  _double.inl
+//  _double
 //  collection_codes
 //
 //  Created by hejunqiu on 2017/3/1.
 //  Copyright © 2017年 CHE. All rights reserved.
 //
 
-#ifndef _DOUBLE_INL
-#define _DOUBLE_INL
+#ifndef _DOUBLE
+#define _DOUBLE
 
 union _double {
     _double(double v) : d(v) {}
@@ -21,4 +21,4 @@ union _double {
     uint64_t dd;
 };
 
-#endif /* _DOUBLE_INL */
+#endif /* _DOUBLE */

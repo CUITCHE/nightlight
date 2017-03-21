@@ -11,7 +11,7 @@
 
 #include "defines.h"
 #include "types.h"
-#include "assert.inl"
-#include "usings.inl"
+#include "assert"
+#include "usings"
 
 #endif /* GLOBAL_H */

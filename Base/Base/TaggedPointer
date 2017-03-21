@@ -1,13 +1,13 @@
 //
-//  TaggedPointer.inl
+//  TaggedPointer
 //  collection_codes
 //
 //  Created by hejunqiu on 2017/3/8.
 //  Copyright © 2017年 CHE. All rights reserved.
 //
 
-#ifndef TAGGEDPOINTER_INL
-#define TAGGEDPOINTER_INL
+#ifndef TAGGEDPOINTER
+#define TAGGEDPOINTER
 
 #include "Object.hpp"
 
@@ -26,4 +26,4 @@ struct __deleter__
 CC_END
 
 
-#endif /* TAGGEDPOINTER_INL */
+#endif /* TAGGEDPOINTER */

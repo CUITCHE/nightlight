@@ -11,8 +11,8 @@
 
 #include "Object.hpp"
 #include "Range.hpp"
-#include "Iterator.inl"
-#include "ComparisonResult.inl"
+#include "iterator"
+#include "ComparisonResult"
 #include <stdarg.h>
 #include <iosfwd>
 #include <type_traits>

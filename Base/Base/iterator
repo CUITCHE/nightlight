@@ -1,13 +1,13 @@
 //
-//  Iterator.inl
+//  iterator
 //  collection_codes
 //
 //  Created by hejunqiu on 2017/2/27.
 //  Copyright © 2017年 CHE. All rights reserved.
 //
 
-#ifndef ITERATOR_INL
-#define ITERATOR_INL
+#ifndef ITERATOR
+#define ITERATOR
 
 #include "defines.h"
 #include <type_traits>
@@ -227,4 +227,4 @@ inline bool operator<=(const reverse_iterator<_Iter1>& __x, const reverse_iterat
 
 CC_END
 
-#endif /* ITERATOR_INL */
+#endif /* ITERATOR */

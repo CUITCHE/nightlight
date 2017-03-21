@@ -1,13 +1,13 @@
 //
-//  Object.inl
+//  ObjectPrivate.h
 //  collection_codes
 //
 //  Created by hejunqiu on 2017/2/27.
 //  Copyright © 2017年 CHE. All rights reserved.
 //
 
-#ifndef Object_h
-#define Object_h
+#ifndef OBJECTPRIVATE_H
+#define OBJECTPRIVATE_H
 
 #include "defines.h"
 
@@ -24,4 +24,4 @@ struct ObjectPrivate
 
 CC_END
 
-#endif /* Object_h */
+#endif /* OBJECTPRIVATE_H */

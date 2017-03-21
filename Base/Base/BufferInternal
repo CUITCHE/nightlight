@@ -6,13 +6,13 @@
 //  Copyright © 2017年 CHE. All rights reserved.
 //
 
-#ifndef STRING_INL
-#define STRING_INL
+#ifndef BUFFERINTERNAL
+#define BUFFERINTERNAL
 
 #include "Range.hpp"
-#include "Iterator.inl"
+#include "iterator"
 #include "Exception.hpp"
-#include "ComparisonResult.inl"
+#include "ComparisonResult"
 #include <stdlib.h>
 #include <atomic>
 #include <mutex>
@@ -837,4 +837,4 @@ private:
 CC_END
 
 
-#endif /* STRING_INL */
+#endif /* BUFFERINTERNAL */

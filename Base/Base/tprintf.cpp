@@ -43,8 +43,8 @@ typedef uint32_t ssize_t;
 #include <stdlib.h>
 
 #include "String.hpp"
-#include "_float.inl"
-#include "_double.inl"
+#include "_float"
+#include "_double"
 
 #define LONGFLAG     0x00000001
 #define LONGLONGFLAG 0x00000002
