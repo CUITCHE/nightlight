@@ -9,7 +9,7 @@
 #ifndef FMDBDefs_h
 #define FMDBDefs_h
 
-#include <Base/defines.h>
+#include <Base/defines>
 
 #ifndef __FMDB_NSPEC
 #define __FMDB_NSPEC() FMDB_CPP

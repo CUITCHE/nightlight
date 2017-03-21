@@ -1,0 +1,93 @@
+//
+//  defines
+//  collection_codes
+//
+//  Created by hejunqiu on 2017/2/24.
+//  Copyright © 2017年 CHE. All rights reserved.
+//
+
+#ifndef DEFINES_H
+#define DEFINES_H
+
+#ifndef NESPEC
+#define NESPEC cc
+#endif // !NESPEC
+
+#ifndef CC_BEGIN
+#define CC_BEGIN namespace NESPEC {
+#endif // !CC_BEGIN
+
+#ifndef CC_END
+#define CC_END }
+#endif // !CC_END
+
+#ifndef _CC
+#define _CC ::NESPEC
+#define _cc _CC
+#endif // !_CC
+
+CC_BEGIN
+
+#ifndef CLASS_TAGGEDPOINTER_AVAILABLE
+#define CLASS_TAGGEDPOINTER_AVAILABLE
+#endif // !CLASS_TAGGEDPOINTER_AVAILABLE
+
+#if defined(__cplusplus)
+# define CC_EXTERN extern "C"
+#else
+# define CC_EXTERN extern
+#endif
+
+# ifndef NOEXCEPT
+# define NOEXCEPT noexcept
+# endif // !NOEXCEPT
+
+#if defined(_MSC_VER)
+
+# ifndef __attribute__
+# define __attribute__(...)
+#endif // !__attribute__
+
+# ifndef __printflike
+# define __printflike(...)
+# endif // !__printflike
+
+# ifndef __unused
+# define __unused
+# endif // !__unused
+
+#ifndef sprintf_cc
+#define sprintf_cc sprintf_s
+#endif // !sprintf_cc
+
+#else 
+
+#ifndef sprintf_cc
+#define sprintf_cc(buf, size, fmt, ...) sprintf(buf, fmt, ##__VA_ARGS__)
+#endif // !sprintf_cc
+
+#endif // _MSC_VER
+
+#ifndef __PL64__
+# if defined(_MSC_VER)
+#  ifdef _WIN64
+#   define __PL64__ 1
+#  else
+#   define __PL64__ 0
+#  endif // _WIN64
+# endif // WIN32
+
+# ifdef __clang__
+#  define __PL64__ __LP64__
+# endif // __clang__
+#endif // !__PL64__
+
+#if defined(__clang__)
+#define __printflike__ __printflike
+#else
+#define __printflike__(...)
+#endif
+
+CC_END
+
+#endif /* DEFINES_H */

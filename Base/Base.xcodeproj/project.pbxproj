@@ -21,7 +21,7 @@
 		FB77EABA1E80DA6900C569EF /* assert in Headers */ = {isa = PBXBuildFile; fileRef = FB77EA891E80DA6900C569EF /* assert */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB77EABC1E80DA6900C569EF /* assert in Headers */ = {isa = PBXBuildFile; fileRef = FB77EA891E80DA6900C569EF /* assert */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB77EABD1E80DA6900C569EF /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = FB77EA8A1E80DA6900C569EF /* Base.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FB77EABE1E80DA6900C569EF /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = FB77EA8A1E80DA6900C569EF /* Base.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FB77EABE1E80DA6900C569EF /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = FB77EA8A1E80DA6900C569EF /* Base.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		FB77EABF1E80DA6900C569EF /* BufferInternal in Headers */ = {isa = PBXBuildFile; fileRef = FB77EA8B1E80DA6900C569EF /* BufferInternal */; };
 		FB77EAC01E80DA6900C569EF /* BufferInternal in Headers */ = {isa = PBXBuildFile; fileRef = FB77EA8B1E80DA6900C569EF /* BufferInternal */; };
 		FB77EAC61E80DA6900C569EF /* ComparisonResult in Headers */ = {isa = PBXBuildFile; fileRef = FB77EA8E1E80DA6900C569EF /* ComparisonResult */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -36,8 +36,8 @@
 		FB77EAD01E80DA6900C569EF /* Date.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB77EA911E80DA6900C569EF /* Date.cpp */; };
 		FB77EAD11E80DA6900C569EF /* Date.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FB77EA921E80DA6900C569EF /* Date.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB77EAD21E80DA6900C569EF /* Date.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FB77EA921E80DA6900C569EF /* Date.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
-		FB77EAD31E80DA6900C569EF /* defines.h in Headers */ = {isa = PBXBuildFile; fileRef = FB77EA931E80DA6900C569EF /* defines.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FB77EAD41E80DA6900C569EF /* defines.h in Headers */ = {isa = PBXBuildFile; fileRef = FB77EA931E80DA6900C569EF /* defines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FB77EAD31E80DA6900C569EF /* defines in Headers */ = {isa = PBXBuildFile; fileRef = FB77EA931E80DA6900C569EF /* defines */; settings = {ATTRIBUTES = (Public, ); }; };
+		FB77EAD41E80DA6900C569EF /* defines in Headers */ = {isa = PBXBuildFile; fileRef = FB77EA931E80DA6900C569EF /* defines */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB77EAD51E80DA6900C569EF /* Error.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB77EA941E80DA6900C569EF /* Error.cpp */; };
 		FB77EAD61E80DA6900C569EF /* Error.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB77EA941E80DA6900C569EF /* Error.cpp */; };
 		FB77EAD71E80DA6900C569EF /* Error.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB77EA941E80DA6900C569EF /* Error.cpp */; };
@@ -131,7 +131,7 @@
 		FB77EA901E80DA6900C569EF /* Data.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Data.hpp; sourceTree = "<group>"; };
 		FB77EA911E80DA6900C569EF /* Date.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Date.cpp; sourceTree = "<group>"; };
 		FB77EA921E80DA6900C569EF /* Date.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Date.hpp; sourceTree = "<group>"; };
-		FB77EA931E80DA6900C569EF /* defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = defines.h; sourceTree = "<group>"; };
+		FB77EA931E80DA6900C569EF /* defines */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = defines; sourceTree = "<group>"; };
 		FB77EA941E80DA6900C569EF /* Error.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Error.cpp; sourceTree = "<group>"; };
 		FB77EA951E80DA6900C569EF /* Error.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Error.hpp; sourceTree = "<group>"; };
 		FB77EA961E80DA6900C569EF /* Exception.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Exception.cpp; sourceTree = "<group>"; };
@@ -215,7 +215,7 @@
 				FB77EA901E80DA6900C569EF /* Data.hpp */,
 				FB77EA911E80DA6900C569EF /* Date.cpp */,
 				FB77EA921E80DA6900C569EF /* Date.hpp */,
-				FB77EA931E80DA6900C569EF /* defines.h */,
+				FB77EA931E80DA6900C569EF /* defines */,
 				FB77EA941E80DA6900C569EF /* Error.cpp */,
 				FB77EA951E80DA6900C569EF /* Error.hpp */,
 				FB77EA961E80DA6900C569EF /* Exception.cpp */,
@@ -287,7 +287,6 @@
 				FB77EAE01E80DA6900C569EF /* global.h in Headers */,
 				FB77EAF51E80DA6900C569EF /* Object.hpp in Headers */,
 				FB77EB191E80DA6900C569EF /* Variant.hpp in Headers */,
-				FB77EABE1E80DA6900C569EF /* Base.h in Headers */,
 				FB77EB0F1E80DA6900C569EF /* tprintf.hpp in Headers */,
 				FB77EAEB1E80DA6900C569EF /* log.hpp in Headers */,
 				FB77EAD91E80DA6900C569EF /* Error.hpp in Headers */,
@@ -295,7 +294,7 @@
 				FB77EB111E80DA6900C569EF /* types.h in Headers */,
 				FB77EAC01E80DA6900C569EF /* BufferInternal in Headers */,
 				FB77EACD1E80DA6900C569EF /* Data.hpp in Headers */,
-				FB77EAD41E80DA6900C569EF /* defines.h in Headers */,
+				FB77EAD41E80DA6900C569EF /* defines in Headers */,
 				FB77EAFD1E80DA6900C569EF /* Range.hpp in Headers */,
 				FB77EADE1E80DA6900C569EF /* Exception.hpp in Headers */,
 				FB77EAD21E80DA6900C569EF /* Date.hpp in Headers */,
@@ -304,6 +303,7 @@
 				FB77EB141E80DA6900C569EF /* usings in Headers */,
 				FB77EAC81E80DA6900C569EF /* ComparisonResult in Headers */,
 				FB77EAE61E80DA6900C569EF /* iterator in Headers */,
+				FB77EABE1E80DA6900C569EF /* Base.h in Headers */,
 				FB77EAB41E80DA6900C569EF /* _float in Headers */,
 				FB77EAB11E80DA6900C569EF /* _double in Headers */,
 				FB77EAF81E80DA6900C569EF /* ObjectPrivate.h in Headers */,
@@ -318,7 +318,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB77EAD31E80DA6900C569EF /* defines.h in Headers */,
+				FB77EAD31E80DA6900C569EF /* defines in Headers */,
 				FB77EAEF1E80DA6900C569EF /* Number.hpp in Headers */,
 				FB77EB011E80DA6900C569EF /* String.hpp in Headers */,
 				FB77EADF1E80DA6900C569EF /* global.h in Headers */,
@@ -761,6 +761,7 @@
 				FB77EA821E80DA3C00C569EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FB9226CD1E7BCE7E00128B17 /* Build configuration list for PBXProject "Base" */ = {
 			isa = XCConfigurationList;

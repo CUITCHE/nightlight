@@ -9,7 +9,7 @@
 #include "WordsImageConvertor.hpp"
 #include "BMPFileHeader.h"
 #include "BMPInfoHeader.h"
-#include "Object.h"
+#include "HeaderBridge.h"
 #include "Data.hpp"
 #include "String.hpp"
 
