@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:NLDB/NLDB.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:WordsToImage/WordsToImage.xcodeproj">
    </FileRef>
    <FileRef

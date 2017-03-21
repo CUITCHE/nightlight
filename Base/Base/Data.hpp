@@ -25,8 +25,6 @@ public:
     using const_iterator = _CC::iterator<const byte *>;
     using reverse_iterator = _CC::reverse_iterator<iterator>;
     using const_reverse_iterator = _CC::reverse_iterator<const_iterator>;
-    using pointer = std::string::pointer;
-    using const_pointer = std::string::const_pointer;
 public:
     explicit Data(uinteger capacity = 0) NOEXCEPT;
     explicit Data(const void *bytes, uinteger length) NOEXCEPT;
