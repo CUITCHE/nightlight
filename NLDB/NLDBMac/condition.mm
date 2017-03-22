@@ -13,67 +13,68 @@ extern NSArray<NSString *>* __bind(Class cls);
 condition::condition(Class cls)
 :condiString([NSMutableString string])
 ,cls(cls)
+,values([NSMutableArray array])
 {
     (void) __bind(cls);
 }
 
 condition& condition::condition::feild(NSString *feild)
 {
-    if (![__bind(cls) containsObject:feild]) {
+    if (cls && ![__bind(cls) containsObject:feild]) {
         [NSException raise:NSInvalidArgumentException format:@"%@ is not property of %@", feild, NSStringFromClass(cls)];
     }
     [condiString appendFormat:@"%@ ", feild];
     return *this;
 }
 
-NS_INLINE void contact(NSMutableString *sql, id val, NSString *op)
+NS_INLINE void contact(NSMutableString *sql, id val, NSString *op, NSMutableArray *bindings)
 {
-    if (val) {
-        if ([val isKindOfClass:[NSNumber class]]) {
-            [sql appendFormat:@"%@%@", op, val];
-        } else if ([val isKindOfClass:[NSString class]]) {
-            [sql appendFormat:@"%@'%@'", op, val];
-        } else {
-            NSCAssert(NO, @"%@ can not be supported.", NSStringFromClass([val class]));
-        }
-    } else {
-        [sql appendFormat:@"%@?", op];
+    if (!val) {
+        [NSException raise:NSInvalidArgumentException format:@"Binding values must not be nil!"];
     }
+    if (!([val isKindOfClass:[NSNumber class]] ||
+          [val isKindOfClass:[NSString class]] ||
+          [val isKindOfClass:[NSData class]] ||
+          [val isKindOfClass:[NSNull class]])) {
+        [NSException raise:NSGenericException format:@"%@ can not be supported.", NSStringFromClass([val class])];
+    }
+    [sql appendFormat:@"%@?", op];
+    [bindings addObject:val];
 }
 
 condition& condition::et(id val/* = nil*/)
 {
-    contact(condiString, val, @"=");
+    contact(condiString, val, @"=", values);
     return *this;
 }
 
 condition& condition::net(id val/* = nil*/)
 {
-    contact(condiString, val, @"<>");
+    contact(condiString, val, @"<>", values);
     return *this;
 }
 
 condition& condition::gt(id val/* = nil*/)
 {
-    contact(condiString, val, @">");
+    contact(condiString, val, @">", values);
     return *this;
 }
 
 condition& condition::lt(id val/* = nil*/)
 {
-    contact(condiString, val, @"<");
+    contact(condiString, val, @"<", values);
     return *this;
 }
 
 condition& condition::nlt(id val/* = nil*/)
 {
-    contact(condiString, val, @">=");
+    contact(condiString, val, @">=", values);
     return *this;
 }
 
 condition& condition::ngt(id val/* = nil*/)
 {
-    contact(condiString, val, @"<=");
+    contact(condiString, val, @"<=", values);
     return *this;
 }
 
@@ -139,12 +140,22 @@ condition& condition::OR()
     return *this;
 }
 
-NSString *condition::getWhereClause() const
+NSString *condition::getClause() const
 {
-    return condiString;
+    if (condiString.length > 0) {
+        return [NSString stringWithFormat:@" WHERE %@", condiString];
+    } else {
+        return @"";
+    }
 }
 
 NSArray* condition::getValues() const
 {
     return values;
+}
+
+condition& condition::appendBindValue(NSArray *values)
+{
+    [this->values addObjectsFromArray:values];
+    return *this;
 }

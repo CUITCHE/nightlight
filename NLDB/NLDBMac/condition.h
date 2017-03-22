@@ -22,7 +22,7 @@ class condition {
     Class cls;
     NSMutableArray *values;
 public:
-    condition(Class cls);
+    condition(Class cls = 0);
     condition& feild(NSString *feild);
 
     condition& et(id val = nil);
@@ -41,8 +41,10 @@ public:
     condition& AND();
     condition& OR();
 
-    NSString *getWhereClause() const;
+    NSString *getClause() const;
     NSArray* getValues() const;
+
+    condition& appendBindValue(NSArray *values);
 };
 
 #endif /* __condition_hpp */

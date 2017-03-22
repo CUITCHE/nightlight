@@ -14,12 +14,23 @@
 @class FMDatabase;
 class condition;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NLConstructor : NSObject
 
 - (instancetype)initWithFMDatabase:(FMDatabase *)db tableName:(NSString *)tableName;
 
-- (id)select:(Class)cls at:(NSArray<NSString *> *)columns if:(const condition &)conditions;
+- (NSArray *)selectModel:(Class)cls if:(const condition &)conditions;
+- (nullable NSArray<NSDictionary *> *)selectColumns:(nullable NSArray<NSString *> *)columns
+                                                 if:(const condition &)conditions;
+
+- (BOOL)updateWithColumns:(NSArray<NSString *> *)columns
+            bindingValues:(NSArray *)values
+                       if:(const condition &)conditions;
+- (BOOL)updateWithModel:(NSObject *)values if:(const condition &)conditions;
 
 @end
+
+NS_ASSUME_NONNULL_END
 
 #endif /* __constructor_hpp */
