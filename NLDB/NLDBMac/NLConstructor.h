@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithFMDatabase:(FMDatabase *)db tableName:(NSString *)tableName;
 
++ (NSArray *)makeObjectWithModelClass:(Class)cls dataSource:(NSArray<NSDictionary *> *)dataSource;
+
 - (NSArray *)selectModel:(Class)cls if:(const condition &)conditions;
 - (nullable NSArray<NSDictionary *> *)selectColumns:(nullable NSArray<NSString *> *)columns
                                                  if:(const condition &)conditions;

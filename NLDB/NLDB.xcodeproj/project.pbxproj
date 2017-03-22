@@ -11,10 +11,10 @@
 		FB0712471E8120A700F4B16C /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB0712461E8120A700F4B16C /* main.mm */; };
 		FB07124D1E81235A00F4B16C /* NLConstructor.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB07124B1E81235A00F4B16C /* NLConstructor.mm */; };
 		FB07124E1E81235A00F4B16C /* NLConstructor.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB07124B1E81235A00F4B16C /* NLConstructor.mm */; };
-		FB07124F1E81235A00F4B16C /* NLConstructor.h in Headers */ = {isa = PBXBuildFile; fileRef = FB07124C1E81235A00F4B16C /* NLConstructor.h */; };
+		FB07124F1E81235A00F4B16C /* NLConstructor.h in Headers */ = {isa = PBXBuildFile; fileRef = FB07124C1E81235A00F4B16C /* NLConstructor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB0712541E8123F300F4B16C /* condition.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB0712521E8123F300F4B16C /* condition.mm */; };
 		FB0712551E8123F300F4B16C /* condition.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB0712521E8123F300F4B16C /* condition.mm */; };
-		FB0712561E8123F300F4B16C /* condition.h in Headers */ = {isa = PBXBuildFile; fileRef = FB0712531E8123F300F4B16C /* condition.h */; };
+		FB0712561E8123F300F4B16C /* condition.h in Headers */ = {isa = PBXBuildFile; fileRef = FB0712531E8123F300F4B16C /* condition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB5933561E8124F8002482DF /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = FB59333C1E8124F8002482DF /* FMDatabase.h */; };
 		FB5933571E8124F8002482DF /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = FB59333D1E8124F8002482DF /* FMDatabase.m */; };
 		FB5933581E8124F8002482DF /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = FB59333D1E8124F8002482DF /* FMDatabase.m */; };
@@ -33,6 +33,16 @@
 		FB5933651E8124F8002482DF /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5933461E8124F8002482DF /* FMResultSet.m */; };
 		FB5933661E8124F8002482DF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB5933471E8124F8002482DF /* Info.plist */; };
 		FB5933691E8126D6002482DF /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FB5933681E8126D6002482DF /* libsqlite3.tbd */; };
+		FB8FDBCB1E8264E0007A6228 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FB8FDBCA1E8264E0007A6228 /* libsqlite3.tbd */; };
+		FB8FDBD31E82674A007A6228 /* NLDBMacTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB8FDBD21E82674A007A6228 /* NLDBMacTests.mm */; };
+		FB8FDBD81E826756007A6228 /* NLConstructor.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB07124B1E81235A00F4B16C /* NLConstructor.mm */; };
+		FB8FDBD91E826756007A6228 /* condition.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB0712521E8123F300F4B16C /* condition.mm */; };
+		FB8FDBDA1E8267DF007A6228 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FB5933681E8126D6002482DF /* libsqlite3.tbd */; };
+		FB8FDBDB1E826B28007A6228 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = FB59333D1E8124F8002482DF /* FMDatabase.m */; };
+		FB8FDBDC1E826B28007A6228 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FB59333F1E8124F8002482DF /* FMDatabaseAdditions.m */; };
+		FB8FDBDD1E826B28007A6228 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5933411E8124F8002482DF /* FMDatabasePool.m */; };
+		FB8FDBDE1E826B28007A6228 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5933431E8124F8002482DF /* FMDatabaseQueue.m */; };
+		FB8FDBDF1E826B28007A6228 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5933461E8124F8002482DF /* FMResultSet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -70,6 +80,10 @@
 		FB5933461E8124F8002482DF /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		FB5933471E8124F8002482DF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB5933681E8126D6002482DF /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/lib/libsqlite3.tbd; sourceTree = DEVELOPER_DIR; };
+		FB8FDBCA1E8264E0007A6228 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		FB8FDBD01E82674A007A6228 /* NLDBMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NLDBMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB8FDBD21E82674A007A6228 /* NLDBMacTests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = NLDBMacTests.mm; sourceTree = "<group>"; };
+		FB8FDBD41E82674A007A6228 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB8FDBCB1E8264E0007A6228 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +100,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB5933691E8126D6002482DF /* libsqlite3.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB8FDBCD1E82674A007A6228 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB8FDBDA1E8267DF007A6228 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +120,7 @@
 				FB59332C1E8124F8002482DF /* fmdb-2.6.2 */,
 				FB0712371E81206B00F4B16C /* NLDB */,
 				FB0712451E8120A700F4B16C /* NLDBMac */,
+				FB8FDBD11E82674A007A6228 /* NLDBMacTests */,
 				FB0712361E81206B00F4B16C /* Products */,
 				FB5933671E8126D6002482DF /* Frameworks */,
 			);
@@ -107,6 +131,7 @@
 			children = (
 				FB0712351E81206B00F4B16C /* NLDB.framework */,
 				FB0712441E8120A700F4B16C /* NLDBMac */,
+				FB8FDBD01E82674A007A6228 /* NLDBMacTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -170,9 +195,19 @@
 		FB5933671E8126D6002482DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FB8FDBCA1E8264E0007A6228 /* libsqlite3.tbd */,
 				FB5933681E8126D6002482DF /* libsqlite3.tbd */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FB8FDBD11E82674A007A6228 /* NLDBMacTests */ = {
+			isa = PBXGroup;
+			children = (
+				FB8FDBD21E82674A007A6228 /* NLDBMacTests.mm */,
+				FB8FDBD41E82674A007A6228 /* Info.plist */,
+			);
+			path = NLDBMacTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,12 +218,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB5933621E8124F8002482DF /* FMDB.h in Headers */,
+				FB0712561E8123F300F4B16C /* condition.h in Headers */,
+				FB07124F1E81235A00F4B16C /* NLConstructor.h in Headers */,
 				FB5933631E8124F8002482DF /* FMResultSet.h in Headers */,
 				FB07123A1E81206B00F4B16C /* NLDB.h in Headers */,
-				FB07124F1E81235A00F4B16C /* NLConstructor.h in Headers */,
 				FB5933561E8124F8002482DF /* FMDatabase.h in Headers */,
 				FB5933591E8124F8002482DF /* FMDatabaseAdditions.h in Headers */,
-				FB0712561E8123F300F4B16C /* condition.h in Headers */,
 				FB59335F1E8124F8002482DF /* FMDatabaseQueue.h in Headers */,
 				FB59335C1E8124F8002482DF /* FMDatabasePool.h in Headers */,
 			);
@@ -232,6 +267,23 @@
 			productReference = FB0712441E8120A700F4B16C /* NLDBMac */;
 			productType = "com.apple.product-type.tool";
 		};
+		FB8FDBCF1E82674A007A6228 /* NLDBMacTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB8FDBD51E82674A007A6228 /* Build configuration list for PBXNativeTarget "NLDBMacTests" */;
+			buildPhases = (
+				FB8FDBCC1E82674A007A6228 /* Sources */,
+				FB8FDBCD1E82674A007A6228 /* Frameworks */,
+				FB8FDBCE1E82674A007A6228 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NLDBMacTests;
+			productName = NLDBMacTests;
+			productReference = FB8FDBD01E82674A007A6228 /* NLDBMacTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -247,6 +299,11 @@
 						ProvisioningStyle = Automatic;
 					};
 					FB0712431E8120A700F4B16C = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 8652TQR753;
+						ProvisioningStyle = Automatic;
+					};
+					FB8FDBCF1E82674A007A6228 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 8652TQR753;
 						ProvisioningStyle = Automatic;
@@ -267,6 +324,7 @@
 			targets = (
 				FB0712341E81206B00F4B16C /* NLDB */,
 				FB0712431E8120A700F4B16C /* NLDBMac */,
+				FB8FDBCF1E82674A007A6228 /* NLDBMacTests */,
 			);
 		};
 /* End PBXProject section */
@@ -277,6 +335,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB5933661E8124F8002482DF /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB8FDBCE1E82674A007A6228 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +374,21 @@
 				FB5933651E8124F8002482DF /* FMResultSet.m in Sources */,
 				FB59335E1E8124F8002482DF /* FMDatabasePool.m in Sources */,
 				FB59335B1E8124F8002482DF /* FMDatabaseAdditions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB8FDBCC1E82674A007A6228 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB8FDBD91E826756007A6228 /* condition.mm in Sources */,
+				FB8FDBDD1E826B28007A6228 /* FMDatabasePool.m in Sources */,
+				FB8FDBD81E826756007A6228 /* NLConstructor.mm in Sources */,
+				FB8FDBDE1E826B28007A6228 /* FMDatabaseQueue.m in Sources */,
+				FB8FDBD31E82674A007A6228 /* NLDBMacTests.mm in Sources */,
+				FB8FDBDB1E826B28007A6228 /* FMDatabase.m in Sources */,
+				FB8FDBDF1E826B28007A6228 /* FMResultSet.m in Sources */,
+				FB8FDBDC1E826B28007A6228 /* FMDatabaseAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +549,36 @@
 			};
 			name = Release;
 		};
+		FB8FDBD61E82674A007A6228 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 8652TQR753;
+				INFOPLIST_FILE = NLDBMacTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hejunqiu.NLDBMacTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		FB8FDBD71E82674A007A6228 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 8652TQR753;
+				INFOPLIST_FILE = NLDBMacTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hejunqiu.NLDBMacTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -498,6 +608,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		FB8FDBD51E82674A007A6228 /* Build configuration list for PBXNativeTarget "NLDBMacTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB8FDBD61E82674A007A6228 /* Debug */,
+				FB8FDBD71E82674A007A6228 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

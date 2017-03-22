@@ -29,17 +29,16 @@ condition& condition::condition::feild(NSString *feild)
 
 NS_INLINE void contact(NSMutableString *sql, id val, NSString *op, NSMutableArray *bindings)
 {
-    if (!val) {
-        [NSException raise:NSInvalidArgumentException format:@"Binding values must not be nil!"];
-    }
-    if (!([val isKindOfClass:[NSNumber class]] ||
-          [val isKindOfClass:[NSString class]] ||
-          [val isKindOfClass:[NSData class]] ||
-          [val isKindOfClass:[NSNull class]])) {
-        [NSException raise:NSGenericException format:@"%@ can not be supported.", NSStringFromClass([val class])];
-    }
     [sql appendFormat:@"%@?", op];
-    [bindings addObject:val];
+    if (val) {
+        if (!([val isKindOfClass:[NSNumber class]] ||
+              [val isKindOfClass:[NSString class]] ||
+              [val isKindOfClass:[NSData class]] ||
+              [val isKindOfClass:[NSNull class]])) {
+            [NSException raise:NSGenericException format:@"%@ can not be supported.", NSStringFromClass([val class])];
+        }
+        [bindings addObject:val];
+    }
 }
 
 condition& condition::et(id val/* = nil*/)
@@ -156,6 +155,16 @@ NSArray* condition::getValues() const
 
 condition& condition::appendBindValue(NSArray *values)
 {
+    NSUInteger index = 0;
+    for (id val in values) {
+        if (!([val isKindOfClass:[NSNumber class]] ||
+              [val isKindOfClass:[NSString class]] ||
+              [val isKindOfClass:[NSData class]] ||
+              [val isKindOfClass:[NSNull class]])) {
+            [NSException raise:NSGenericException format:@"%@(at index:%zu) can not be supported.", NSStringFromClass([val class]), index];
+        }
+        ++index;
+    }
     [this->values addObjectsFromArray:values];
     return *this;
 }

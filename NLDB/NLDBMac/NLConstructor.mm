@@ -42,21 +42,50 @@ NSArray<NSString *>* __bind(Class cls)
                                                                 &kNLConstructorRuntimeKey);
     if (!dict) {
         dict = [NSMutableArray array];
-        unsigned int count = 0;
-        objc_property_t *properties = class_copyPropertyList(cls, &count);
-        for (unsigned int i=0; i<count; ++i) {
-            [dict addObject:[NSString stringWithUTF8String:property_getName(properties[i])]];
-        }
-        if (properties) {
-            free(properties);
-            properties = 0;
+        Class __cls = cls;
+        while (__cls != [NSObject class]) {
+            unsigned int count = 0;
+            objc_property_t *properties = class_copyPropertyList(cls, &count);
+            for (unsigned int i=0; i<count; ++i) {
+                [dict addObject:[NSString stringWithUTF8String:property_getName(properties[i])]];
+            }
+            if (properties) {
+                free(properties);
+                properties = 0;
+            }
+            __cls = class_getSuperclass(__cls);
         }
         objc_setAssociatedObject(cls,
                                  &kNLConstructorRuntimeKey,
                                  dict,
-                                 OBJC_ASSOCIATION_RETAIN);
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     return dict;
+}
+
++ (NSArray *)makeObjectWithModelClass:(Class)cls dataSource:(NSArray<NSDictionary *> *)dataSource
+{
+    if (!cls) {
+        [NSException raise:NSInvalidArgumentException format:@"cls must not be NULL!"];
+    }
+    NSArray<NSString *> *properties = __bind(cls);
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:dataSource.count];
+    for (NSDictionary *dict in dataSource) {
+        id ins = [[cls alloc] init];
+        for (NSString *property in properties) {
+            [ins setValue:dict[property] forKey:property];
+        }
+        [array addObject:ins];
+    }
+    return array;
+}
+
+- (NSArray *)selectModel:(Class)cls if:(const condition &)conditions
+{
+    NSArray<NSString *> *properties = __bind(cls);
+    NSArray<NSDictionary *> *__d = [self selectColumns:properties if:conditions];
+    NSArray *array = [self.class makeObjectWithModelClass:cls dataSource:__d];
+    return array;
 }
 
 - (NSArray<NSDictionary *> *)selectColumns:(NSArray<NSString *> *)columns if:(const condition &)conditions
@@ -90,21 +119,6 @@ NSArray<NSString *>* __bind(Class cls)
         } while ([st next]);
     }
     return res;
-}
-
-- (NSArray *)selectModel:(Class)cls if:(const condition &)conditions
-{
-    NSArray<NSString *> *properties = __bind(cls);
-    NSArray<NSDictionary *> *__d = [self selectColumns:properties if:conditions];
-    NSMutableArray *array = [NSMutableArray arrayWithCapacity:__d.count];
-    for (NSDictionary *dict in __d) {
-        id ins = [[cls alloc] init];
-        for (NSString *property in properties) {
-            [ins setValue:dict[property] forKey:property];
-        }
-        [array addObject:ins];
-    }
-    return array;
 }
 
 - (BOOL)updateWithColumns:(NSArray<NSString *> *)columns bindingValues:(NSArray *)values if:(const condition &)conditions

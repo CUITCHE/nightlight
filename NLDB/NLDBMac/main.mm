@@ -44,6 +44,8 @@ int main(int argc, const char * argv[]) {
                                if:condition().feild(@"age").gt(@22)];
 
         NSLog(@"%@", res);
+        res = [con selectModel:[NSModel class] if:condition()];
+        NSLog(@"%@", res);
     }
     return 0;
 }
