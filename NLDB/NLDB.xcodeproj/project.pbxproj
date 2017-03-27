@@ -15,6 +15,14 @@
 		FB0712541E8123F300F4B16C /* condition.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB0712521E8123F300F4B16C /* condition.mm */; };
 		FB0712551E8123F300F4B16C /* condition.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB0712521E8123F300F4B16C /* condition.mm */; };
 		FB0712561E8123F300F4B16C /* condition.h in Headers */ = {isa = PBXBuildFile; fileRef = FB0712531E8123F300F4B16C /* condition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FB1A13481E88EB15004E7FC4 /* constraints.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB1A13461E88EB15004E7FC4 /* constraints.mm */; };
+		FB1A13491E88EB15004E7FC4 /* constraints.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB1A13461E88EB15004E7FC4 /* constraints.mm */; };
+		FB1A134A1E88EB15004E7FC4 /* constraints.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB1A13461E88EB15004E7FC4 /* constraints.mm */; };
+		FB1A134B1E88EB15004E7FC4 /* constraints.h in Headers */ = {isa = PBXBuildFile; fileRef = FB1A13471E88EB15004E7FC4 /* constraints.h */; };
+		FB1A134E1E88F3D0004E7FC4 /* NLSqlFunctionPackage.h in Headers */ = {isa = PBXBuildFile; fileRef = FB1A134C1E88F3D0004E7FC4 /* NLSqlFunctionPackage.h */; };
+		FB1A134F1E88F3D0004E7FC4 /* NLSqlFunctionPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = FB1A134D1E88F3D0004E7FC4 /* NLSqlFunctionPackage.m */; };
+		FB1A13501E88F3D0004E7FC4 /* NLSqlFunctionPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = FB1A134D1E88F3D0004E7FC4 /* NLSqlFunctionPackage.m */; };
+		FB1A13511E88F3D0004E7FC4 /* NLSqlFunctionPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = FB1A134D1E88F3D0004E7FC4 /* NLSqlFunctionPackage.m */; };
 		FB5933561E8124F8002482DF /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = FB59333C1E8124F8002482DF /* FMDatabase.h */; };
 		FB5933571E8124F8002482DF /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = FB59333D1E8124F8002482DF /* FMDatabase.m */; };
 		FB5933581E8124F8002482DF /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = FB59333D1E8124F8002482DF /* FMDatabase.m */; };
@@ -43,6 +51,22 @@
 		FB8FDBDD1E826B28007A6228 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5933411E8124F8002482DF /* FMDatabasePool.m */; };
 		FB8FDBDE1E826B28007A6228 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5933431E8124F8002482DF /* FMDatabaseQueue.m */; };
 		FB8FDBDF1E826B28007A6228 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5933461E8124F8002482DF /* FMResultSet.m */; };
+		FBAEBC691E88E56F004DE890 /* NLDataModel.h in Headers */ = {isa = PBXBuildFile; fileRef = FBAEBC671E88E56F004DE890 /* NLDataModel.h */; };
+		FBAEBC6A1E88E56F004DE890 /* NLDataModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = FBAEBC681E88E56F004DE890 /* NLDataModel.mm */; };
+		FBAEBC6B1E88E56F004DE890 /* NLDataModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = FBAEBC681E88E56F004DE890 /* NLDataModel.mm */; };
+		FBAEBC6C1E88E56F004DE890 /* NLDataModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = FBAEBC681E88E56F004DE890 /* NLDataModel.mm */; };
+		FBEE6B3F1E88FA2800CCECFC /* NLDBDataModelDriver.h in Headers */ = {isa = PBXBuildFile; fileRef = FBEE6B3D1E88FA2800CCECFC /* NLDBDataModelDriver.h */; };
+		FBEE6B401E88FA2800CCECFC /* NLDBDataModelDriver.mm in Sources */ = {isa = PBXBuildFile; fileRef = FBEE6B3E1E88FA2800CCECFC /* NLDBDataModelDriver.mm */; };
+		FBEE6B411E88FA2800CCECFC /* NLDBDataModelDriver.mm in Sources */ = {isa = PBXBuildFile; fileRef = FBEE6B3E1E88FA2800CCECFC /* NLDBDataModelDriver.mm */; };
+		FBEE6B421E88FA2800CCECFC /* NLDBDataModelDriver.mm in Sources */ = {isa = PBXBuildFile; fileRef = FBEE6B3E1E88FA2800CCECFC /* NLDBDataModelDriver.mm */; };
+		FBEE6B451E890C3600CCECFC /* __NLDBModelModel.h in Headers */ = {isa = PBXBuildFile; fileRef = FBEE6B431E890C3600CCECFC /* __NLDBModelModel.h */; };
+		FBEE6B461E890C3600CCECFC /* __NLDBModelModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = FBEE6B441E890C3600CCECFC /* __NLDBModelModel.mm */; };
+		FBEE6B471E890C3600CCECFC /* __NLDBModelModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = FBEE6B441E890C3600CCECFC /* __NLDBModelModel.mm */; };
+		FBEE6B481E890C3600CCECFC /* __NLDBModelModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = FBEE6B441E890C3600CCECFC /* __NLDBModelModel.mm */; };
+		FBEE6B4B1E89166900CCECFC /* __NLDBDataModelClassProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = FBEE6B491E89166900CCECFC /* __NLDBDataModelClassProperty.h */; };
+		FBEE6B4C1E89166900CCECFC /* __NLDBDataModelClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = FBEE6B4A1E89166900CCECFC /* __NLDBDataModelClassProperty.m */; };
+		FBEE6B4D1E89166900CCECFC /* __NLDBDataModelClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = FBEE6B4A1E89166900CCECFC /* __NLDBDataModelClassProperty.m */; };
+		FBEE6B4E1E89166900CCECFC /* __NLDBDataModelClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = FBEE6B4A1E89166900CCECFC /* __NLDBDataModelClassProperty.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -67,6 +91,10 @@
 		FB07124C1E81235A00F4B16C /* NLConstructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLConstructor.h; sourceTree = "<group>"; };
 		FB0712521E8123F300F4B16C /* condition.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = condition.mm; sourceTree = "<group>"; };
 		FB0712531E8123F300F4B16C /* condition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = condition.h; sourceTree = "<group>"; };
+		FB1A13461E88EB15004E7FC4 /* constraints.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = constraints.mm; sourceTree = "<group>"; };
+		FB1A13471E88EB15004E7FC4 /* constraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constraints.h; sourceTree = "<group>"; };
+		FB1A134C1E88F3D0004E7FC4 /* NLSqlFunctionPackage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLSqlFunctionPackage.h; sourceTree = "<group>"; };
+		FB1A134D1E88F3D0004E7FC4 /* NLSqlFunctionPackage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLSqlFunctionPackage.m; sourceTree = "<group>"; };
 		FB59333C1E8124F8002482DF /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		FB59333D1E8124F8002482DF /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		FB59333E1E8124F8002482DF /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -84,6 +112,14 @@
 		FB8FDBD01E82674A007A6228 /* NLDBMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NLDBMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB8FDBD21E82674A007A6228 /* NLDBMacTests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = NLDBMacTests.mm; sourceTree = "<group>"; };
 		FB8FDBD41E82674A007A6228 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FBAEBC671E88E56F004DE890 /* NLDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLDataModel.h; sourceTree = "<group>"; };
+		FBAEBC681E88E56F004DE890 /* NLDataModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NLDataModel.mm; sourceTree = "<group>"; };
+		FBEE6B3D1E88FA2800CCECFC /* NLDBDataModelDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLDBDataModelDriver.h; sourceTree = "<group>"; };
+		FBEE6B3E1E88FA2800CCECFC /* NLDBDataModelDriver.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NLDBDataModelDriver.mm; sourceTree = "<group>"; };
+		FBEE6B431E890C3600CCECFC /* __NLDBModelModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __NLDBModelModel.h; sourceTree = "<group>"; };
+		FBEE6B441E890C3600CCECFC /* __NLDBModelModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = __NLDBModelModel.mm; sourceTree = "<group>"; };
+		FBEE6B491E89166900CCECFC /* __NLDBDataModelClassProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __NLDBDataModelClassProperty.h; sourceTree = "<group>"; };
+		FBEE6B4A1E89166900CCECFC /* __NLDBDataModelClassProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __NLDBDataModelClassProperty.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +189,18 @@
 				FB07124B1E81235A00F4B16C /* NLConstructor.mm */,
 				FB0712531E8123F300F4B16C /* condition.h */,
 				FB0712521E8123F300F4B16C /* condition.mm */,
+				FBAEBC671E88E56F004DE890 /* NLDataModel.h */,
+				FBAEBC681E88E56F004DE890 /* NLDataModel.mm */,
+				FB1A13471E88EB15004E7FC4 /* constraints.h */,
+				FB1A13461E88EB15004E7FC4 /* constraints.mm */,
+				FB1A134C1E88F3D0004E7FC4 /* NLSqlFunctionPackage.h */,
+				FB1A134D1E88F3D0004E7FC4 /* NLSqlFunctionPackage.m */,
+				FBEE6B3D1E88FA2800CCECFC /* NLDBDataModelDriver.h */,
+				FBEE6B3E1E88FA2800CCECFC /* NLDBDataModelDriver.mm */,
+				FBEE6B431E890C3600CCECFC /* __NLDBModelModel.h */,
+				FBEE6B441E890C3600CCECFC /* __NLDBModelModel.mm */,
+				FBEE6B491E89166900CCECFC /* __NLDBDataModelClassProperty.h */,
+				FBEE6B4A1E89166900CCECFC /* __NLDBDataModelClassProperty.m */,
 			);
 			path = NLDBMac;
 			sourceTree = "<group>";
@@ -218,13 +266,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB5933621E8124F8002482DF /* FMDB.h in Headers */,
+				FB1A134B1E88EB15004E7FC4 /* constraints.h in Headers */,
 				FB0712561E8123F300F4B16C /* condition.h in Headers */,
 				FB07124F1E81235A00F4B16C /* NLConstructor.h in Headers */,
+				FBEE6B451E890C3600CCECFC /* __NLDBModelModel.h in Headers */,
 				FB5933631E8124F8002482DF /* FMResultSet.h in Headers */,
+				FBEE6B3F1E88FA2800CCECFC /* NLDBDataModelDriver.h in Headers */,
 				FB07123A1E81206B00F4B16C /* NLDB.h in Headers */,
 				FB5933561E8124F8002482DF /* FMDatabase.h in Headers */,
 				FB5933591E8124F8002482DF /* FMDatabaseAdditions.h in Headers */,
+				FB1A134E1E88F3D0004E7FC4 /* NLSqlFunctionPackage.h in Headers */,
+				FBEE6B4B1E89166900CCECFC /* __NLDBDataModelClassProperty.h in Headers */,
 				FB59335F1E8124F8002482DF /* FMDatabaseQueue.h in Headers */,
+				FBAEBC691E88E56F004DE890 /* NLDataModel.h in Headers */,
 				FB59335C1E8124F8002482DF /* FMDatabasePool.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,8 +411,14 @@
 				FB5933641E8124F8002482DF /* FMResultSet.m in Sources */,
 				FB59335D1E8124F8002482DF /* FMDatabasePool.m in Sources */,
 				FB5933601E8124F8002482DF /* FMDatabaseQueue.m in Sources */,
+				FBEE6B4C1E89166900CCECFC /* __NLDBDataModelClassProperty.m in Sources */,
+				FBEE6B461E890C3600CCECFC /* __NLDBModelModel.mm in Sources */,
+				FBAEBC6A1E88E56F004DE890 /* NLDataModel.mm in Sources */,
 				FB0712541E8123F300F4B16C /* condition.mm in Sources */,
 				FB5933571E8124F8002482DF /* FMDatabase.m in Sources */,
+				FBEE6B401E88FA2800CCECFC /* NLDBDataModelDriver.mm in Sources */,
+				FB1A13481E88EB15004E7FC4 /* constraints.mm in Sources */,
+				FB1A134F1E88F3D0004E7FC4 /* NLSqlFunctionPackage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,12 +427,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB07124E1E81235A00F4B16C /* NLConstructor.mm in Sources */,
+				FB1A13501E88F3D0004E7FC4 /* NLSqlFunctionPackage.m in Sources */,
 				FB0712551E8123F300F4B16C /* condition.mm in Sources */,
+				FBEE6B471E890C3600CCECFC /* __NLDBModelModel.mm in Sources */,
 				FB5933581E8124F8002482DF /* FMDatabase.m in Sources */,
 				FB0712471E8120A700F4B16C /* main.mm in Sources */,
 				FB5933611E8124F8002482DF /* FMDatabaseQueue.m in Sources */,
+				FBEE6B4D1E89166900CCECFC /* __NLDBDataModelClassProperty.m in Sources */,
 				FB5933651E8124F8002482DF /* FMResultSet.m in Sources */,
+				FBAEBC6B1E88E56F004DE890 /* NLDataModel.mm in Sources */,
 				FB59335E1E8124F8002482DF /* FMDatabasePool.m in Sources */,
+				FBEE6B411E88FA2800CCECFC /* NLDBDataModelDriver.mm in Sources */,
+				FB1A13491E88EB15004E7FC4 /* constraints.mm in Sources */,
 				FB59335B1E8124F8002482DF /* FMDatabaseAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,12 +448,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB8FDBD91E826756007A6228 /* condition.mm in Sources */,
+				FB1A13511E88F3D0004E7FC4 /* NLSqlFunctionPackage.m in Sources */,
 				FB8FDBDD1E826B28007A6228 /* FMDatabasePool.m in Sources */,
+				FBEE6B481E890C3600CCECFC /* __NLDBModelModel.mm in Sources */,
 				FB8FDBD81E826756007A6228 /* NLConstructor.mm in Sources */,
 				FB8FDBDE1E826B28007A6228 /* FMDatabaseQueue.m in Sources */,
 				FB8FDBD31E82674A007A6228 /* NLDBMacTests.mm in Sources */,
+				FBEE6B4E1E89166900CCECFC /* __NLDBDataModelClassProperty.m in Sources */,
 				FB8FDBDB1E826B28007A6228 /* FMDatabase.m in Sources */,
+				FBAEBC6C1E88E56F004DE890 /* NLDataModel.mm in Sources */,
 				FB8FDBDF1E826B28007A6228 /* FMResultSet.m in Sources */,
+				FBEE6B421E88FA2800CCECFC /* NLDBDataModelDriver.mm in Sources */,
+				FB1A134A1E88EB15004E7FC4 /* constraints.mm in Sources */,
 				FB8FDBDC1E826B28007A6228 /* FMDatabaseAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -616,6 +688,7 @@
 				FB8FDBD71E82674A007A6228 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -18,6 +18,14 @@ condition::condition(Class cls)
     (void) __bind(cls);
 }
 
+condition::condition(NSString *sql, Class cls/* = 0*/)
+:condiString([NSMutableString stringWithString:sql])
+,cls(cls)
+,values([NSMutableArray array])
+{
+    (void) __bind(cls);
+}
+
 condition& condition::condition::feild(NSString *feild)
 {
     if (cls && ![__bind(cls) containsObject:feild]) {
@@ -93,6 +101,7 @@ condition& condition::in(NSArray *set)
             NSCAssert(NO, @"Invaild parameter:set(%@)", set);
             break;
         }
+        [condiString appendString:@"IN "];
         scopes();
         NSString *fmt = @",%@";
         if ([set.firstObject isKindOfClass:[NSNumber class]]) {

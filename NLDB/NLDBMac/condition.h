@@ -17,12 +17,16 @@
 using std::unordered_map;
 using std::vector;
 
+
+
 class condition {
-    NSMutableString *condiString;
     Class cls;
     NSMutableArray *values;
+protected:
+    NSMutableString *condiString;
 public:
     condition(Class cls = 0);
+    condition(NSString *sql, Class cls = 0);
     condition& feild(NSString *feild);
 
     condition& et(id val = nil);
