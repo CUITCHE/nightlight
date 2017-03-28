@@ -7,9 +7,10 @@
 //
 
 #import "__NLDBModelModel.h"
-#import "__NLDBDataModelClassProperty.h"
-#import "NLDataModel.h"
 #include <objc/runtime.h>
+#import "NLDataModel.h"
+#import "__NLDBDataModelClassProperty.h"
+#import "__SqlDDL.h"
 
 static NSArray<Class> *__NLDBDataModelAllowedTypes = @[[NSNumber class], [NSString class], [NSMutableString class],
                                                       [NSData class], [NSMutableData class], [NSDate class],
@@ -19,8 +20,8 @@ static NSArray<Class> *__NLDBDataModelAllowedTypes = @[[NSNumber class], [NSStri
 
 @property (nonatomic) Class modelClass;
 @property (nonatomic, strong) NSMutableDictionary<NSString *, __NLDBDataModelClassProperty *> *propertyIndex;
+@property (nonatomic, copy) NSString *sqliteSql;
 
-@property (nonatomic) BOOL has_pk;
 @end
 
 @implementation __NLDBModelModel
@@ -30,12 +31,12 @@ static NSArray<Class> *__NLDBDataModelAllowedTypes = @[[NSNumber class], [NSStri
     if (self = [super init]) {
         _modelClass = cls;
         _propertyIndex = [NSMutableDictionary dictionary];
-        [self ___];
+        [self __init__];
     }
     return self;
 }
 
-- (void)___
+- (void)__init__
 {
     if (![self.modelClass isSubclassOfClass:[NLDataModel class]]) {
         NSAssert(NO, @"Class must be inherited by NLDataModel");
@@ -55,7 +56,6 @@ static NSArray<Class> *__NLDBDataModelAllowedTypes = @[[NSNumber class], [NSStri
                 continue;
             }
             __NLDBDataModelClassProperty *mcp = [[__NLDBDataModelClassProperty alloc] init];
-            mcp.type = cls;
             mcp.name = @(property_getName(property));
 
             NSScanner *scanner = [NSScanner scannerWithString:propertyAttributes];
@@ -80,9 +80,6 @@ static NSArray<Class> *__NLDBDataModelAllowedTypes = @[[NSNumber class], [NSStri
                     }
 
                     if ([protocolNames containsObject:@"_primary_key"]) {
-                        if (self.has_pk) {
-                            [NSException raise:@"NLDB build syntax" format:@"There has existed a primary key:%@", [self __pk_info]];
-                        }
                         mcp.is_pk = 1;
                         goto secodPriority;
                     }
@@ -103,7 +100,6 @@ static NSArray<Class> *__NLDBDataModelAllowedTypes = @[[NSNumber class], [NSStri
                         goto constraints_end;
                     }
                 constraints_end:
-                    [_propertyIndex setObject:mcp forKey:mcp.name];
                     break;
                 }
             } else if ([scanner scanString:@"{" intoString:nil]) {
@@ -111,22 +107,56 @@ static NSArray<Class> *__NLDBDataModelAllowedTypes = @[[NSNumber class], [NSStri
             } else {
                 [scanner scanCharactersFromSet:[NSCharacterSet alphanumericCharacterSet] intoString:&propertyType];
             }
+            [_propertyIndex setObject:mcp forKey:mcp.name];
         }
         free(properties);
         cls = [cls superclass];
     }
 }
 
-- (NSString *)__pk_info
+- (NSString *)parseForTableName
 {
-    __block NSString *msg = nil;
-    [self.propertyIndex enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, __NLDBDataModelClassProperty * _Nonnull obj, BOOL * _Nonnull stop) {
-        if (obj.is_pk) {
-            *stop = YES;
-            msg = key;
+    unsigned int count = 0;
+    NSString *tableName = nil;
+    // try to find table name from protocols.
+    Protocol *__unsafe_unretained * protocol = class_copyProtocolList(self.modelClass, &count);
+    for (unsigned int i=0; i<count; ++i) {
+        NSString *pName = @(protocol_getName(protocol[i]));
+        if ([pName hasPrefix:@"__"] && [pName hasSuffix:@"__"]) {
+            tableName = [pName substringFromIndex:2];
+            if (tableName.length > 2) {
+                tableName = [tableName substringToIndex:tableName.length - 2];
+            }
+            if (tableName.length == 0) {
+                tableName = nil;
+            }
         }
-    }];
-    return msg;
+    }
+    if (protocol) {
+        free(protocol);
+    }
+    if (!tableName) { // try to find table name from method
+        if (class_respondsToSelector(self.modelClass, @selector(confirmTableName))) {
+            tableName = [self.modelClass confirmTableName];
+        }
+    }
+    if (!tableName) {
+        [NSException raise:@"NLDB syntax error" format:@"There is not a vaild table name for model:%@", NSStringFromClass(self.modelClass)];
+    }
+    return tableName;
+}
+
+- (void)parse
+{
+    NSMutableString *sql = [NSMutableString stringWithString:@"CREATE TABLE"];
+}
+
+- (NSString *)sqliteSql
+{
+    if (_sqliteSql.length == 0) {
+        [self parse];
+    }
+    return _sqliteSql.copy;
 }
 
 @end

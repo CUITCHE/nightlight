@@ -10,6 +10,11 @@
 
 @implementation NLDataModel
 
++ (NSString *)confirmTableName
+{
+    return nil;
+}
+
 @end
 
 

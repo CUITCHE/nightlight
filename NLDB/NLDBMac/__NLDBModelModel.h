@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) Class modelClass;
 @property (nonatomic, strong, readonly) NSDictionary<NSString *, __NLDBDataModelClassProperty *> *propertyIndex;
 
+@property (nonatomic, copy, readonly) NSString *sqliteSql;
+
 - (instancetype)initWithModelClass:(Class)cls;
 
 @end

@@ -15,6 +15,8 @@ using std::make_tuple;
 using std::tuple;
 
 
+NS_ASSUME_NONNULL_BEGIN
+
 // Constraints Defines
 // A property can be defined on rule which descriped: [(_primary_key|_foreign_key), (_default,_check,_null)]
 
@@ -55,10 +57,33 @@ using std::tuple;
 
 @property (nonatomic) NSNumber *rowid;
 
+
+/**
+ To confirm a table name for this model. Subclass can override it. This is an optional method, 
+ you also choose declare table name by protocol. See below for detail.
+ 
+ @note Default implementation is return nil.
+
+ @return A table name
+ */
++ (NSString *)confirmTableName;
+
 @end
 
+/**** DEMO ****/
+/*
+ If a subclass of NSLDataModel follow a protocol like '__protocolName__', '__protocolName__' is a table name of the 
+ subclass data model. And the table name can be wrote anywhere in protocol declare field.
+ */
 
-@interface NLDBDataModelDemo : NLDataModel <ForeignKey, Check, Default>
+#ifndef NLDBTable
+#define NLDBTable(table) @protocol __##table##__ <NSObject> @end
+#endif
+
+NLDBTable(demo)
+
+
+@interface NLDBDataModelDemo : NLDataModel <ForeignKey, Check, Default, __demo__>
 
 @property (nonatomic, strong) NSString<_primary_key> *id;
 @property (nonatomic, strong) NSString *name;
@@ -70,3 +95,5 @@ using std::tuple;
 @property (nonatomic, strong) NSString<_null> *note;
 
 @end
+
+NS_ASSUME_NONNULL_END

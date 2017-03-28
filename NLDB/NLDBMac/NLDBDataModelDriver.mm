@@ -18,14 +18,15 @@ const char __kNLDBDataModelClassKey = 0;
 
 @implementation NLDBDataModelDriver
 
-NS_INLINE void contactClass(Class cls)
+NS_INLINE __NLDBModelModel* contactClass(Class cls)
 {
-    id propertyIndex = objc_getAssociatedObject(cls, &__kNLDBDataModelClassKey);
+    __NLDBModelModel *propertyIndex = objc_getAssociatedObject(cls, &__kNLDBDataModelClassKey);
     if (propertyIndex) {
-        return;
+        return propertyIndex;
     }
     propertyIndex = [[__NLDBModelModel alloc] initWithModelClass:cls];
     objc_setAssociatedObject(cls, &__kNLDBDataModelClassKey, propertyIndex, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    return propertyIndex;
 }
 
 + (NSString *)createSingleDatabaseWithModel:(Class)cls
@@ -34,8 +35,8 @@ NS_INLINE void contactClass(Class cls)
         NSAssert(NO, @"cls must be a subclass of NLDataModel.");
         return nil;
     }
-    contactClass(cls);
-    return nil;
+    __NLDBModelModel *modelModel = contactClass(cls);
+    return modelModel.sqliteSql;
 }
 
 + (FMDatabase *)createDatabaseWithModels:(NSArray<Class> *)clses
