@@ -41,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @protocol Check <_check>
-+ (condition)confirmCheckConstraintsConnectToKey:(NSString *)propertyName;
++ (NSString *)confirmCheckConstraintsConnectToKey:(NSString *)propertyName;
 @end
 
 @protocol Default <_default>
@@ -53,24 +53,60 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol _ignore <NSObject>
 @end
 
-@interface NLDataModel : NSObject
 
-@property (nonatomic) NSNumber *rowid;
+typedef NS_ENUM(NSUInteger, NLDBStringType) {
+    NLDBStringTypeMutable = 1,
+    NLDBStringTypeImmutable = 1 << 1,
 
+    NLDBStringTypeChar = NLDBStringTypeImmutable,
+    NLDBStringTypeVarchar = NLDBStringTypeMutable,
+    NLDBStringTypeUnicodeChar = NLDBStringTypeChar | (1 << 2),
+    NLDBStringTypeUnicodeVarchar = NLDBStringTypeVarchar | (1 << 3),
+
+    NLDBStringTypePureText = 1 << 16
+};
+
+@protocol NLDataModel <NSObject>
+@optional
 
 /**
- To confirm a table name for this model. Subclass can override it. This is an optional method, 
+ To confirm string type which can be 'char','varchar','nchar','nvarchar' or 'text'.
+ This is an optional method. Indicating 'text' type if this method is not be implemented.
+
+ @param propertyName Property name of data model and its type is guaranteed to be is NSString or its subclass.
+ @return A tuple which at 0 is string type and at 1 is string size. If tuple 0 position is NLDBStringTypePureText,
+ the string size will be ignored.
+ */
++ (tuple<NLDBStringType, NSUInteger>)confirmNSStringSizeConnectsToKey:(NSString *)propertyName;
+
+/**
+ To confirm a table name for this model. Subclass can override it. This is an optional method,
  you also choose declare table name by protocol. See below for detail.
- 
- @note Default implementation is return nil.
+
+ @note Default implementation is return nil in NLDataModel. If return nil, will trigger an exception.
 
  @return A table name
  */
 + (NSString *)confirmTableName;
 
+/**
+ To confirm concern type for NSNumber object. If this method is not be impletmented, will be recongized double type.
+ 
+ @param propertyName Property name of data model.
+ @return A type-coding which you can get it by using \@encode(type). e.g. \@encode(float)
+ */
++ (const char *)confirmNSNumberTypeConnectsToKey:(NSString *)propertyName;
+
 @end
 
-/**** DEMO ****/
+@interface NLDataModel : NSObject <NLDataModel>
+
+@property (nonatomic) NSNumber *rowid;
+
+@end
+
+
+/******************************************************** DEMO ********************************************************/
 /*
  If a subclass of NSLDataModel follow a protocol like '__protocolName__', '__protocolName__' is a table name of the 
  subclass data model. And the table name can be wrote anywhere in protocol declare field.
@@ -88,11 +124,12 @@ NLDBTable(demo)
 @property (nonatomic, strong) NSString<_primary_key> *id;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic) NSInteger age;
-@property (nonatomic, strong) NSNumber<_foreign_key, _check> *courseId;
+//@property (nonatomic, strong) NSNumber<_foreign_key, _check> *courseId;
 @property (nonatomic, strong) NSString<_check> *gender;
 @property (nonatomic, strong) NSString<_default> *way;
 @property (nonatomic, strong) NSDate<_default> *startDateTime;
 @property (nonatomic, strong) NSString<_null> *note;
+@property (nonatomic) float speed;
 
 @end
 

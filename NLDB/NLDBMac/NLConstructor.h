@@ -12,7 +12,7 @@
 #import <Foundation/Foundation.h>
 
 @class FMDatabase;
-class condition;
+class SqlBuildBase;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -22,14 +22,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSArray *)makeObjectWithModelClass:(Class)cls dataSource:(NSArray<NSDictionary *> *)dataSource;
 
-- (NSArray *)selectModel:(Class)cls if:(const condition &)conditions;
+- (NSArray *)selectModel:(Class)cls if:(const SqlBuildBase &)conditions;
 - (nullable NSArray<NSDictionary *> *)selectColumns:(nullable NSArray<NSString *> *)columns
-                                                 if:(const condition &)conditions;
+                                                 if:(const SqlBuildBase &)conditions;
 
 - (BOOL)updateWithColumns:(NSArray<NSString *> *)columns
             bindingValues:(NSArray *)values
-                       if:(const condition &)conditions;
-- (BOOL)updateWithModel:(NSObject *)values if:(const condition &)conditions;
+                       if:(const SqlBuildBase &)conditions;
+- (BOOL)updateWithModel:(NSObject *)values if:(const SqlBuildBase &)conditions;
 
 @end
 

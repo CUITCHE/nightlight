@@ -12,4 +12,6 @@ class constraints : public condition {
 public:
     constraints(Class cls = 0);
     constraints(NSString *sql, Class cls = 0);
+
+    NSString* getClause() const override;
 };

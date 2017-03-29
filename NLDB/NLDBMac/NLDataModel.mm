@@ -23,19 +23,19 @@
 + (tuple<Class, NSString *>)confirmForeignKeyConnectToKey:(NSString *)propertyName
 {
     if ([propertyName isEqualToString:@"courseId"]) {
-        return {[NSObject class], @"id"};
+        return make_tuple([NSObject class], @"id");
     }
     return {};
 }
 
-+ (condition)confirmCheckConstraintsConnectToKey:(NSString *)propertyName
++ (NSString *)confirmCheckConstraintsConnectToKey:(NSString *)propertyName
 {
     if ([propertyName isEqualToString:@"courseId"]) {
         return constraints().feild(@"courseId").gt(@1);
     } else if ([propertyName isEqualToString:@"gender"]) {
         return constraints().feild(@"gender").in(@[@"男", @"女"]);
     }
-    return condition();
+    return nil;
 }
 
 + (id)confirmDefaultConstraintsConnectToKey:(NSString *)propertyName

@@ -12,11 +12,14 @@
 constraints::constraints(Class cls/* = 0*/)
 :condition(cls)
 {
-    [condiString appendString:@"CHECK "];
 }
 
 constraints::constraints(NSString *sql, Class cls/* = 0*/)
 :condition(sql, cls)
 {
-    [condiString appendString:@"CHECK ("];
+}
+
+NSString* constraints::getClause() const
+{
+    return _sql.copy;
 }

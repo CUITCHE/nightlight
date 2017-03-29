@@ -10,6 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class __NLDBPrimitiveTypeTuple;
+
 @interface __NLDBDataModelClassProperty : NSObject
 
 @property (nonatomic) BOOL is_pk;
@@ -22,7 +24,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) BOOL is_mutable;
 
 @property (nonatomic, strong) NSString *name;
+
 @property (nonatomic, nullable) Class type;
+@property (nonatomic, strong, nullable) __NLDBPrimitiveTypeTuple *RAIIType;
 
 @end
 

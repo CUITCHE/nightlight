@@ -18,7 +18,7 @@ const char __kNLDBDataModelClassKey = 0;
 
 @implementation NLDBDataModelDriver
 
-NS_INLINE __NLDBModelModel* contactClass(Class cls)
+__NLDBModelModel* contactClass(Class cls)
 {
     __NLDBModelModel *propertyIndex = objc_getAssociatedObject(cls, &__kNLDBDataModelClassKey);
     if (propertyIndex) {
@@ -39,9 +39,44 @@ NS_INLINE __NLDBModelModel* contactClass(Class cls)
     return modelModel.sqliteSql;
 }
 
-+ (FMDatabase *)createDatabaseWithModels:(NSArray<Class> *)clses
++ (FMDatabase *)createDatabaseWithModels:(NSArray<Class> *)classes databasePath:(NSString *)filepath
 {
+    do {
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSError *error = nil;
+        if (![fileManager fileExistsAtPath:filepath]) {
+            if (![fileManager createDirectoryAtPath:filepath.stringByDeletingLastPathComponent
+                        withIntermediateDirectories:YES
+                                         attributes:nil
+                                              error:&error]) {
+                NSLog(@"%@", error);
+                break;
+            }
+            if (![fileManager createFileAtPath:filepath contents:nil attributes:nil]) {
+                NSLog(@"Create file:%@ failed.", filepath);
+                break;
+            }
+            FMDatabase *db = [FMDatabase databaseWithPath:filepath];
+            if (![db open]) {
+                NSLog(@"%@", db.lastErrorMessage);
+                break;
+            }
+            [self createTablesWithModels:classes database:db];
+            return db;
+        }
+    } while (0);
     return nil;
+}
+
++ (void)createTablesWithModels:(NSArray<Class> *)classes database:(FMDatabase *)db
+{
+    for (Class cls in classes) {
+        NSString *sql = [self createSingleDatabaseWithModel:cls];
+        if (![db executeUpdate:sql]) {
+            [db close];
+            [NSException raise:@"NLDB Create Error" format:@"Create table error with SQL:%@", sql];
+        }
+    }
 }
 
 @end

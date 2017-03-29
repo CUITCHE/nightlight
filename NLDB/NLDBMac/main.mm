@@ -11,6 +11,9 @@
 #import "condition.h"
 #import "FMDB.h"
 
+#import "NLDataModel.h"
+#import "NLDBDataModelDriver.h"
+
 @interface NSModel : NSObject
 
 @property (nonatomic, strong) NSString *name;
@@ -26,6 +29,15 @@
 }
 
 @end
+
+void test1(FMDatabase *db)
+{
+    [NLDBDataModelDriver createTablesWithModels:@[[NLDBDataModelDemo class]] database:db];
+    FMResultSet *st = [db getSchema];
+    while ([st next]) {
+        NSLog(@"%@", [st objectForColumnIndex:4]);
+    }
+}
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -46,6 +58,9 @@ int main(int argc, const char * argv[]) {
         NSLog(@"%@", res);
         res = [con selectModel:[NSModel class] if:condition()];
         NSLog(@"%@", res);
+        NSLog(@"%s", @encode(float));
+
+        test1(db);
     }
     return 0;
 }

@@ -14,6 +14,7 @@
 
 + (NSString *)createSingleDatabaseWithModel:(Class)cls;
 
-+ (FMDatabase *)createDatabaseWithModels:(NSArray<Class> *)clses;
++ (FMDatabase *)createDatabaseWithModels:(NSArray<Class> *)classes databasePath:(NSString *)filepath;
 
++ (void)createTablesWithModels:(NSArray<Class> *)classes database:(FMDatabase *)db;
 @end

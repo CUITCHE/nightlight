@@ -80,7 +80,7 @@ NSArray<NSString *>* __bind(Class cls)
     return array;
 }
 
-- (NSArray *)selectModel:(Class)cls if:(const condition &)conditions
+- (NSArray *)selectModel:(Class)cls if:(const SqlBuildBase &)conditions
 {
     NSArray<NSString *> *properties = __bind(cls);
     NSArray<NSDictionary *> *__d = [self selectColumns:properties if:conditions];
@@ -88,7 +88,7 @@ NSArray<NSString *>* __bind(Class cls)
     return array;
 }
 
-- (NSArray<NSDictionary *> *)selectColumns:(NSArray<NSString *> *)columns if:(const condition &)conditions
+- (NSArray<NSDictionary *> *)selectColumns:(NSArray<NSString *> *)columns if:(const SqlBuildBase &)conditions
 {
     NSMutableString *sql = [NSMutableString stringWithString:@"SELECT "];
     if (!columns) {
@@ -121,7 +121,7 @@ NSArray<NSString *>* __bind(Class cls)
     return res;
 }
 
-- (BOOL)updateWithColumns:(NSArray<NSString *> *)columns bindingValues:(NSArray *)values if:(const condition &)conditions
+- (BOOL)updateWithColumns:(NSArray<NSString *> *)columns bindingValues:(NSArray *)values if:(const SqlBuildBase &)conditions
 {
     if (columns.count == 0) {
         [NSException raise:NSInvalidArgumentException format:@"columns' count must not be 0."];
@@ -148,7 +148,7 @@ NSArray<NSString *>* __bind(Class cls)
     return suc;
 }
 
-- (BOOL)updateWithModel:(NSObject *)values if:(const condition &)conditions
+- (BOOL)updateWithModel:(NSObject *)values if:(const SqlBuildBase &)conditions
 {
     NSArray<NSString *> *columns = __bind([values class]);
     NSMutableArray *__v = [NSMutableArray arrayWithCapacity:columns.count];

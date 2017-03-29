@@ -1,5 +1,5 @@
 //
-//  condition.hpp
+//  condition.h
 //  NLDB
 //
 //  Created by hejunqiu on 2017/3/21.
@@ -10,24 +10,17 @@
 #define __condition_hpp
 
 #import <Foundation/Foundation.h>
-#include <stdio.h>
-#include <unordered_map>
-#include <vector>
+#import "SqlBuildBase.h"
 
-using std::unordered_map;
-using std::vector;
-
-
-
-class condition {
-    Class cls;
-    NSMutableArray *values;
-protected:
-    NSMutableString *condiString;
+class condition : public SqlBuildBase
+{
+    Class cls = 0;
 public:
     condition(Class cls = 0);
     condition(NSString *sql, Class cls = 0);
-    condition& feild(NSString *feild);
+    ~condition() override;
+
+    condition& feild(NSString *feild) override;
 
     condition& et(id val = nil);
     condition& net(id val = nil);
@@ -39,16 +32,12 @@ public:
     condition& in(NSArray *set);
     condition& isnull();
 
-    condition& scopes();
-    condition& scopee();
-
     condition& AND();
     condition& OR();
 
-    NSString *getClause() const;
-    NSArray* getValues() const;
-
     condition& appendBindValue(NSArray *values);
+
+    NSString* getClause() const override;
 };
 
 #endif /* __condition_hpp */
