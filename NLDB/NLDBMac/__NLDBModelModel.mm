@@ -75,7 +75,7 @@ using __NLDBPropertyString = NSString *;
         return;
     }
     Class cls = self.modelClass;
-    while (cls != [NLDataModel class]) {
+    while (cls != [NSObject class]) {
         unsigned int propertyCount = 0;
         objc_property_t *properties = class_copyPropertyList(cls, &propertyCount);
         for (unsigned int i=0; i<propertyCount; ++i) {
@@ -188,12 +188,12 @@ using __NLDBPropertyString = NSString *;
         free(protocol);
     }
     if (!tableName) { // try to find table name from method
-        if (class_respondsToSelector(self.modelClass, @selector(confirmTableName))) {
+        if (!!class_getClassMethod(self.modelClass, @selector(confirmTableName))) {
             tableName = [self.modelClass confirmTableName];
         }
-    }
-    if (!tableName) {
-        [NSException raise:@"NLDB syntax error" format:@"There is not a vaild table name for model:%@", NSStringFromClass(self.modelClass)];
+        if (!tableName) {
+            [NSException raise:@"NLDB syntax error" format:@"There is not a vaild table name for model:%@", NSStringFromClass(self.modelClass)];
+        }
     }
     return tableName;
 }
@@ -260,6 +260,7 @@ using __NLDBPropertyString = NSString *;
 - (void)__parse__
 {
     __block __SqlDDL maker;
+    __block BOOL has_a_fk = NO;
     maker.create(self.tableName);
     [_propertyIndex enumerateKeysAndObjectsUsingBlock:^(__NLDBPropertyString key, __NLDBDataModelClassProperty *obj, BOOL *stop) {
         if (obj.is_ignore) {
@@ -294,18 +295,7 @@ using __NLDBPropertyString = NSString *;
         }
 
         if (obj.is_fk) {
-            if (self.flag_confirmForeignKeyConnectToKey) {
-                tuple<Class, NSString *> package = [self.modelClass confirmForeignKeyConnectToKey:obj.name];
-                Class __cls = get<0>(package);
-                __NLDBModelModel *mm = contactClass(__cls);
-                NSString *field = get<1>(package);
-                if (!mm.propertyIndex[field]) {
-                    [NSException raise:@"NLDB SQL Sytax Error" format:@"Target model(%@) has not a property named %@", NSStringFromClass(__cls), field];
-                }
-                maker.fk(nil, field, mm.tableName);
-            } else {
-                [NSException raise:@"NLDB SQL Sytax Error" format:@"You'd better to implement method:+(tuple<Class, NSString *>)confirmForeignKeyConnectToKey:"];
-            }
+            has_a_fk = YES;
             // Syntax check.
             if (obj.is_null) {
                 [NSException raise:@"NLDB SQL Sytax Error" format:@"A foreign key is non-null, but you specified it to null."];
@@ -347,6 +337,25 @@ using __NLDBPropertyString = NSString *;
     __end__:
         return;
     }];
+    if (has_a_fk) {
+        [self.propertyIndex enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, __NLDBDataModelClassProperty * _Nonnull obj, BOOL * _Nonnull stop) {
+            if (!obj.is_fk) {
+                return;
+            }
+            if (self.flag_confirmForeignKeyConnectToKey) {
+                tuple<Class, NSString *> package = [self.modelClass confirmForeignKeyConnectToKey:obj.name];
+                Class __cls = get<0>(package);
+                __NLDBModelModel *mm = contactClass(__cls);
+                NSString *field = get<1>(package);
+                if (!mm.propertyIndex[field]) {
+                    [NSException raise:@"NLDB SQL Sytax Error" format:@"Target model(%@) has not a property named %@", NSStringFromClass(__cls), field];
+                }
+                maker.fk(obj.name, field, mm.tableName);
+            } else {
+                [NSException raise:@"NLDB SQL Sytax Error" format:@"You'd better to implement method:+(tuple<Class, NSString *>)confirmForeignKeyConnectToKey:"];
+            }
+        }];
+    }
     maker.end();
     _sqliteSql = maker.getClause();
 }

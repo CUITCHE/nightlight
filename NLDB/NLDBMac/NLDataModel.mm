@@ -15,6 +15,21 @@
     return nil;
 }
 
++ (tuple<Class, NSString *>)confirmForeignKeyConnectToKey:(NSString *)propertyName
+{
+    return {};
+}
+
++ (NSString *)confirmCheckConstraintsConnectToKey:(NSString *)propertyName
+{
+    return nil;
+}
+
++ (id)confirmDefaultConstraintsConnectToKey:(NSString *)propertyName
+{
+    return nil;
+}
+
 @end
 
 
@@ -23,7 +38,7 @@
 + (tuple<Class, NSString *>)confirmForeignKeyConnectToKey:(NSString *)propertyName
 {
     if ([propertyName isEqualToString:@"courseId"]) {
-        return make_tuple([NSObject class], @"id");
+        return make_tuple([NLDataModel class], @"rowid");
     }
     return {};
 }
@@ -44,7 +59,7 @@
         return @"统招";
     } else if ([propertyName isEqualToString:@"startDateTime"]) {
         // Default value is a sql build-function, such as GETDATE(), etc.
-        return sqlFunctionPackage(@"GETDATE()");
+        return sqlFunctionPackage(@"DATETIME()");
     }
     return nil;
 }

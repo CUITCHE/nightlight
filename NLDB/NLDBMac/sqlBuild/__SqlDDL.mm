@@ -101,12 +101,16 @@ __SqlDDL& __SqlDDL::column(NSString *name,
             words = [NSString stringWithFormat:@"%@ BLOB", name];
             break;
     }
-    if (hasColunm) {
-        [_sql appendString:@","];
+    if (is_alter) {
+        ;
     } else {
-        hasColunm = 1;
+        if (hasColunm) {
+            [_sql appendString:@","];
+        } else {
+            hasColunm = 1;
+        }
     }
-    [_sql appendString:words];
+        [_sql appendString:words];
     return *this;
 }
 
@@ -124,7 +128,7 @@ __SqlDDL& __SqlDDL::primary_key()
 
 __SqlDDL& __SqlDDL::foregin_key(NSString *field, NSString *toField, NSString *ofAnotherTable)
 {
-    [_sql appendFormat:@" FOREIGN KEY REFERENCES %@(%@)", ofAnotherTable, toField];
+    [_sql appendFormat:@", FOREIGN KEY(%@) REFERENCES %@(%@)", field, ofAnotherTable, toField];
     return *this;
 }
 

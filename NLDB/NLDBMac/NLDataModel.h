@@ -66,14 +66,18 @@ typedef NS_ENUM(NSUInteger, NLDBStringType) {
     NLDBStringTypePureText = 1 << 16
 };
 
-@protocol NLDataModel <NSObject>
+#ifndef NLDBTable
+#define NLDBTable(table) @protocol __##table##__ <NSObject> @end
+#endif
+
+@protocol NLDataModel <ForeignKey, Check, Default>
 @optional
 
 /**
  To confirm string type which can be 'char','varchar','nchar','nvarchar' or 'text'.
  This is an optional method. Indicating 'text' type if this method is not be implemented.
 
- @param propertyName Property name of data model and its type is guaranteed to be is NSString or its subclass.
+ @param propertyName A property name of data model and its type is guaranteed to be is NSString or its subclass.
  @return A tuple which at 0 is string type and at 1 is string size. If tuple 0 position is NLDBStringTypePureText,
  the string size will be ignored.
  */
@@ -81,18 +85,18 @@ typedef NS_ENUM(NSUInteger, NLDBStringType) {
 
 /**
  To confirm a table name for this model. Subclass can override it. This is an optional method,
- you also choose declare table name by protocol. See below for detail.
+ you also choose to declare table name by protocol. See below for detail.
 
- @note Default implementation is return nil in NLDataModel. If return nil, will trigger an exception.
+ @note Default implementation is return nil in NLDataModel. If return nil and no table name by protocol declare way, will trigger an exception.
 
  @return A table name
  */
 + (NSString *)confirmTableName;
 
 /**
- To confirm concern type for NSNumber object. If this method is not be impletmented, will be recongized double type.
+ To confirm concern type for NSNumber object. If this method is not be impletmented, will be deemed to double type.
  
- @param propertyName Property name of data model.
+ @param propertyName A property name of data model.
  @return A type-coding which you can get it by using \@encode(type). e.g. \@encode(float)
  */
 + (const char *)confirmNSNumberTypeConnectsToKey:(NSString *)propertyName;
@@ -101,7 +105,7 @@ typedef NS_ENUM(NSUInteger, NLDBStringType) {
 
 @interface NLDataModel : NSObject <NLDataModel>
 
-@property (nonatomic) NSNumber *rowid;
+@property (nonatomic, strong) NSNumber *rowid;
 
 @end
 
@@ -112,19 +116,15 @@ typedef NS_ENUM(NSUInteger, NLDBStringType) {
  subclass data model. And the table name can be wrote anywhere in protocol declare field.
  */
 
-#ifndef NLDBTable
-#define NLDBTable(table) @protocol __##table##__ <NSObject> @end
-#endif
-
 NLDBTable(demo)
 
 
-@interface NLDBDataModelDemo : NLDataModel <ForeignKey, Check, Default, __demo__>
+@interface NLDBDataModelDemo : NLDataModel <__demo__>
 
 @property (nonatomic, strong) NSString<_primary_key> *id;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic) NSInteger age;
-//@property (nonatomic, strong) NSNumber<_foreign_key, _check> *courseId;
+@property (nonatomic, strong) NSNumber<_foreign_key, _check> *courseId;
 @property (nonatomic, strong) NSString<_check> *gender;
 @property (nonatomic, strong) NSString<_default> *way;
 @property (nonatomic, strong) NSDate<_default> *startDateTime;

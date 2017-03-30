@@ -16,7 +16,8 @@ using std::make_tuple;
 
 class __SqlDDL : public SqlBuildBase
 {
-    bool hasColunm;
+    BOOL hasColunm;
+    BOOL is_alter;
 public:
     enum Type : NSUInteger {
 #pragma mark INTEGER in SQLITE
@@ -72,6 +73,13 @@ public:
     __SqlDDL& check(NSString *statement);
     __SqlDDL& Default(NSString *statement);
 
+    // ALTER
+    __SqlDDL& alter(NSString *table);
+
+    __SqlDDL& add_column(NSString *name, Type type, const tuple<NSUInteger, NSUInteger> &capacity = make_tuple(-1, -1));
+    __SqlDDL& rename_column(NSString *oldName, NSString *rename);
+
+    __SqlDDL& clauseEnd();
     void end() override;
 };
 
