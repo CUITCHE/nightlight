@@ -101,16 +101,12 @@ __SqlDDL& __SqlDDL::column(NSString *name,
             words = [NSString stringWithFormat:@"%@ BLOB", name];
             break;
     }
-    if (is_alter) {
-        ;
+    if (hasColunm) {
+        [_sql appendString:@","];
     } else {
-        if (hasColunm) {
-            [_sql appendString:@","];
-        } else {
-            hasColunm = 1;
-        }
+        hasColunm = 1;
     }
-        [_sql appendString:words];
+    [_sql appendString:words];
     return *this;
 }
 

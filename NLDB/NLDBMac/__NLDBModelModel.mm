@@ -18,8 +18,8 @@ using namespace std;
 extern __NLDBModelModel* contactClass(Class cls);
 
 static NSArray<Class> *__NLDBDataModelAllowedTypes = @[[NSNumber class], [NSString class], [NSMutableString class],
-                                                      [NSData class], [NSMutableData class], [NSDate class],
-                                                      [NSDecimalNumber class]];
+                                                       [NSData class], [NSMutableData class], [NSDate class],
+                                                       [NSDecimalNumber class]];
 static NSDictionary<NSString *, __NLDBPrimitiveTypeTuple *> *__NLDBDataModelPrimitives
 = @{@"f": [__NLDBPrimitiveTypeTuple tupleWithType:__SqlType::Float typeString:@"float"],
     @"d": [__NLDBPrimitiveTypeTuple tupleWithType:__SqlType::Double typeString:@"double"],
@@ -44,6 +44,7 @@ using __NLDBPropertyString = NSString *;
 
 @property (nonatomic) Class modelClass;
 @property (nonatomic, strong) NSMutableDictionary<__NLDBPropertyString, __NLDBDataModelClassProperty *> *propertyIndex;
+@property (nonatomic, strong) NSMutableArray<__NLDBDataModelClassProperty *> *order_property;
 @property (nonatomic, copy) NSString *sqliteSql;
 @property (nonatomic, strong) NSString *tableName;
 
@@ -63,6 +64,7 @@ using __NLDBPropertyString = NSString *;
     if (self = [super init]) {
         _modelClass = cls;
         _propertyIndex = [NSMutableDictionary dictionary];
+        _order_property = [NSMutableArray array];
         [self __init__];
     }
     return self;
@@ -138,7 +140,7 @@ using __NLDBPropertyString = NSString *;
                 [NSException raise:@"NLDB Data type is not allowed" format:@"NLDB don't support structure."];
             } else {
                 [scanner scanUpToCharactersFromSet:[NSCharacterSet characterSetWithCharactersInString:@","]
-                                    intoString:&propertyType];
+                                        intoString:&propertyType];
                 __NLDBPrimitiveTypeTuple *ptt = __NLDBDataModelPrimitives[propertyType];
                 if (!ptt) {
                     [NSException raise:@"NLDB Data type is not allowed" format:@"NLDB don't support type-coding:%@ for index(%u) of class(%@).", propertyType, i, NSStringFromClass(cls)];
@@ -147,6 +149,7 @@ using __NLDBPropertyString = NSString *;
             }
         __add_mcp__:
             [_propertyIndex setObject:mcp forKey:mcp.name];
+            [_order_property addObject:mcp];
         }
         free(properties);
         cls = [cls superclass];
@@ -259,10 +262,10 @@ using __NLDBPropertyString = NSString *;
 
 - (void)__parse__
 {
-    __block __SqlDDL maker;
-    __block BOOL has_a_fk = NO;
+    __SqlDDL maker;
+    BOOL has_a_fk = NO;
     maker.create(self.tableName);
-    [_propertyIndex enumerateKeysAndObjectsUsingBlock:^(__NLDBPropertyString key, __NLDBDataModelClassProperty *obj, BOOL *stop) {
+    for (__NLDBDataModelClassProperty *obj in _order_property) {
         if (obj.is_ignore) {
             goto __end__;
         }
@@ -335,12 +338,12 @@ using __NLDBPropertyString = NSString *;
         }
 
     __end__:
-        return;
-    }];
+        ;
+    };
     if (has_a_fk) {
-        [self.propertyIndex enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, __NLDBDataModelClassProperty * _Nonnull obj, BOOL * _Nonnull stop) {
+        for (__NLDBDataModelClassProperty *obj in _order_property) {
             if (!obj.is_fk) {
-                return;
+                continue;
             }
             if (self.flag_confirmForeignKeyConnectToKey) {
                 tuple<Class, NSString *> package = [self.modelClass confirmForeignKeyConnectToKey:obj.name];
@@ -354,7 +357,7 @@ using __NLDBPropertyString = NSString *;
             } else {
                 [NSException raise:@"NLDB SQL Sytax Error" format:@"You'd better to implement method:+(tuple<Class, NSString *>)confirmForeignKeyConnectToKey:"];
             }
-        }];
+        };
     }
     maker.end();
     _sqliteSql = maker.getClause();
