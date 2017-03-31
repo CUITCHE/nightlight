@@ -59,7 +59,20 @@
 		FBC540771E8E5DE30092886D /* SqlBuildBase.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB97451A1E8E3AA3001FE67F /* SqlBuildBase.mm */; };
 		FBC540E11E8E6F650092886D /* FMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC540E01E8E6F650092886D /* FMDB.framework */; };
 		FBC541081E8E74090092886D /* FMDB_Mac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC541071E8E74090092886D /* FMDB_Mac.framework */; };
+		FBC541341E8E7BDA0092886D /* NLDBTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = FBC541331E8E7BDA0092886D /* NLDBTests.mm */; };
+		FBC541361E8E7BDA0092886D /* NLDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0712351E81206B00F4B16C /* NLDB.framework */; };
+		FBC5413D1E8E7C370092886D /* FMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC5413C1E8E7C370092886D /* FMDB.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FBC541371E8E7BDA0092886D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB07122C1E81206B00F4B16C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB0712341E81206B00F4B16C;
+			remoteInfo = NLDB;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		FB0712421E8120A700F4B16C /* CopyFiles */ = {
@@ -108,6 +121,10 @@
 		FB97451A1E8E3AA3001FE67F /* SqlBuildBase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SqlBuildBase.mm; sourceTree = "<group>"; };
 		FBC540E01E8E6F650092886D /* FMDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FMDB.framework; path = "../ThirdParty/build/Debug-iphoneos/FMDB.framework"; sourceTree = "<group>"; };
 		FBC541071E8E74090092886D /* FMDB_Mac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FMDB_Mac.framework; path = "../ThirdParty/build/Debug-iphoneos/FMDB_Mac.framework"; sourceTree = "<group>"; };
+		FBC541311E8E7BDA0092886D /* NLDBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NLDBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBC541331E8E7BDA0092886D /* NLDBTests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = NLDBTests.mm; sourceTree = "<group>"; };
+		FBC541351E8E7BDA0092886D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FBC5413C1E8E7C370092886D /* FMDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FMDB.framework; path = "../../../Library/Developer/Xcode/DerivedData/nightlight-dftdiqmqmbbgaweswrlohfqjnrdw/Build/Products/Debug-iphonesimulator/FMDB.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +154,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FBC5412E1E8E7BDA0092886D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBC5413D1E8E7C370092886D /* FMDB.framework in Frameworks */,
+				FBC541361E8E7BDA0092886D /* NLDB.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -146,6 +172,7 @@
 				FB0712371E81206B00F4B16C /* NLDB */,
 				FB0712451E8120A700F4B16C /* NLDBMac */,
 				FB8FDBD11E82674A007A6228 /* NLDBMacTests */,
+				FBC541321E8E7BDA0092886D /* NLDBTests */,
 				FB0712361E81206B00F4B16C /* Products */,
 				FB5933671E8126D6002482DF /* Frameworks */,
 			);
@@ -157,6 +184,7 @@
 				FB0712351E81206B00F4B16C /* NLDB.framework */,
 				FB0712441E8120A700F4B16C /* NLDBMac */,
 				FB8FDBD01E82674A007A6228 /* NLDBMacTests.xctest */,
+				FBC541311E8E7BDA0092886D /* NLDBTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -191,6 +219,7 @@
 		FB5933671E8126D6002482DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FBC5413C1E8E7C370092886D /* FMDB.framework */,
 				FBC541071E8E74090092886D /* FMDB_Mac.framework */,
 				FBC540E01E8E6F650092886D /* FMDB.framework */,
 				FB8FDBCA1E8264E0007A6228 /* libsqlite3.tbd */,
@@ -242,6 +271,15 @@
 				FB9745181E8E3AA3001FE67F /* __SqlDDL.mm */,
 			);
 			path = private;
+			sourceTree = "<group>";
+		};
+		FBC541321E8E7BDA0092886D /* NLDBTests */ = {
+			isa = PBXGroup;
+			children = (
+				FBC541331E8E7BDA0092886D /* NLDBTests.mm */,
+				FBC541351E8E7BDA0092886D /* Info.plist */,
+			);
+			path = NLDBTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,6 +359,24 @@
 			productReference = FB8FDBD01E82674A007A6228 /* NLDBMacTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		FBC541301E8E7BDA0092886D /* NLDBTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FBC541391E8E7BDA0092886D /* Build configuration list for PBXNativeTarget "NLDBTests" */;
+			buildPhases = (
+				FBC5412D1E8E7BDA0092886D /* Sources */,
+				FBC5412E1E8E7BDA0092886D /* Frameworks */,
+				FBC5412F1E8E7BDA0092886D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FBC541381E8E7BDA0092886D /* PBXTargetDependency */,
+			);
+			name = NLDBTests;
+			productName = NLDBTests;
+			productReference = FBC541311E8E7BDA0092886D /* NLDBTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -345,6 +401,11 @@
 						DevelopmentTeam = 8652TQR753;
 						ProvisioningStyle = Automatic;
 					};
+					FBC541301E8E7BDA0092886D = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = 8652TQR753;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = FB07122F1E81206B00F4B16C /* Build configuration list for PBXProject "NLDB" */;
@@ -362,6 +423,7 @@
 				FB0712341E81206B00F4B16C /* NLDB */,
 				FB0712431E8120A700F4B16C /* NLDBMac */,
 				FB8FDBCF1E82674A007A6228 /* NLDBMacTests */,
+				FBC541301E8E7BDA0092886D /* NLDBTests */,
 			);
 		};
 /* End PBXProject section */
@@ -375,6 +437,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		FB8FDBCE1E82674A007A6228 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBC5412F1E8E7BDA0092886D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -440,7 +509,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FBC5412D1E8E7BDA0092886D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBC541341E8E7BDA0092886D /* NLDBTests.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FBC541381E8E7BDA0092886D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB0712341E81206B00F4B16C /* NLDB */;
+			targetProxy = FBC541371E8E7BDA0092886D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		FB07123B1E81206B00F4B16C /* Debug */ = {
@@ -627,6 +712,32 @@
 			};
 			name = Release;
 		};
+		FBC5413A1E8E7BDA0092886D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				DEVELOPMENT_TEAM = 8652TQR753;
+				INFOPLIST_FILE = NLDBTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hejunqiu.NLDBTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FBC5413B1E8E7BDA0092886D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				DEVELOPMENT_TEAM = 8652TQR753;
+				INFOPLIST_FILE = NLDBTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hejunqiu.NLDBTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -665,6 +776,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		FBC541391E8E7BDA0092886D /* Build configuration list for PBXNativeTarget "NLDBTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FBC5413A1E8E7BDA0092886D /* Debug */,
+				FBC5413B1E8E7BDA0092886D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
