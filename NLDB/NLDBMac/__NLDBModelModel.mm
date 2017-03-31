@@ -54,6 +54,7 @@ using __NLDBPropertyString = NSString *;
 @property (nonatomic) BOOL flag_confirmForeignKeyConnectToKey;
 @property (nonatomic) BOOL flag_confirmCheckConstraintsConnectToKey;
 @property (nonatomic) BOOL flag_confirmDefaultConstraintsConnectToKey;
+@property (nonatomic) BOOL flag_confirmWhetherIgnoreProperty;
 
 @end
 
@@ -160,13 +161,13 @@ using __NLDBPropertyString = NSString *;
 
 - (void)__method_responds__
 {
-    self.flag_confirmTableName = !!class_getClassMethod(self.modelClass, @selector(confirmTableName));
-    self.flag_confirmNSStringSizeConnectsToKey = !!class_getClassMethod(self.modelClass, @selector(confirmNSStringSizeConnectsToKey:));
-    self.flag_confirmNSNumberTypeConnectsToKey = !!class_getClassMethod(self.modelClass, @selector(confirmNSNumberTypeConnectsToKey:));
-    self.flag_confirmForeignKeyConnectToKey = !!class_getClassMethod(self.modelClass, @selector(confirmForeignKeyConnectToKey:));
-    self.flag_confirmCheckConstraintsConnectToKey = !!class_getClassMethod(self.modelClass, @selector(confirmCheckConstraintsConnectToKey:));
-    self.flag_confirmDefaultConstraintsConnectToKey = !!class_getClassMethod(self.modelClass, @selector(confirmDefaultConstraintsConnectToKey:));
-    ;
+    self.flag_confirmTableName = [self.modelClass respondsToSelector:@selector(confirmTableName)];
+    self.flag_confirmNSStringSizeConnectsToKey = [self.modelClass respondsToSelector:@selector(confirmNSStringSizeConnectsToKey:)];
+    self.flag_confirmNSNumberTypeConnectsToKey = [self.modelClass respondsToSelector:@selector(confirmNSNumberTypeConnectsToKey:)];
+    self.flag_confirmForeignKeyConnectToKey = [self.modelClass respondsToSelector:@selector(confirmForeignKeyConnectToKey:)];
+    self.flag_confirmCheckConstraintsConnectToKey = [self.modelClass respondsToSelector:@selector(confirmCheckConstraintsConnectToKey:)];
+    self.flag_confirmDefaultConstraintsConnectToKey = [self.modelClass respondsToSelector:@selector(confirmDefaultConstraintsConnectToKey:)];
+    self.flag_confirmWhetherIgnoreProperty = [self.modelClass respondsToSelector:@selector(confirmWhetherIgnoreProperty:)];
 }
 
 - (NSString *)__find_tablename__
@@ -268,6 +269,11 @@ using __NLDBPropertyString = NSString *;
     for (__NLDBDataModelClassProperty *obj in _order_property) {
         if (obj.is_ignore) {
             goto __end__;
+        }
+        if (self.flag_confirmWhetherIgnoreProperty) {
+            if ([self.modelClass confirmWhetherIgnoreProperty:obj.name]) {
+                continue;
+            }
         }
         // make column name and type
         if (obj.type) { // this is an Objective-C object.

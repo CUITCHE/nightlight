@@ -53,6 +53,13 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol _ignore <NSObject>
 @end
 
+@protocol Ignore <_ignore>
+@optional
+
++ (BOOL)confirmWhetherIgnoreProperty:(NSString *)propertyName;
+
+@end
+
 
 typedef NS_ENUM(NSUInteger, NLDBStringType) {
     NLDBStringTypeMutable = 1,
@@ -70,7 +77,7 @@ typedef NS_ENUM(NSUInteger, NLDBStringType) {
 #define NLDBTable(table) @protocol __##table##__ <NSObject> @end
 #endif
 
-@protocol NLDataModel <ForeignKey, Check, Default>
+@protocol NLDataModel <ForeignKey, Check, Default, Ignore>
 @optional
 
 /**
@@ -105,7 +112,7 @@ typedef NS_ENUM(NSUInteger, NLDBStringType) {
 
 @interface NLDataModel : NSObject <NLDataModel>
 
-@property (nonatomic, strong) NSNumber *rowid;
+@property (nonatomic) long long rowid;
 
 @end
 

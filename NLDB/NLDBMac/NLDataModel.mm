@@ -30,6 +30,14 @@
     return nil;
 }
 
++ (BOOL)confirmWhetherIgnoreProperty:(NSString *)propertyName
+{
+    if ([propertyName isEqual:@"rowid"]) {
+        return YES;
+    }
+    return NO;
+}
+
 @end
 
 
