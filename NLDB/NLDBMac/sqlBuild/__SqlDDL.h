@@ -71,7 +71,7 @@ public:
 #endif
 #endif
     __SqlDDL& check(NSString *statement);
-    __SqlDDL& Default(NSString *statement);
+    __SqlDDL& Default(id val);
 
     // ALTER
     __SqlDDL& alter(NSString *table);

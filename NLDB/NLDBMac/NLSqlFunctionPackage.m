@@ -17,6 +17,11 @@
     return func;
 }
 
+- (NSString *)description
+{
+    return self.functionName;
+}
+
 @end
 
 

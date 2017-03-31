@@ -18,44 +18,105 @@ using std::tuple;
 NS_ASSUME_NONNULL_BEGIN
 
 // Constraints Defines
-// A property can be defined on rule which descriped: [(_primary_key|_foreign_key), (_default,_check,_null)]
+// A property can be defined on rule which descriped: [(_primary_key|_foreign_key), (_default|_check|_null)]
 
+
+/**
+ Specifing after field property to indicate a PRIMARY KEY. This will trigger a method in which ForeignKey protocol will be
+ invoked.
+ */
 @protocol _primary_key <NSObject>
 @end
 
+/**
+ Specifing after field property to indicate a FOREIGN KEY. This will trigger a method in which ForeignKey protocol will be
+ invoked.
+ */
 @protocol _foreign_key <NSObject>
 @end
 
+
+/**
+ Specifing after field property to indicate that the field could be NULL.
+ */
 @protocol _null <NSObject>
 @end
 
+/**
+ Specifing after field property to indecate that the field has a check statement. This will trigger a method in which 
+ Check protocol will be invoked.
+ */
 @protocol _check <NSObject>
 @end
 
+/**
+ Specifing after field property to indecate that the field has a default statement. This will trigger a method in which
+ Default protocol will be invoked.
+ */
 @protocol _default <NSObject>
 @end
 
-// Constraints Implementation
+/************************************** Constraints Implementation **************************************/
+
 @protocol ForeignKey <_foreign_key>
+
+/**
+ To confirm foreign key(property name) which connects to. The NLDB will check the field of table class whether exists or
+ not. If not, will trigger an exception.
+
+ @param propertyName A property name of data model.
+ @return A tuple contains outter table class and target field property name.
+ */
 + (tuple<Class, NSString *>)confirmForeignKeyConnectToKey:(NSString *)propertyName;
 @end
 
 @protocol Check <_check>
+
+/**
+ To confirm check statement after field which connects to. You can use constraints class to genrate check statement, such
+ as 
+ @code
+    return constraints().feild(@"gender").in(@[@"男", @"女"]);
+ @endcode
+ constraints is a C++ object and converts to NSString object automatly. So you can return constraints for NSString *
+
+ @param propertyName A property name of data model.
+ @return A check statement string.
+ */
 + (NSString *)confirmCheckConstraintsConnectToKey:(NSString *)propertyName;
 @end
 
 @protocol Default <_default>
+
+/**
+ To confirm a defualt statement after field which connects to. The NLDB will check the method's return.
+
+ @note Excepted NSString, NSNumber, NSData, NSDate. Their or subclasses objects. Especially, You could
+ use NLSqlFunctionPackage to indicate a SQLite function like 'DATETIME()'.
+
+ @param propertyName A property name of data model.
+ @return A default value of the specified field.
+ */
 + (id)confirmDefaultConstraintsConnectToKey:(NSString *)propertyName;
 @end
 
+/************************************** Create Control **************************************/
 
-// Create Control
+/**
+ Specifing after field property to indicate that the field requests be ignore.
+ */
 @protocol _ignore <NSObject>
 @end
 
 @protocol Ignore <_ignore>
 @optional
 
+/**
+ To confirm a property whether is ignored or not.
+
+ @param propertyName A property name of data model.
+ @return YES if requests ignore, otherwise is NO.
+ */
 + (BOOL)confirmWhetherIgnoreProperty:(NSString *)propertyName;
 
 @end
@@ -73,6 +134,10 @@ typedef NS_ENUM(NSUInteger, NLDBStringType) {
     NLDBStringTypePureText = 1 << 16
 };
 
+/*
+ If a subclass of NSLDataModel follow a protocol like '__protocolName__', '__protocolName__' is a table name of the
+ subclass data model. And the table name can be wrote anywhere in protocol declare field.
+ */
 #ifndef NLDBTable
 #define NLDBTable(table) @protocol __##table##__ <NSObject> @end
 #endif
@@ -114,14 +179,12 @@ typedef NS_ENUM(NSUInteger, NLDBStringType) {
 
 @property (nonatomic) long long rowid;
 
+@property (class, nonatomic, strong) NSDateFormatter *dateformatter;
+
 @end
 
 
 /******************************************************** DEMO ********************************************************/
-/*
- If a subclass of NSLDataModel follow a protocol like '__protocolName__', '__protocolName__' is a table name of the 
- subclass data model. And the table name can be wrote anywhere in protocol declare field.
- */
 
 NLDBTable(demo)
 

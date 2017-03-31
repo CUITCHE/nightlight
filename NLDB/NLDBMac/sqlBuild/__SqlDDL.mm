@@ -7,6 +7,9 @@
 //
 
 #import "__SqlDDL.h"
+#import "NLDataModel.h"
+#import "NLSqlFunctionPackage.h"
+
 using namespace std;
 
 __SqlDDL::__SqlDDL()
@@ -134,9 +137,24 @@ __SqlDDL& __SqlDDL::check(NSString *statement)
     return *this;
 }
 
-__SqlDDL& __SqlDDL::Default(NSString *statement)
+__SqlDDL& __SqlDDL::Default(id val)
 {
-    [_sql appendFormat:@" DEFAULT (%@)", statement];
+    if ([val isKindOfClass:[NSString class]]) {
+        [_sql appendFormat:@" DEFAULT ('%@')", val];
+    } else if ([val isKindOfClass:[NSDate class]]) {
+        if ([NLDataModel dateformatter]) {
+            [_sql appendFormat:@" DEFAULT ('%@')", [[NLDataModel dateformatter] stringFromDate:val]];
+        } else {
+            [_sql appendFormat:@" DEFAULT (%lf)", [val timeIntervalSince1970]];
+        }
+    } else if ([val isKindOfClass:[NSNumber class]]) {
+        [_sql appendFormat:@" DEFAULT (%@)", val];
+    } else if ([val isKindOfClass:[NLSqlFunctionPackage class]]) {
+        [_sql appendFormat:@" DEFAULT (%@)", val];
+    } else {
+        [NSException raise:NSInvalidArgumentException format:@"%@ type don't be supported on DEFAULT statement", NSStringFromClass([val class])];
+    }
+
     return *this;
 }
 

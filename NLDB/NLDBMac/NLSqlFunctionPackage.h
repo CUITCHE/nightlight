@@ -14,6 +14,7 @@
 
 + (instancetype)sqlFunctionPackageWithFunctionName:(NSString *)name;
 
+- (NSString *)description;
 @end
 
 // C-stlye constructor

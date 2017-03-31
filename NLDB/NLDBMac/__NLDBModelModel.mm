@@ -38,8 +38,6 @@ static NSDictionary<NSString *, __NLDBPrimitiveTypeTuple *> *__NLDBDataModelPrim
 using __NLDBPropertyString = NSString *;
 
 
-
-
 @interface __NLDBModelModel ()
 
 @property (nonatomic) Class modelClass;
@@ -264,7 +262,7 @@ using __NLDBPropertyString = NSString *;
 - (void)__parse__
 {
     __SqlDDL maker;
-    BOOL has_a_fk = NO;
+    NSInteger has_a_fk = 0;
     maker.create(self.tableName);
     for (__NLDBDataModelClassProperty *obj in _order_property) {
         if (obj.is_ignore) {
@@ -304,7 +302,7 @@ using __NLDBPropertyString = NSString *;
         }
 
         if (obj.is_fk) {
-            has_a_fk = YES;
+            ++has_a_fk;
             // Syntax check.
             if (obj.is_null) {
                 [NSException raise:@"NLDB SQL Sytax Error" format:@"A foreign key is non-null, but you specified it to null."];
@@ -319,15 +317,7 @@ using __NLDBPropertyString = NSString *;
         if (obj.is_default) {
             if (self.flag_confirmDefaultConstraintsConnectToKey) {
                 id def = [self.modelClass confirmDefaultConstraintsConnectToKey:obj.name];
-                NSString *statement = nil;
-                if ([def isKindOfClass:[NSString class]]) {
-                    statement = [NSString stringWithFormat:@"'%@'", def];
-                } else if ([def isKindOfClass:[NSNumber class]]) {
-                    statement = [def stringValue];
-                } else if ([def isKindOfClass:[NLSqlFunctionPackage class]]) {
-                    statement = [def functionName];
-                }
-                maker.Default(statement);
+                maker.Default(def);
             } else {
                 [NSException raise:@"NLDB SQL Sytax Error" format:@"You'd better to implement method:+(id)confirmDefaultConstraintsConnectToKey:"];
             }
@@ -362,6 +352,9 @@ using __NLDBPropertyString = NSString *;
                 maker.fk(obj.name, field, mm.tableName);
             } else {
                 [NSException raise:@"NLDB SQL Sytax Error" format:@"You'd better to implement method:+(tuple<Class, NSString *>)confirmForeignKeyConnectToKey:"];
+            }
+            if (!--has_a_fk) {
+                break;
             }
         };
     }

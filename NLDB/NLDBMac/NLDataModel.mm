@@ -8,7 +8,20 @@
 
 #import "NLDataModel.h"
 
+
+static NSDateFormatter *__NLDBDateformatter;
+
 @implementation NLDataModel
+
++ (void)setDateformatter:(NSDateFormatter *)dateformatter
+{
+    __NLDBDateformatter = dateformatter;
+}
+
++ (NSDateFormatter *)dateformatter
+{
+    return __NLDBDateformatter;
+}
 
 + (NSString *)confirmTableName
 {
@@ -17,7 +30,7 @@
 
 + (tuple<Class, NSString *>)confirmForeignKeyConnectToKey:(NSString *)propertyName
 {
-    return {};
+    return make_tuple(Nil, nil);
 }
 
 + (NSString *)confirmCheckConstraintsConnectToKey:(NSString *)propertyName
