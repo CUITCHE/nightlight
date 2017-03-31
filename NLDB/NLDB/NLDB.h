@@ -17,3 +17,10 @@ FOUNDATION_EXPORT const unsigned char NLDBVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <NLDB/PublicHeader.h>
 
 
+#import <NLConstructor>
+#import <NLDataModel>
+#import <NLDBDataModelDriver>
+#import <NLSqlFunctionPackage>
+#import <condition>
+#import <constraints>
+#import <SqlBuildBase>
