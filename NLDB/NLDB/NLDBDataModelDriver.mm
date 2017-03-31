@@ -8,7 +8,7 @@
 
 #import "NLDBDataModelDriver.h"
 #include <objc/runtime.h>
-#import "FMDatabase.h"
+#import <FMDB/FMDB.h>
 #import "NLDataModel.h"
 #import "constraints.h"
 #import "__NLDBModelModel.h"

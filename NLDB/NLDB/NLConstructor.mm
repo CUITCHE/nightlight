@@ -8,8 +8,7 @@
 
 #include "NLConstructor.h"
 #import "condition.h"
-#import "FMDatabase.h"
-#import "FMResultSet.h"
+#import <FMDB/FMDB.h>
 #import <objc/runtime.h>
 
 const char kNLConstructorRuntimeKey = '\0';

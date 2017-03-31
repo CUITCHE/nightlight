@@ -6,6 +6,8 @@
 //  Copyright © 2017年 CHE. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+
 //! Project version number for NLDB.
 FOUNDATION_EXPORT double NLDBVersionNumber;
 
@@ -22,3 +24,4 @@ FOUNDATION_EXPORT const unsigned char NLDBVersionString[];
 #import "condition.h"
 #import "constraints.h"
 #import "SqlBuildBase.h"
+#import "FMDB.h"
