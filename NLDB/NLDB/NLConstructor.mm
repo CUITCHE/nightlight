@@ -8,7 +8,13 @@
 
 #include "NLConstructor.h"
 #import "condition.h"
+
+#if TARGET_OS_MAC
+#import <FMDB_Mac/FMDB_Mac.h>
+#else
 #import <FMDB/FMDB.h>
+#endif
+
 #import <objc/runtime.h>
 
 const char kNLConstructorRuntimeKey = '\0';

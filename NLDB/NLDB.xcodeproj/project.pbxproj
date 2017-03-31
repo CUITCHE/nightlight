@@ -58,6 +58,7 @@
 		FBC540761E8E5DE30092886D /* constraints.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB9745151E8E3AA3001FE67F /* constraints.mm */; };
 		FBC540771E8E5DE30092886D /* SqlBuildBase.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB97451A1E8E3AA3001FE67F /* SqlBuildBase.mm */; };
 		FBC540E11E8E6F650092886D /* FMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC540E01E8E6F650092886D /* FMDB.framework */; };
+		FBC541081E8E74090092886D /* FMDB_Mac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC541071E8E74090092886D /* FMDB_Mac.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -106,6 +107,7 @@
 		FB9745191E8E3AA3001FE67F /* SqlBuildBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqlBuildBase.h; sourceTree = "<group>"; };
 		FB97451A1E8E3AA3001FE67F /* SqlBuildBase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SqlBuildBase.mm; sourceTree = "<group>"; };
 		FBC540E01E8E6F650092886D /* FMDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FMDB.framework; path = "../ThirdParty/build/Debug-iphoneos/FMDB.framework"; sourceTree = "<group>"; };
+		FBC541071E8E74090092886D /* FMDB_Mac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FMDB_Mac.framework; path = "../ThirdParty/build/Debug-iphoneos/FMDB_Mac.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBC541081E8E74090092886D /* FMDB_Mac.framework in Frameworks */,
 				FB5933691E8126D6002482DF /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -188,6 +191,7 @@
 		FB5933671E8126D6002482DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FBC541071E8E74090092886D /* FMDB_Mac.framework */,
 				FBC540E01E8E6F650092886D /* FMDB.framework */,
 				FB8FDBCA1E8264E0007A6228 /* libsqlite3.tbd */,
 				FB5933681E8126D6002482DF /* libsqlite3.tbd */,

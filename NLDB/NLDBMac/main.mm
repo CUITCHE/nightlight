@@ -8,7 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "NLDB.h"
-#import "FMDB.h"
+#if TARGET_OS_MAC
+#import <FMDB_Mac/FMDB_Mac.h>
+#else
+#import <FMDB/FMDB.h>
+#endif
 
 @interface NSModel : NSObject
 
