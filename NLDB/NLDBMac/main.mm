@@ -7,12 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NLConstructor.h"
-#import "condition.h"
+#import "NLDB.h"
 #import "FMDB.h"
-
-#import "NLDataModel.h"
-#import "NLDBDataModelDriver.h"
 
 @interface NSModel : NSObject
 

@@ -7,22 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FB07123A1E81206B00F4B16C /* NLDB.h in Headers */ = {isa = PBXBuildFile; fileRef = FB0712381E81206B00F4B16C /* NLDB.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB0712471E8120A700F4B16C /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB0712461E8120A700F4B16C /* main.mm */; };
-		FB5933561E8124F8002482DF /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = FB59333C1E8124F8002482DF /* FMDatabase.h */; };
+		FB5933561E8124F8002482DF /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = FB59333C1E8124F8002482DF /* FMDatabase.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		FB5933571E8124F8002482DF /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = FB59333D1E8124F8002482DF /* FMDatabase.m */; };
 		FB5933581E8124F8002482DF /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = FB59333D1E8124F8002482DF /* FMDatabase.m */; };
-		FB5933591E8124F8002482DF /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = FB59333E1E8124F8002482DF /* FMDatabaseAdditions.h */; };
+		FB5933591E8124F8002482DF /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = FB59333E1E8124F8002482DF /* FMDatabaseAdditions.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		FB59335A1E8124F8002482DF /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FB59333F1E8124F8002482DF /* FMDatabaseAdditions.m */; };
 		FB59335B1E8124F8002482DF /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FB59333F1E8124F8002482DF /* FMDatabaseAdditions.m */; };
-		FB59335C1E8124F8002482DF /* FMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = FB5933401E8124F8002482DF /* FMDatabasePool.h */; };
+		FB59335C1E8124F8002482DF /* FMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = FB5933401E8124F8002482DF /* FMDatabasePool.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		FB59335D1E8124F8002482DF /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5933411E8124F8002482DF /* FMDatabasePool.m */; };
 		FB59335E1E8124F8002482DF /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5933411E8124F8002482DF /* FMDatabasePool.m */; };
-		FB59335F1E8124F8002482DF /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = FB5933421E8124F8002482DF /* FMDatabaseQueue.h */; };
+		FB59335F1E8124F8002482DF /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = FB5933421E8124F8002482DF /* FMDatabaseQueue.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		FB5933601E8124F8002482DF /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5933431E8124F8002482DF /* FMDatabaseQueue.m */; };
 		FB5933611E8124F8002482DF /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5933431E8124F8002482DF /* FMDatabaseQueue.m */; };
-		FB5933621E8124F8002482DF /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = FB5933441E8124F8002482DF /* FMDB.h */; };
-		FB5933631E8124F8002482DF /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = FB5933451E8124F8002482DF /* FMResultSet.h */; };
+		FB5933621E8124F8002482DF /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = FB5933441E8124F8002482DF /* FMDB.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		FB5933631E8124F8002482DF /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = FB5933451E8124F8002482DF /* FMResultSet.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		FB5933641E8124F8002482DF /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5933461E8124F8002482DF /* FMResultSet.m */; };
 		FB5933651E8124F8002482DF /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5933461E8124F8002482DF /* FMResultSet.m */; };
 		FB5933661E8124F8002482DF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB5933471E8124F8002482DF /* Info.plist */; };
@@ -37,50 +36,49 @@
 		FB8FDBDF1E826B28007A6228 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5933461E8124F8002482DF /* FMResultSet.m */; };
 		FB97451B1E8E3AA3001FE67F /* NLConstructor.h in Headers */ = {isa = PBXBuildFile; fileRef = FB9745011E8E3AA3001FE67F /* NLConstructor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB97451C1E8E3AA3001FE67F /* NLConstructor.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB9745021E8E3AA3001FE67F /* NLConstructor.mm */; };
-		FB97451D1E8E3AA3001FE67F /* NLConstructor.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB9745021E8E3AA3001FE67F /* NLConstructor.mm */; };
 		FB97451E1E8E3AA3001FE67F /* NLConstructor.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB9745021E8E3AA3001FE67F /* NLConstructor.mm */; };
 		FB97451F1E8E3AA3001FE67F /* NLDataModel.h in Headers */ = {isa = PBXBuildFile; fileRef = FB9745031E8E3AA3001FE67F /* NLDataModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB9745201E8E3AA3001FE67F /* NLDataModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB9745041E8E3AA3001FE67F /* NLDataModel.mm */; };
-		FB9745211E8E3AA3001FE67F /* NLDataModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB9745041E8E3AA3001FE67F /* NLDataModel.mm */; };
 		FB9745221E8E3AA3001FE67F /* NLDataModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB9745041E8E3AA3001FE67F /* NLDataModel.mm */; };
 		FB9745231E8E3AA3001FE67F /* NLDB.h in Headers */ = {isa = PBXBuildFile; fileRef = FB9745051E8E3AA3001FE67F /* NLDB.h */; };
 		FB9745241E8E3AA3001FE67F /* NLDBDataModelDriver.h in Headers */ = {isa = PBXBuildFile; fileRef = FB9745061E8E3AA3001FE67F /* NLDBDataModelDriver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB9745251E8E3AA3001FE67F /* NLDBDataModelDriver.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB9745071E8E3AA3001FE67F /* NLDBDataModelDriver.mm */; };
-		FB9745261E8E3AA3001FE67F /* NLDBDataModelDriver.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB9745071E8E3AA3001FE67F /* NLDBDataModelDriver.mm */; };
 		FB9745271E8E3AA3001FE67F /* NLDBDataModelDriver.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB9745071E8E3AA3001FE67F /* NLDBDataModelDriver.mm */; };
 		FB9745281E8E3AA3001FE67F /* NLSqlFunctionPackage.h in Headers */ = {isa = PBXBuildFile; fileRef = FB9745081E8E3AA3001FE67F /* NLSqlFunctionPackage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB9745291E8E3AA3001FE67F /* NLSqlFunctionPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = FB9745091E8E3AA3001FE67F /* NLSqlFunctionPackage.m */; };
-		FB97452A1E8E3AA3001FE67F /* NLSqlFunctionPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = FB9745091E8E3AA3001FE67F /* NLSqlFunctionPackage.m */; };
 		FB97452B1E8E3AA3001FE67F /* NLSqlFunctionPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = FB9745091E8E3AA3001FE67F /* NLSqlFunctionPackage.m */; };
 		FB97452C1E8E3AA3001FE67F /* __NLDBDataModelClassProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = FB97450B1E8E3AA3001FE67F /* __NLDBDataModelClassProperty.h */; };
 		FB97452D1E8E3AA3001FE67F /* __NLDBDataModelClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = FB97450C1E8E3AA3001FE67F /* __NLDBDataModelClassProperty.m */; };
-		FB97452E1E8E3AA3001FE67F /* __NLDBDataModelClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = FB97450C1E8E3AA3001FE67F /* __NLDBDataModelClassProperty.m */; };
 		FB97452F1E8E3AA3001FE67F /* __NLDBDataModelClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = FB97450C1E8E3AA3001FE67F /* __NLDBDataModelClassProperty.m */; };
 		FB9745301E8E3AA3001FE67F /* __NLDBModelModel.h in Headers */ = {isa = PBXBuildFile; fileRef = FB97450D1E8E3AA3001FE67F /* __NLDBModelModel.h */; };
 		FB9745311E8E3AA3001FE67F /* __NLDBModelModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB97450E1E8E3AA3001FE67F /* __NLDBModelModel.mm */; };
-		FB9745321E8E3AA3001FE67F /* __NLDBModelModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB97450E1E8E3AA3001FE67F /* __NLDBModelModel.mm */; };
 		FB9745331E8E3AA3001FE67F /* __NLDBModelModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB97450E1E8E3AA3001FE67F /* __NLDBModelModel.mm */; };
 		FB9745341E8E3AA3001FE67F /* __NLDBPrimitiveTypeTuple.h in Headers */ = {isa = PBXBuildFile; fileRef = FB97450F1E8E3AA3001FE67F /* __NLDBPrimitiveTypeTuple.h */; };
 		FB9745351E8E3AA3001FE67F /* __NLDBPrimitiveTypeTuple.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB9745101E8E3AA3001FE67F /* __NLDBPrimitiveTypeTuple.mm */; };
-		FB9745361E8E3AA3001FE67F /* __NLDBPrimitiveTypeTuple.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB9745101E8E3AA3001FE67F /* __NLDBPrimitiveTypeTuple.mm */; };
 		FB9745371E8E3AA3001FE67F /* __NLDBPrimitiveTypeTuple.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB9745101E8E3AA3001FE67F /* __NLDBPrimitiveTypeTuple.mm */; };
 		FB9745381E8E3AA3001FE67F /* condition.h in Headers */ = {isa = PBXBuildFile; fileRef = FB9745121E8E3AA3001FE67F /* condition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB9745391E8E3AA3001FE67F /* condition.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB9745131E8E3AA3001FE67F /* condition.mm */; };
-		FB97453A1E8E3AA3001FE67F /* condition.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB9745131E8E3AA3001FE67F /* condition.mm */; };
 		FB97453B1E8E3AA3001FE67F /* condition.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB9745131E8E3AA3001FE67F /* condition.mm */; };
 		FB97453C1E8E3AA3001FE67F /* constraints.h in Headers */ = {isa = PBXBuildFile; fileRef = FB9745141E8E3AA3001FE67F /* constraints.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB97453D1E8E3AA3001FE67F /* constraints.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB9745151E8E3AA3001FE67F /* constraints.mm */; };
-		FB97453E1E8E3AA3001FE67F /* constraints.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB9745151E8E3AA3001FE67F /* constraints.mm */; };
 		FB97453F1E8E3AA3001FE67F /* constraints.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB9745151E8E3AA3001FE67F /* constraints.mm */; };
 		FB9745401E8E3AA3001FE67F /* __SqlDDL.h in Headers */ = {isa = PBXBuildFile; fileRef = FB9745171E8E3AA3001FE67F /* __SqlDDL.h */; };
 		FB9745411E8E3AA3001FE67F /* __SqlDDL.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB9745181E8E3AA3001FE67F /* __SqlDDL.mm */; };
-		FB9745421E8E3AA3001FE67F /* __SqlDDL.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB9745181E8E3AA3001FE67F /* __SqlDDL.mm */; };
 		FB9745431E8E3AA3001FE67F /* __SqlDDL.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB9745181E8E3AA3001FE67F /* __SqlDDL.mm */; };
 		FB9745441E8E3AA3001FE67F /* SqlBuildBase.h in Headers */ = {isa = PBXBuildFile; fileRef = FB9745191E8E3AA3001FE67F /* SqlBuildBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB9745451E8E3AA3001FE67F /* SqlBuildBase.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB97451A1E8E3AA3001FE67F /* SqlBuildBase.mm */; };
-		FB9745461E8E3AA3001FE67F /* SqlBuildBase.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB97451A1E8E3AA3001FE67F /* SqlBuildBase.mm */; };
 		FB9745471E8E3AA3001FE67F /* SqlBuildBase.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB97451A1E8E3AA3001FE67F /* SqlBuildBase.mm */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FBC540691E8E5B680092886D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB07122C1E81206B00F4B16C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB0712341E81206B00F4B16C;
+			remoteInfo = NLDB;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		FB0712421E8120A700F4B16C /* CopyFiles */ = {
@@ -96,7 +94,6 @@
 
 /* Begin PBXFileReference section */
 		FB0712351E81206B00F4B16C /* NLDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NLDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB0712381E81206B00F4B16C /* NLDB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NLDB.h; sourceTree = "<group>"; };
 		FB0712391E81206B00F4B16C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB0712441E8120A700F4B16C /* NLDBMac */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = NLDBMac; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB0712461E8120A700F4B16C /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
@@ -195,7 +192,7 @@
 		FB0712371E81206B00F4B16C /* NLDB */ = {
 			isa = PBXGroup;
 			children = (
-				FB0712381E81206B00F4B16C /* NLDB.h */,
+				FB97450A1E8E3AA3001FE67F /* private */,
 				FB9745011E8E3AA3001FE67F /* NLConstructor.h */,
 				FB9745021E8E3AA3001FE67F /* NLConstructor.mm */,
 				FB9745031E8E3AA3001FE67F /* NLDataModel.h */,
@@ -205,7 +202,6 @@
 				FB9745071E8E3AA3001FE67F /* NLDBDataModelDriver.mm */,
 				FB9745081E8E3AA3001FE67F /* NLSqlFunctionPackage.h */,
 				FB9745091E8E3AA3001FE67F /* NLSqlFunctionPackage.m */,
-				FB97450A1E8E3AA3001FE67F /* private */,
 				FB9745111E8E3AA3001FE67F /* sqlBuild */,
 				FB0712391E81206B00F4B16C /* Info.plist */,
 			);
@@ -289,11 +285,11 @@
 		FB9745111E8E3AA3001FE67F /* sqlBuild */ = {
 			isa = PBXGroup;
 			children = (
+				FB9745161E8E3AA3001FE67F /* private */,
 				FB9745121E8E3AA3001FE67F /* condition.h */,
 				FB9745131E8E3AA3001FE67F /* condition.mm */,
 				FB9745141E8E3AA3001FE67F /* constraints.h */,
 				FB9745151E8E3AA3001FE67F /* constraints.mm */,
-				FB9745161E8E3AA3001FE67F /* private */,
 				FB9745191E8E3AA3001FE67F /* SqlBuildBase.h */,
 				FB97451A1E8E3AA3001FE67F /* SqlBuildBase.mm */,
 			);
@@ -324,7 +320,6 @@
 				FB5933621E8124F8002482DF /* FMDB.h in Headers */,
 				FB5933631E8124F8002482DF /* FMResultSet.h in Headers */,
 				FB9745301E8E3AA3001FE67F /* __NLDBModelModel.h in Headers */,
-				FB07123A1E81206B00F4B16C /* NLDB.h in Headers */,
 				FB97452C1E8E3AA3001FE67F /* __NLDBDataModelClassProperty.h in Headers */,
 				FB9745381E8E3AA3001FE67F /* condition.h in Headers */,
 				FB5933561E8124F8002482DF /* FMDatabase.h in Headers */,
@@ -370,6 +365,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FBC5406A1E8E5B680092886D /* PBXTargetDependency */,
 			);
 			name = NLDBMac;
 			productName = NLDBMac;
@@ -484,23 +480,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB9745361E8E3AA3001FE67F /* __NLDBPrimitiveTypeTuple.mm in Sources */,
-				FB97451D1E8E3AA3001FE67F /* NLConstructor.mm in Sources */,
 				FB5933581E8124F8002482DF /* FMDatabase.m in Sources */,
 				FB0712471E8120A700F4B16C /* main.mm in Sources */,
-				FB9745261E8E3AA3001FE67F /* NLDBDataModelDriver.mm in Sources */,
-				FB9745421E8E3AA3001FE67F /* __SqlDDL.mm in Sources */,
-				FB9745211E8E3AA3001FE67F /* NLDataModel.mm in Sources */,
 				FB5933611E8124F8002482DF /* FMDatabaseQueue.m in Sources */,
-				FB97453A1E8E3AA3001FE67F /* condition.mm in Sources */,
 				FB5933651E8124F8002482DF /* FMResultSet.m in Sources */,
 				FB59335E1E8124F8002482DF /* FMDatabasePool.m in Sources */,
 				FB59335B1E8124F8002482DF /* FMDatabaseAdditions.m in Sources */,
-				FB97452A1E8E3AA3001FE67F /* NLSqlFunctionPackage.m in Sources */,
-				FB97452E1E8E3AA3001FE67F /* __NLDBDataModelClassProperty.m in Sources */,
-				FB9745321E8E3AA3001FE67F /* __NLDBModelModel.mm in Sources */,
-				FB9745461E8E3AA3001FE67F /* SqlBuildBase.mm in Sources */,
-				FB97453E1E8E3AA3001FE67F /* constraints.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,6 +514,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FBC5406A1E8E5B680092886D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB0712341E81206B00F4B16C /* NLDB */;
+			targetProxy = FBC540691E8E5B680092886D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		FB07123B1E81206B00F4B16C /* Debug */ = {
@@ -572,7 +565,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -617,7 +610,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

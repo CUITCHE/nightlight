@@ -6,8 +6,6 @@
 //  Copyright © 2017年 CHE. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 //! Project version number for NLDB.
 FOUNDATION_EXPORT double NLDBVersionNumber;
 
@@ -17,10 +15,10 @@ FOUNDATION_EXPORT const unsigned char NLDBVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <NLDB/PublicHeader.h>
 
 
-#import <NLConstructor>
-#import <NLDataModel>
-#import <NLDBDataModelDriver>
-#import <NLSqlFunctionPackage>
-#import <condition>
-#import <constraints>
-#import <SqlBuildBase>
+#import "NLConstructor.h"
+#import "NLDataModel.h"
+#import "NLDBDataModelDriver.h"
+#import "NLSqlFunctionPackage.h"
+#import "condition.h"
+#import "constraints.h"
+#import "SqlBuildBase.h"
