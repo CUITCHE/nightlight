@@ -1,5 +1,5 @@
 //
-//  NLConstructor.hpp
+//  NLConstructor.h
 //  NLDB
 //
 //  Created by hejunqiu on 2017/3/21.

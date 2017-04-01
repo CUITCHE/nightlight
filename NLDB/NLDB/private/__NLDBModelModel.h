@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy, readonly) NSString *sqliteSql;
 @property (nonatomic, strong, readonly) NSString *tableName;
 
+@property (nonatomic, strong, readonly) NSArray<NSString *> *properties;
+
 - (instancetype)initWithModelClass:(Class)cls;
 
 @end

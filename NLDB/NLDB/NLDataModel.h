@@ -59,6 +59,7 @@ NS_ASSUME_NONNULL_BEGIN
 /************************************** Constraints Implementation **************************************/
 
 @protocol ForeignKey <_foreign_key>
+@optional
 
 /**
  To confirm foreign key(property name) which connects to. The NLDB will check the field of table class whether exists or
@@ -71,6 +72,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @protocol Check <_check>
+@optional
 
 /**
  To confirm check statement after field which connects to. You can use constraints class to genrate check statement, such
@@ -87,6 +89,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @protocol Default <_default>
+@optional
 
 /**
  To confirm a defualt statement after field which connects to. The NLDB will check the method's return.
@@ -138,8 +141,13 @@ typedef NS_ENUM(NSUInteger, NLDBStringType) {
  If a subclass of NSLDataModel follow a protocol like '__protocolName__', '__protocolName__' is a table name of the
  subclass data model. And the table name can be wrote anywhere in protocol declare field.
  */
+
+@protocol __table__ <NSObject>
+
+@end
+
 #ifndef NLDBTable
-#define NLDBTable(table) @protocol __##table##__ <NSObject> @end
+#define NLDBTable(table) @protocol __##table##__ <__table__> @end
 #endif
 
 @protocol NLDataModel <ForeignKey, Check, Default, Ignore>
@@ -175,32 +183,13 @@ typedef NS_ENUM(NSUInteger, NLDBStringType) {
 
 @end
 
-@interface NLDataModel : NSObject <NLDataModel>
 
-@property (nonatomic) long long rowid;
+
+@interface NLDataModel : NSObject <NLDataModel>
 
 @property (class, nonatomic, strong) NSDateFormatter *dateformatter;
 
 @end
 
-
-/******************************************************** DEMO ********************************************************/
-
-NLDBTable(demo)
-
-
-@interface NLDBDataModelDemo : NLDataModel <__demo__>
-
-@property (nonatomic, strong) NSString<_primary_key> *id;
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic) NSInteger age;
-@property (nonatomic, strong) NSNumber<_foreign_key, _check> *courseId;
-@property (nonatomic, strong) NSString<_check> *gender;
-@property (nonatomic, strong) NSString<_default> *way;
-@property (nonatomic, strong) NSDate<_default> *startDateTime;
-@property (nonatomic, strong) NSString<_null> *note;
-@property (nonatomic) float speed;
-
-@end
 
 NS_ASSUME_NONNULL_END

@@ -7,8 +7,10 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "NLDB.h"
 #import <FMDB/FMDB.h>
+#import "NLDB.h"
+#import "CHDBTeacherDataModel.h"
+#import "CHDBCourseDataModel.h"
 
 @interface NLDBTests : XCTestCase
 
@@ -26,10 +28,12 @@
     [super tearDown];
 }
 
-- (void)testThrow {
+- (void)testTable {
     FMDatabase *db = [[FMDatabase alloc] initWithPath:nil];
     [db open];
-    [NLDBDataModelDriver createTablesWithModels:@[[NLDBDataModelDemo class]] database:db];
+    [NLDBDataModelDriver createTablesWithModels:@[[CHDBCourseDataModel class],
+                                                  [CHDBTeacherDataModel class]]
+                                       database:db];
     FMResultSet *st = [db getSchema];
     while ([st next]) {
         NSLog(@"%@", [st objectForColumnIndex:4]);

@@ -45,6 +45,7 @@ using __NLDBPropertyString = NSString *;
 @property (nonatomic, strong) NSMutableArray<__NLDBDataModelClassProperty *> *order_property;
 @property (nonatomic, copy) NSString *sqliteSql;
 @property (nonatomic, strong) NSString *tableName;
+@property (nonatomic, strong) NSArray<NSString *> *properties;
 
 @property (nonatomic) BOOL flag_confirmTableName;
 @property (nonatomic) BOOL flag_confirmNSStringSizeConnectsToKey;
@@ -109,7 +110,7 @@ using __NLDBPropertyString = NSString *;
                     [scanner scanUpToString:@">" intoString:&protocolDescription];
                     NSArray<NSString *> *protocolNames = [protocolDescription componentsSeparatedByString:@","];
                     if ([protocolNames containsObject:@"_ignore"]) {
-                        mcp.is_ignore = 1;
+                        mcp = nil;
                         goto __add_mcp__;
                     }
 
@@ -134,7 +135,6 @@ using __NLDBPropertyString = NSString *;
                         goto __add_mcp__;
                     }
                 }
-                ;
             } else if ([scanner scanString:@"{" intoString:nil]) {
                 [NSException raise:@"NLDB Data type is not allowed" format:@"NLDB don't support structure."];
             } else {
@@ -147,8 +147,10 @@ using __NLDBPropertyString = NSString *;
                 mcp.RAIIType = ptt;
             }
         __add_mcp__:
-            [_propertyIndex setObject:mcp forKey:mcp.name];
-            [_order_property addObject:mcp];
+            if (mcp) {
+                [_propertyIndex setObject:mcp forKey:mcp.name];
+                [_order_property addObject:mcp];
+            }
         }
         free(properties);
         cls = [cls superclass];
@@ -255,7 +257,11 @@ using __NLDBPropertyString = NSString *;
             [NSException raise:@"NLDB NSNumber type not allowed" format:@"%s is not be supported.", type];
         }
     } else {
-        maker.column(mcp.name, __SqlType::Double);
+        if (mcp.is_pk) {
+            maker.column(mcp.name, __SqlType::Integer);
+        } else {
+            maker.column(mcp.name, __SqlType::Double);
+        }
     }
 }
 
@@ -362,6 +368,7 @@ using __NLDBPropertyString = NSString *;
     _sqliteSql = maker.getClause();
 }
 
+#pragma mark - property
 - (NSString *)sqliteSql
 {
     if (_sqliteSql.length == 0) {
@@ -370,4 +377,11 @@ using __NLDBPropertyString = NSString *;
     return _sqliteSql.copy;
 }
 
+- (NSArray<NSString *> *)properties
+{
+    if (!_properties) {
+        _properties = self.propertyIndex.allKeys;
+    }
+    return _properties;
+}
 @end

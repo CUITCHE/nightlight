@@ -24,3 +24,4 @@ FOUNDATION_EXPORT const unsigned char NLDBVersionString[];
 #import "condition.h"
 #import "constraints.h"
 #import "SqlBuildBase.h"
+#import "nldb.hpp"

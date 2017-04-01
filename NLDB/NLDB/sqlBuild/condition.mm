@@ -164,7 +164,7 @@ condition& condition::appendBindValue(NSArray *_values)
 NSString *condition::getClause() const
 {
     if (_sql.length) {
-        return [NSString stringWithFormat:@" WHERE %@", _sql];
+        return _sql;
     }
     return @"";
 }
