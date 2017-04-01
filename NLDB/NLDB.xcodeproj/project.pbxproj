@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB3F34B31E91E9E80085B78F /* NLDataModel+DML.h in Headers */ = {isa = PBXBuildFile; fileRef = FB3F34B11E91E9E80085B78F /* NLDataModel+DML.h */; };
+		FB3F34B41E91E9E80085B78F /* NLDataModel+DML.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB3F34B21E91E9E80085B78F /* NLDataModel+DML.mm */; };
 		FB8FAA8E1E8F7EF60049D868 /* CHDBTeacherDataModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB8FAA8D1E8F7EF60049D868 /* CHDBTeacherDataModel.mm */; };
 		FB8FAA911E8F80D80049D868 /* CHDBCourseDataModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB8FAA901E8F80D80049D868 /* CHDBCourseDataModel.mm */; };
 		FB8FDBCB1E8264E0007A6228 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FB8FDBCA1E8264E0007A6228 /* libsqlite3.tbd */; };
@@ -32,13 +34,14 @@
 		FB9745411E8E3AA3001FE67F /* __SqlDDL.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB9745181E8E3AA3001FE67F /* __SqlDDL.mm */; };
 		FB9745441E8E3AA3001FE67F /* SqlBuildBase.h in Headers */ = {isa = PBXBuildFile; fileRef = FB9745191E8E3AA3001FE67F /* SqlBuildBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB9745451E8E3AA3001FE67F /* SqlBuildBase.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB97451A1E8E3AA3001FE67F /* SqlBuildBase.mm */; };
+		FBA86F561E91F2E700C1F364 /* __NLDBDatabasePackage.h in Headers */ = {isa = PBXBuildFile; fileRef = FBA86F541E91F2E700C1F364 /* __NLDBDatabasePackage.h */; };
+		FBA86F571E91F2E700C1F364 /* __NLDBDatabasePackage.mm in Sources */ = {isa = PBXBuildFile; fileRef = FBA86F551E91F2E700C1F364 /* __NLDBDatabasePackage.mm */; };
 		FBC5406C1E8E5D580092886D /* NLDB.h in Headers */ = {isa = PBXBuildFile; fileRef = FB9745051E8E3AA3001FE67F /* NLDB.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FBC540E11E8E6F650092886D /* FMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC540E01E8E6F650092886D /* FMDB.framework */; };
 		FBC541341E8E7BDA0092886D /* NLDBTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = FBC541331E8E7BDA0092886D /* NLDBTests.mm */; };
 		FBC541361E8E7BDA0092886D /* NLDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0712351E81206B00F4B16C /* NLDB.framework */; };
 		FBC5413D1E8E7C370092886D /* FMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC5413C1E8E7C370092886D /* FMDB.framework */; };
 		FBC541401E8E84B50092886D /* nldb.mm in Sources */ = {isa = PBXBuildFile; fileRef = FBC5413E1E8E84B50092886D /* nldb.mm */; };
-		FBC541411E8E84B50092886D /* nldb.mm in Sources */ = {isa = PBXBuildFile; fileRef = FBC5413E1E8E84B50092886D /* nldb.mm */; };
 		FBC541421E8E84B50092886D /* nldb.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FBC5413F1E8E84B50092886D /* nldb.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -55,6 +58,8 @@
 /* Begin PBXFileReference section */
 		FB0712351E81206B00F4B16C /* NLDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NLDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB0712391E81206B00F4B16C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB3F34B11E91E9E80085B78F /* NLDataModel+DML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NLDataModel+DML.h"; sourceTree = "<group>"; };
+		FB3F34B21E91E9E80085B78F /* NLDataModel+DML.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "NLDataModel+DML.mm"; sourceTree = "<group>"; };
 		FB5933681E8126D6002482DF /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/lib/libsqlite3.tbd; sourceTree = DEVELOPER_DIR; };
 		FB8FAA8C1E8F7EF60049D868 /* CHDBTeacherDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHDBTeacherDataModel.h; sourceTree = "<group>"; };
 		FB8FAA8D1E8F7EF60049D868 /* CHDBTeacherDataModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CHDBTeacherDataModel.mm; sourceTree = "<group>"; };
@@ -84,6 +89,8 @@
 		FB9745181E8E3AA3001FE67F /* __SqlDDL.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = __SqlDDL.mm; sourceTree = "<group>"; };
 		FB9745191E8E3AA3001FE67F /* SqlBuildBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqlBuildBase.h; sourceTree = "<group>"; };
 		FB97451A1E8E3AA3001FE67F /* SqlBuildBase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SqlBuildBase.mm; sourceTree = "<group>"; };
+		FBA86F541E91F2E700C1F364 /* __NLDBDatabasePackage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __NLDBDatabasePackage.h; sourceTree = "<group>"; };
+		FBA86F551E91F2E700C1F364 /* __NLDBDatabasePackage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = __NLDBDatabasePackage.mm; sourceTree = "<group>"; };
 		FBC540E01E8E6F650092886D /* FMDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FMDB.framework; path = "../ThirdParty/build/Debug-iphoneos/FMDB.framework"; sourceTree = "<group>"; };
 		FBC541071E8E74090092886D /* FMDB_Mac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FMDB_Mac.framework; path = "../ThirdParty/build/Debug-iphoneos/FMDB_Mac.framework"; sourceTree = "<group>"; };
 		FBC541311E8E7BDA0092886D /* NLDBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NLDBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +152,8 @@
 				FB9745021E8E3AA3001FE67F /* NLConstructor.mm */,
 				FB9745031E8E3AA3001FE67F /* NLDataModel.h */,
 				FB9745041E8E3AA3001FE67F /* NLDataModel.mm */,
+				FB3F34B11E91E9E80085B78F /* NLDataModel+DML.h */,
+				FB3F34B21E91E9E80085B78F /* NLDataModel+DML.mm */,
 				FB9745051E8E3AA3001FE67F /* NLDB.h */,
 				FB9745061E8E3AA3001FE67F /* NLDBDataModelDriver.h */,
 				FB9745071E8E3AA3001FE67F /* NLDBDataModelDriver.mm */,
@@ -177,6 +186,8 @@
 				FB97450E1E8E3AA3001FE67F /* __NLDBModelModel.mm */,
 				FB97450F1E8E3AA3001FE67F /* __NLDBPrimitiveTypeTuple.h */,
 				FB9745101E8E3AA3001FE67F /* __NLDBPrimitiveTypeTuple.mm */,
+				FBA86F541E91F2E700C1F364 /* __NLDBDatabasePackage.h */,
+				FBA86F551E91F2E700C1F364 /* __NLDBDatabasePackage.mm */,
 			);
 			path = private;
 			sourceTree = "<group>";
@@ -224,6 +235,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB3F34B31E91E9E80085B78F /* NLDataModel+DML.h in Headers */,
 				FBC5406C1E8E5D580092886D /* NLDB.h in Headers */,
 				FB9745401E8E3AA3001FE67F /* __SqlDDL.h in Headers */,
 				FB97453C1E8E3AA3001FE67F /* constraints.h in Headers */,
@@ -231,6 +243,7 @@
 				FB97451F1E8E3AA3001FE67F /* NLDataModel.h in Headers */,
 				FB9745341E8E3AA3001FE67F /* __NLDBPrimitiveTypeTuple.h in Headers */,
 				FB9745301E8E3AA3001FE67F /* __NLDBModelModel.h in Headers */,
+				FBA86F561E91F2E700C1F364 /* __NLDBDatabasePackage.h in Headers */,
 				FB97452C1E8E3AA3001FE67F /* __NLDBDataModelClassProperty.h in Headers */,
 				FB9745381E8E3AA3001FE67F /* condition.h in Headers */,
 				FB97451B1E8E3AA3001FE67F /* NLConstructor.h in Headers */,
@@ -345,7 +358,9 @@
 				FB9745451E8E3AA3001FE67F /* SqlBuildBase.mm in Sources */,
 				FB9745311E8E3AA3001FE67F /* __NLDBModelModel.mm in Sources */,
 				FB9745411E8E3AA3001FE67F /* __SqlDDL.mm in Sources */,
+				FB3F34B41E91E9E80085B78F /* NLDataModel+DML.mm in Sources */,
 				FBC541401E8E84B50092886D /* nldb.mm in Sources */,
+				FBA86F571E91F2E700C1F364 /* __NLDBDatabasePackage.mm in Sources */,
 				FB9745391E8E3AA3001FE67F /* condition.mm in Sources */,
 				FB9745201E8E3AA3001FE67F /* NLDataModel.mm in Sources */,
 				FB9745351E8E3AA3001FE67F /* __NLDBPrimitiveTypeTuple.mm in Sources */,
@@ -362,7 +377,6 @@
 				FB8FAA8E1E8F7EF60049D868 /* CHDBTeacherDataModel.mm in Sources */,
 				FB8FAA911E8F80D80049D868 /* CHDBCourseDataModel.mm in Sources */,
 				FBC541341E8E7BDA0092886D /* NLDBTests.mm in Sources */,
-				FBC541411E8E84B50092886D /* nldb.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

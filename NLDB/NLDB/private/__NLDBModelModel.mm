@@ -46,6 +46,7 @@ using __NLDBPropertyString = NSString *;
 @property (nonatomic, copy) NSString *sqliteSql;
 @property (nonatomic, strong) NSString *tableName;
 @property (nonatomic, strong) NSArray<NSString *> *properties;
+@property (nonatomic, strong) NSArray<NSString *> *propertiesExcludesAutomaticIncreasement;
 
 @property (nonatomic) BOOL flag_confirmTableName;
 @property (nonatomic) BOOL flag_confirmNSStringSizeConnectsToKey;
@@ -77,7 +78,7 @@ using __NLDBPropertyString = NSString *;
         return;
     }
     Class cls = self.modelClass;
-    while (cls != [NSObject class]) {
+    while (cls != [NLDataModel class]) {
         unsigned int propertyCount = 0;
         objc_property_t *properties = class_copyPropertyList(cls, &propertyCount);
         for (unsigned int i=0; i<propertyCount; ++i) {
@@ -316,10 +317,6 @@ using __NLDBPropertyString = NSString *;
             goto __end__;
         }
 
-        if (!obj.is_null) {
-            maker.nonull();
-        }
-
         if (obj.is_default) {
             if (self.flag_confirmDefaultConstraintsConnectToKey) {
                 id def = [self.modelClass confirmDefaultConstraintsConnectToKey:obj.name];
@@ -340,7 +337,9 @@ using __NLDBPropertyString = NSString *;
         }
 
     __end__:
-        ;
+        if (!obj.is_null) {
+            maker.nonull();
+        }
     };
     if (has_a_fk) {
         for (__NLDBDataModelClassProperty *obj in _order_property) {
@@ -384,4 +383,47 @@ using __NLDBPropertyString = NSString *;
     }
     return _properties;
 }
+
+- (NSArray<NSString *> *)propertiesExcludesAutomaticIncreasement
+{
+    if (_propertiesExcludesAutomaticIncreasement == nil) {
+        NSMutableArray<NSString *> *res = [NSMutableArray arrayWithCapacity:_order_property.count];
+        for (__NLDBDataModelClassProperty *mcp in _order_property) {
+            if (mcp.is_pk && mcp.RAIIType.type == __SqlType::Integer) {
+                // this is sqlite. when type is integer and constraints with primary key.
+                continue;
+            }
+            [res addObject:mcp.name];
+        }
+        _propertiesExcludesAutomaticIncreasement = res;
+    }
+    return _propertiesExcludesAutomaticIncreasement;
+}
+
 @end
+
+NSString *__log(Class modelClass, NSArray *modelObject, int flag)
+{
+    if (![modelClass isSubclassOfClass:[NLDataModel class]]) {
+        return nil;
+    }
+    if (modelClass == [NLDataModel class]) {
+        return @"";
+    }
+    __NLDBModelModel *mm = contactClass(modelClass);
+    // init with header
+    NSMutableString *logString = [NSMutableString stringWithFormat:@"|%@\n",[mm.properties componentsJoinedByString:@"\t\t|"]];
+    for (id obj in modelObject) {
+        NSMutableArray<NSString *> *component = [NSMutableArray arrayWithCapacity:mm.properties.count];
+        for (__NLDBDataModelClassProperty *mcp in mm.order_property) {
+            NSString *str = [NSString stringWithFormat:@"%@", [obj valueForKey:mcp.name]];
+            if (flag == 0 && str.length > 8) {
+                str = [str stringByReplacingCharactersInRange:NSMakeRange(8, str.length - 8) withString:@"..."];
+            }
+            [component addObject:str];
+        }
+        [logString appendFormat:@"|%@\n", [component componentsJoinedByString:@"\t\t|"]];
+    }
+
+    return logString;
+}

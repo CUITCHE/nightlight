@@ -15,7 +15,7 @@
 extern __NLDBModelModel* contactClass(Class cls);
 
 nldb::nldb(Class modelClass, FMDatabase *db/* = nil*/)
-:_c_id(modelClass)
+:_modelClass(modelClass)
 ,_db(db)
 ,_sql([NSMutableString string])
 {
@@ -26,25 +26,29 @@ nldb::~nldb()
 {
     [_db close];
     _db = nil;
-    _c_id = 0;
 }
 
-nldb& nldb::select(NSArray<NSString *> * _Nonnull columnFields)
+nldb& nldb::select(NSString * _Nullable field0, ...)
 {
-    do {
-        if (columnFields.count == 0) {
-            break;
+    NSMutableArray<NSString *> *fields = nil;
+    if (field0) {
+        fields = [NSMutableArray arrayWithObject:field0];
+        va_list ap;
+        va_start(ap, field0);
+        NSString *obj = va_arg(ap, NSString *);
+        while (obj) {
+            [fields addObject:obj];
+            obj = va_arg(ap, NSString *);
         }
-        _c_id = columnFields;
-        [_sql appendFormat:@"SELECT %@ ", [columnFields componentsJoinedByString:@","]];
-    } while (0);
-    return *this;
-}
-
-nldb& nldb::select(Class  _Nonnull __unsafe_unretained modelClass)
-{
-    _c_id = modelClass;
-    [_sql appendString:@"SELECT * "];
+        va_end(ap);
+    }
+    if (fields.count == 0) {
+        __NLDBModelModel *mm = contactClass(_modelClass);
+        [_sql setString:[NSString stringWithFormat:@"SELECT %@ ", [mm.properties componentsJoinedByString:@","]]];
+    } else {
+        [_sql setString:[NSString stringWithFormat:@"SELECT %@ ", [fields componentsJoinedByString:@","]]];
+        _columns = fields;
+    }
     return *this;
 }
 
@@ -56,9 +60,15 @@ nldb& nldb::from(FMDatabase * _Nonnull db)
 
 nldb& nldb::where(const SqlBuildBase &condition)
 {
-    __NLDBModelModel *mm = contactClass(_c_id);
+    __NLDBModelModel *mm = contactClass(_modelClass);
     _cond = condition;
-    [_sql appendFormat:@"FROM %@ WHERE %@", mm.tableName, condition.getClause()];
+    NSString *condi = condition.getClause();
+    if (condi.length == 0) {
+        [_sql appendFormat:@"FROM %@ ", mm.tableName];
+    } else {
+        [_sql appendFormat:@"FROM %@ WHERE %@", mm.tableName, condi];
+    }
+
     return *this;
 }
 
@@ -93,9 +103,9 @@ NS_INLINE NSArray * makeObject(Class modelClass, NSArray<NSDictionary *> * dataS
     NSMutableArray *res = [NSMutableArray array];
     for (NSDictionary *dict in dataSource) {
         id ins = [[modelClass alloc] init];
-        for (__NLDBDataModelClassProperty *property in mm.propertyIndex) {
+        [mm.propertyIndex enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, __NLDBDataModelClassProperty * _Nonnull property, BOOL * _Nonnull stop) {
             if (!dict[property.name]) {
-                continue;
+                return;
             }
             if (property.RAIIType) {
                 [ins setValue:dict[property.name] forKey:property.name];
@@ -120,7 +130,7 @@ NS_INLINE NSArray * makeObject(Class modelClass, NSArray<NSDictionary *> * dataS
             } else {
                 NSCAssert(NO, @"Unknown type for property:%@ of %@", property.name, NSStringFromClass(modelClass));
             }
-        }
+        }];
         [res addObject:ins];
     }
     return res;
@@ -142,25 +152,108 @@ id nldb::result() const
     if (!_db) {
         return nil;
     }
-    if (object_isClass(_c_id)) {
-        id res = executeSqlWithModel(_c_id, _db, _sql, _cond);
+    if (_columns) {
+        NSArray<NSDictionary *> *res = executeSqlWithColumns(_columns, _db, _sql, _cond);
+        _columns = nil;
         return res;
     }
-    if ([_c_id isKindOfClass:[NSArray class]]) {
-        NSArray<NSDictionary *> *res = executeSqlWithColumns(_c_id, _db, _sql, _cond);
+    if (object_isClass(_modelClass)) {
+        id res = executeSqlWithModel(_modelClass, _db, _sql, _cond);
         return res;
     }
     return nil;
 }
 
-#pragma mark - private
-nldb& nldb::__select()
+#pragma mark - insert
+NS_INLINE void insert_build(NSMutableString *sql, NSUInteger count)
 {
+    [sql appendString:@"VALUES (?"];
+    while (--count) {
+        [sql appendString:@",?"];
+    }
+    [sql appendString:@")"];
+}
+
+nldb& nldb::insert(NSArray<NSString *> *fields)
+{
+    __NLDBModelModel *mm = contactClass(_modelClass);
+    [_sql setString:[NSString stringWithFormat:@"INSERT INTO %@ ", mm.tableName]];
+    if (fields.count != 0) {
+        [_sql appendFormat:@"(%@)", [fields componentsJoinedByString:@","]];
+        insert_build(_sql, fields.count);
+    } else {
+        insert_build(_sql, mm.properties.count);
+    }
     return *this;
 }
 
-nldb& nldb::__select(NSString * _Nonnull column)
+NS_INLINE BOOL executeUpateInsert(NSString *sql, FMDatabase *db, NSArray *values)
 {
-    [_c_id addObject:column];
+    BOOL need_change = NO;
+    for (id obj in values) {
+        if ([obj isKindOfClass:[NSDecimalNumber class]]) {
+            need_change = YES;
+            break;
+        }
+    }
+    if (need_change) {
+        NSMutableArray *array = [NSMutableArray arrayWithCapacity:values.count];
+        for (id obj in values) {
+            if ([obj isKindOfClass:[NSDecimalNumber class]]) {
+                NSDecimal decimal = [obj decimalValue];
+                NSData *__d = [[NSData alloc] initWithBytes:&decimal length:sizeof(decimal)];
+                [array addObject:__d];
+            } else {
+                [array addObject:obj];
+            }
+        }
+        values = array;
+    }
+    NSError *error = nil;
+    BOOL suc = [db executeUpdate:sql values:values error:&error];
+    if (error) {
+        NSLog(@"%@", error);
+    }
+    return suc;
+}
+
+BOOL nldb::values(NSArray *values)
+{
+    if (values.count == 0) {
+        return NO;
+    }
+    return executeUpateInsert(_sql, _db, values);
+}
+
+void nldb::valuesMulti(NSArray *values, ...)
+{
+    this->values(values);
+    va_list ap;
+    va_start(ap, values);
+    NSArray *obj = nil;
+    while (obj) {
+        this->values(values);
+        obj = va_arg(ap, NSArray *);
+    }
+    va_end(ap);
+}
+
+#pragma mark - update
+nldb& nldb::update(NSArray<NSString *> *fields)
+{
+    do {
+        if (!_db) {
+            NSCAssert(NO, @"Invalid db at %p.", &_db);
+            break;
+        }
+        [_sql setString:@"UPDATE "];
+        __NLDBModelModel *mm = contactClass(_modelClass);
+        [_sql appendFormat:@"%@ SET ", mm.tableName];
+        if (fields.count == 0) {
+            [_sql appendFormat:@"%@", [mm.properties componentsJoinedByString:@"=?,"]];
+        } else {
+            [_sql appendFormat:@"%@", [fields componentsJoinedByString:@"=?,"]];
+        }
+    } while (0);
     return *this;
 }

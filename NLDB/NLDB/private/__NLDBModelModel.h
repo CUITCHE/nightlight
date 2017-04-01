@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, readonly) NSString *tableName;
 
 @property (nonatomic, strong, readonly) NSArray<NSString *> *properties;
+@property (nonatomic, strong, readonly) NSArray<NSString *> *propertiesExcludesAutomaticIncreasement;
 
 - (instancetype)initWithModelClass:(Class)cls;
 

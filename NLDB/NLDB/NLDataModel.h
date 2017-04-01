@@ -189,7 +189,17 @@ typedef NS_ENUM(NSUInteger, NLDBStringType) {
 
 @property (class, nonatomic, strong) NSDateFormatter *dateformatter;
 
+- (NSString *)description;
+
++ (NSString *)arrayObjectDescription:(NSArray *)object;
+
 @end
 
+
+@interface NSArray (NLDataModelExtend)
+
+@property (nonatomic, strong, readonly) NSString *descriptionWithDataModels;
+
+@end
 
 NS_ASSUME_NONNULL_END

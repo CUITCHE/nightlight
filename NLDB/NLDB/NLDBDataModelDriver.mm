@@ -8,11 +8,7 @@
 
 #import "NLDBDataModelDriver.h"
 #include <objc/runtime.h>
-#if TARGET_OS_MAC
-#import <FMDB_Mac/FMDB_Mac.h>
-#else
 #import <FMDB/FMDB.h>
-#endif
 #import "NLDataModel.h"
 #import "constraints.h"
 #import "__NLDBModelModel.h"

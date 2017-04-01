@@ -8,6 +8,7 @@
 
 #import "NLDataModel.h"
 
+extern NSString *__log(Class modelClass, NSArray *modelObject, int flag);
 
 static NSDateFormatter *__NLDBDateformatter;
 
@@ -21,6 +22,25 @@ static NSDateFormatter *__NLDBDateformatter;
 + (NSDateFormatter *)dateformatter
 {
     return __NLDBDateformatter;
+}
+
+- (NSString *)description
+{
+    return __log([self class], @[self], ~0);
+}
+
++ (NSString *)arrayObjectDescription:(NSArray *)objects
+{
+    return __log([objects.firstObject class], objects, 0);
+}
+
+@end
+
+@implementation NSArray (NLDataModelExtend)
+
+- (NSString *)descriptionWithDataModels
+{
+    return [NLDataModel arrayObjectDescription:self];
 }
 
 @end

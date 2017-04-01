@@ -18,58 +18,46 @@ NS_ASSUME_NONNULL_BEGIN
 @class FMDatabase;
 
 class nldb {
-    FMDatabase *_db;
-    id _c_id;
-    NSMutableString *_sql;
     SqlBuildBase _cond;
+    FMDatabase *_db;
+    NSMutableString *_sql;
+    Class _modelClass;
+    mutable NSArray *_columns;
 public:
     nldb(Class modelClass,  FMDatabase * _Nullable db = nil);
     ~nldb();
+
     /**
      @code
      NSArray<NLDBDataModel *> *res =
-         nldb().select([NLDBDataModel class]).
-                where(condition().field(@"id").et(@12)).
-                result();
-     
+     nldb().select([NLDBDataModel class]).
+     where(condition().field(@"id").et(@12)).
+     result();
+
      NSArray<NSDictionary *> *res =
-         nldb().select(@"rowid", @"speed", @"score").
-                where(condition().field(@"id").et(@12)).
-                result();
+     nldb().select(@"rowid", @"speed", @"score").
+     where(condition().field(@"id").et(@12)).
+     result();
      @endcode
 
-     @param columnFields fields set
+     @param field0 First field name
+     @param ... The next fields end with nil.
      @return return self
      */
-    nldb& select(NSArray<NSString *> *columnFields);
-    template<typename... Args>
-    nldb& select(Args _Nullable ... args);
-    nldb& select(Class modelClass);
+    nldb& select(NSString * _Nullable field0, ...) NS_REQUIRES_NIL_TERMINATION;
+
     nldb& from(FMDatabase *db);
     nldb& where(const SqlBuildBase &condition);
 
     _Nullable id result() const;
-private:
-    nldb& __select();
-    nldb& __select(NSString *column);
-    template<typename... Args>
-    nldb& __select(NSString *column, Args  _Nullable ... args);
+
+    nldb& insert(NSArray<NSString *> *fields);
+
+    BOOL values(NSArray *values);
+    void valuesMulti(NSArray *values, ...) NS_REQUIRES_NIL_TERMINATION;
+
+    nldb& update(NSArray<NSString *> *fields);
 };
-
-template<typename... Args>
-nldb& nldb::select(Args  _Nullable ... args)
-{
-    __select(std::forward<Args>(args)...);
-    return *this;
-}
-
-template<typename... Args>
-nldb& nldb::__select(NSString *column, Args  _Nullable ... args)
-{
-    __select(column);
-    __select(std::forward<Args>(args)...);
-    return *this;
-}
 
 NS_ASSUME_NONNULL_END
 

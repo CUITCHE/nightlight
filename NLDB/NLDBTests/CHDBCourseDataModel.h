@@ -14,4 +14,5 @@ NLDBTable(course)
 
 @property (nonatomic, strong) NSNumber<_primary_key> *id;
 
+@property (nonatomic) NSInteger field0;
 @end
