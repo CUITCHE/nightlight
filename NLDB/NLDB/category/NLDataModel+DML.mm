@@ -8,53 +8,11 @@
 
 #import "NLDataModel+DML.h"
 #import <FMDB/FMDB.h>
-#include <objc/runtime.h>
 #import "nldb.hpp"
 #import "__NLDBModelModel.h"
-#import "__NLDBDatabasePackage.h"
-
-const char kNLDataModelDMLDatabaseHanlderKey = 0;
-const char kNLDataModelDMLPropertyDifferKey = 0;
+#import "NLDataModel+__InternalDataDefines.h"
 
 extern __NLDBModelModel* contactClass(Class cls);
-
-@interface NLDataModel (DMLDataDefines)
-
-@property (nonatomic, strong) __NLDBDatabasePackage *databaseHanlder;
-@property (nonatomic, strong) NSMutableDictionary *propertyDiffer;
-
-@end
-
-@implementation NLDataModel (DMLDataDefines)
-
-- (__NLDBDatabasePackage *)databaseHanlder
-{
-    __NLDBDatabasePackage *handler = objc_getAssociatedObject(self, &kNLDataModelDMLDatabaseHanlderKey);
-    return handler;
-}
-
-- (void)setDatabaseHanlder:(__NLDBDatabasePackage *)databaseHanlder
-{
-    if (self.databaseHanlder != databaseHanlder) {
-        objc_setAssociatedObject(self, &kNLDataModelDMLDatabaseHanlderKey, databaseHanlder, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }
-}
-
-- (NSMutableDictionary *)propertyDiffer
-{
-    NSMutableDictionary *differ = objc_getAssociatedObject(self, &kNLDataModelDMLPropertyDifferKey);
-    return differ;
-}
-
-- (void)setPropertyDiffer:(NSMutableDictionary *)propertyDiffer
-{
-    if (self.propertyDiffer != propertyDiffer) {
-        objc_setAssociatedObject(self, &kNLDataModelDMLPropertyDifferKey, propertyDiffer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }
-}
-
-@end
-
 
 
 @implementation NLDataModel (DML)
@@ -112,26 +70,12 @@ extern __NLDBModelModel* contactClass(Class cls);
     return YES;
 }
 
-- (BOOL)insertDiffer
+- (void)freeze
 {
-    NSMutableDictionary *freezeNow = [self freezeFrame];
-    NSMutableArray *differKey = [NSMutableArray array];
-    NSMutableArray *differObj = [NSMutableArray array];
-    [self.propertyDiffer enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-        id val = freezeNow[key];
-        if (![val isEqual:obj]) {
-            [differKey addObject:key];
-            [differObj addObject:val];
-        }
-    }];
-    NSAssert(differKey.count == differObj.count, @"Must be equaled.");
-    if (differKey.count) {
-        BOOL suc = self.databaseHanlder.db.insert(differKey).values(differObj);
-        return suc;
-    }
-    return YES;
+    self.propertyDiffer = [self freezeFrame];
 }
 
+#pragma mark - private
 - (NSArray<NSString *> *)propertyExcludesAutomaticIncreasement
 {
     __NLDBModelModel *mm = contactClass([self class]);

@@ -21,7 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)insert;
 
 - (BOOL)updateDiffer;
-- (BOOL)insertDiffer;
+
+- (void)freeze;
 
 @end
 

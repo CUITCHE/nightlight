@@ -8,21 +8,20 @@
 
 #include "condition.h"
 #include <type_traits>
+#import "__NLDBModelModel.h"
 
-extern NSArray<NSString *>* __bind(Class cls);
+extern __NLDBModelModel* contactClass(Class cls);
 
 condition::condition(Class cls)
 :SqlBuildBase()
 ,cls(cls)
 {
-    (void) __bind(cls);
 }
 
 condition::condition(NSString *sql, Class cls/* = 0*/)
 :SqlBuildBase()
 ,cls(cls)
 {
-    (void) __bind(cls);
 }
 
 condition::~condition()
@@ -32,7 +31,7 @@ condition::~condition()
 
 condition& condition::feild(NSString *feild)
 {
-    if (cls && ![__bind(cls) containsObject:feild]) {
+    if (cls && ![contactClass(cls).properties containsObject:feild]) {
         [NSException raise:NSInvalidArgumentException format:@"%@ is not property of %@", feild, NSStringFromClass(cls)];
     }
     SqlBuildBase::feild(feild);
