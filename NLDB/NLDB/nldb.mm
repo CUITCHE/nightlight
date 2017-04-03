@@ -52,6 +52,11 @@ nldb& nldb::select(NSString * _Nullable field0, ...)
     return *this;
 }
 
+nldb& nldb::select()
+{
+    return select(nil);
+}
+
 nldb& nldb::from(FMDatabase * _Nonnull db)
 {
     _db = db;

@@ -19,10 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 class nldb {
     SqlBuildBase _cond;
-    FMDatabase *_db;
+     FMDatabase * _Nullable _db;
     NSMutableString *_sql;
     Class _modelClass;
-    mutable NSArray *_columns;
+    mutable NSArray * _Nullable _columns;
 public:
     nldb(Class modelClass,  FMDatabase * _Nullable db = nil);
     ~nldb();
@@ -45,6 +45,7 @@ public:
      @return return self
      */
     nldb& select(NSString * _Nullable field0, ...) NS_REQUIRES_NIL_TERMINATION;
+    nldb& select();
 
     nldb& from(FMDatabase *db);
     nldb& where(const SqlBuildBase &condition);
