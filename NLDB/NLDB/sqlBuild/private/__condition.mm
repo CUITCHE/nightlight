@@ -1,40 +1,40 @@
 //
-//  condition.mm
+//  __condition.mm
 //  NLDB
 //
 //  Created by hejunqiu on 2017/3/21.
 //  Copyright © 2017年 CHE. All rights reserved.
 //
 
-#include "condition.h"
+#include "__condition.h"
 #include <type_traits>
 #import "__NLDBModelModel.h"
 
 extern __NLDBModelModel* contactClass(Class cls);
 
-condition::condition(Class cls)
-:SqlBuildBase()
+__condition::__condition(Class cls)
+:__SqlBuildBase()
 ,cls(cls)
 {
 }
 
-condition::condition(NSString *sql, Class cls/* = 0*/)
-:SqlBuildBase()
+__condition::__condition(NSString *sql, Class cls/* = 0*/)
+:__SqlBuildBase()
 ,cls(cls)
 {
 }
 
-condition::~condition()
+__condition::~__condition()
 {
     ;
 }
 
-condition& condition::feild(NSString *feild)
+__condition& __condition::feild(NSString *feild)
 {
     if (cls && ![contactClass(cls).properties containsObject:feild]) {
         [NSException raise:NSInvalidArgumentException format:@"%@ is not property of %@", feild, NSStringFromClass(cls)];
     }
-    SqlBuildBase::feild(feild);
+    __SqlBuildBase::feild(feild);
     return *this;
 }
 
@@ -60,43 +60,43 @@ NS_INLINE void contact(NSMutableString *sql, id val, NSString *op, NSMutableArra
     }
 }
 
-condition& condition::et(id val/* = nil*/)
+__condition& __condition::et(id val/* = nil*/)
 {
     contact(_sql, val, @"=", _values);
     return *this;
 }
 
-condition& condition::net(id val/* = nil*/)
+__condition& __condition::net(id val/* = nil*/)
 {
     contact(_sql, val, @"<>", _values);
     return *this;
 }
 
-condition& condition::gt(id val/* = nil*/)
+__condition& __condition::gt(id val/* = nil*/)
 {
     contact(_sql, val, @">", _values);
     return *this;
 }
 
-condition& condition::lt(id val/* = nil*/)
+__condition& __condition::lt(id val/* = nil*/)
 {
     contact(_sql, val, @"<", _values);
     return *this;
 }
 
-condition& condition::nlt(id val/* = nil*/)
+__condition& __condition::nlt(id val/* = nil*/)
 {
     contact(_sql, val, @">=", _values);
     return *this;
 }
 
-condition& condition::ngt(id val/* = nil*/)
+__condition& __condition::ngt(id val/* = nil*/)
 {
     contact(_sql, val, @"<=", _values);
     return *this;
 }
 
-condition& condition::between(NSNumber *from, NSNumber *to)
+__condition& __condition::between(NSNumber *from, NSNumber *to)
 {
     if (!from || !to) {
         [NSException raise:NSInvalidArgumentException format:@"Illegal range: from(%@)...to(%@)", from, to];
@@ -105,7 +105,7 @@ condition& condition::between(NSNumber *from, NSNumber *to)
     return *this;
 }
 
-condition& condition::in(NSArray *set)
+__condition& __condition::in(NSArray *set)
 {
     do {
         if (!set) {
@@ -129,25 +129,25 @@ condition& condition::in(NSArray *set)
     return *this;
 }
 
-condition& condition::isnull()
+__condition& __condition::isnull()
 {
     [_sql appendString:@"is null"];
     return *this;
 }
 
-condition& condition::AND()
+__condition& __condition::AND()
 {
     [_sql appendString:@" AND "];
     return *this;
 }
 
-condition& condition::OR()
+__condition& __condition::OR()
 {
     [_sql appendString:@" OR "];
     return *this;
 }
 
-condition& condition::appendBindValue(NSArray *_values)
+__condition& __condition::appendBindValue(NSArray *_values)
 {
     NSUInteger index = 0;
     for (id val in _values) {
@@ -160,7 +160,7 @@ condition& condition::appendBindValue(NSArray *_values)
     return *this;
 }
 
-NSString *condition::getClause() const
+NSString *__condition::getClause() const
 {
     if (_sql.length) {
         return _sql;

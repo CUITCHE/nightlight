@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #include <tuple>
-#import "constraints.h"
+#import "__constraints.h"
 #import "NLSqlFunctionPackage.h"
 
 using std::make_tuple;
@@ -75,12 +75,12 @@ NS_ASSUME_NONNULL_BEGIN
 @optional
 
 /**
- To confirm check statement after field which connects to. You can use constraints class to genrate check statement, such
+ To confirm check statement after field which connects to. You can use __constraints class to genrate check statement, such
  as 
  @code
-    return constraints().feild(@"gender").in(@[@"男", @"女"]);
+    return __constraints().feild(@"gender").in(@[@"男", @"女"]);
  @endcode
- constraints is a C++ object and converts to NSString object automatly. So you can return constraints for NSString *
+ __constraints is a C++ object and converts to NSString object automatly. So you can return __constraints for NSString *
 
  @param propertyName A property name of data model.
  @return A check statement string.

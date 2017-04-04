@@ -13,7 +13,7 @@
 using namespace std;
 
 __SqlDDL::__SqlDDL()
-:SqlBuildBase()
+:__SqlBuildBase()
 {}
 
 __SqlDDL& __SqlDDL::create(NSString *table)

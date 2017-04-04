@@ -1,5 +1,5 @@
 //
-//  SqlBuildBase.hpp
+//  __SqlBuildBase.hpp
 //  NLDB
 //
 //  Created by hejunqiu on 2017/3/28.
@@ -8,19 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-class SqlBuildBase
+class __SqlBuildBase
 {
 protected:
     NSMutableArray *_values;
     NSMutableString *_sql;
 public:
-    SqlBuildBase();
-    virtual ~SqlBuildBase();
+    __SqlBuildBase();
+    virtual ~__SqlBuildBase();
 
-    virtual SqlBuildBase& feild(NSString *feild);
+    virtual __SqlBuildBase& feild(NSString *feild);
 
-    virtual SqlBuildBase& scopes();
-    virtual SqlBuildBase& scopee();
+    virtual __SqlBuildBase& scopes();
+    virtual __SqlBuildBase& scopee();
     virtual void end();
 
     virtual NSString* getClause() const;

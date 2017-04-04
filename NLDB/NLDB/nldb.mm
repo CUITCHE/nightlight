@@ -63,11 +63,11 @@ nldb& nldb::from(FMDatabase * _Nonnull db)
     return *this;
 }
 
-nldb& nldb::where(const SqlBuildBase &condition)
+nldb& nldb::where(const __SqlBuildBase &__condition)
 {
     __NLDBModelModel *mm = contactClass(_modelClass);
-    _cond = condition;
-    NSString *condi = condition.getClause();
+    _cond = __condition;
+    NSString *condi = __condition.getClause();
     if (condi.length == 0) {
         [_sql appendFormat:@"FROM %@ ", mm.tableName];
     } else {
@@ -80,7 +80,7 @@ nldb& nldb::where(const SqlBuildBase &condition)
 NS_INLINE NSArray<NSDictionary *> * executeSqlWithColumns(NSArray<NSString *> *columns,
                                                                  FMDatabase *db,
                                                                  NSString *sql,
-                                                                 const SqlBuildBase &cond)
+                                                                 const __SqlBuildBase &cond)
 {
     NSError *error = nil;
     FMResultSet *st = [db executeQuery:sql values:cond.getValues() error:&error];
@@ -144,7 +144,7 @@ NS_INLINE NSArray * makeObject(Class modelClass, NSArray<NSDictionary *> * dataS
 NS_INLINE NSArray * executeSqlWithModel(Class modelClass,
                                         FMDatabase *db,
                                         NSString *sql,
-                                        const SqlBuildBase &cond)
+                                        const __SqlBuildBase &cond)
 {
     __NLDBModelModel *mm = contactClass(modelClass);
     NSArray<NSDictionary *> *__d = executeSqlWithColumns(mm.properties, db, sql, cond);

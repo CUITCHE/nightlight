@@ -9,13 +9,13 @@
 #import "NLDataModel.h"
 
 @class FMDatabase;
-class condition;
+class __condition;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NLDataModel (DML)
 
-+ (nullable instancetype)selectFromDatabase:(FMDatabase *)db where:(const condition &)cond;
++ (nullable instancetype)selectFromDatabase:(FMDatabase *)db where:(const __condition &)cond;
 
 - (BOOL)update;
 - (BOOL)insert;

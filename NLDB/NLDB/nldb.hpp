@@ -10,7 +10,7 @@
 #define NLDB_HPP
 
 #import <Foundation/Foundation.h>
-#import "SqlBuildBase.h"
+#import "__SqlBuildBase.h"
 #include <type_traits>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class FMDatabase;
 
 class nldb {
-    SqlBuildBase _cond;
+    __SqlBuildBase _cond;
      FMDatabase * _Nullable _db;
     NSMutableString *_sql;
     Class _modelClass;
@@ -31,12 +31,12 @@ public:
      @code
      NSArray<NLDBDataModel *> *res =
      nldb().select([NLDBDataModel class]).
-     where(condition().field(@"id").et(@12)).
+     where(__condition().field(@"id").et(@12)).
      result();
 
      NSArray<NSDictionary *> *res =
      nldb().select(@"rowid", @"speed", @"score").
-     where(condition().field(@"id").et(@12)).
+     where(__condition().field(@"id").et(@12)).
      result();
      @endcode
 
@@ -48,7 +48,7 @@ public:
     nldb& select();
 
     nldb& from(FMDatabase *db);
-    nldb& where(const SqlBuildBase &condition);
+    nldb& where(const __SqlBuildBase &__condition);
 
     _Nullable id result() const;
 

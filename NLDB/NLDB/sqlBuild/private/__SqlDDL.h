@@ -8,13 +8,13 @@
 
 
 #import <Foundation/Foundation.h>
-#import "SqlBuildBase.h"
+#import "__SqlBuildBase.h"
 #include <tuple>
 
 using std::tuple;
 using std::make_tuple;
 
-class __SqlDDL : public SqlBuildBase
+class __SqlDDL : public __SqlBuildBase
 {
     BOOL hasColunm;
     BOOL is_alter;

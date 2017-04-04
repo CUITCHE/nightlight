@@ -61,7 +61,7 @@ NSString *const kPath = @"/tmp/tmp.db";
             nldb.insert(@[@"field0"]).values(@[@(i)]);
         }
     }];
-    NSArray *res = nldb.select().where(SqlBuildBase()).result();
+    NSArray *res = nldb.select().where(__SqlBuildBase()).result();
     NSLog(@"%@", res.descriptionWithDataModels);
 }
 

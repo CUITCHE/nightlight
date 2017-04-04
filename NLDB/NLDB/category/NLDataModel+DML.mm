@@ -17,12 +17,12 @@ extern __NLDBModelModel* contactClass(Class cls);
 
 @implementation NLDataModel (DML)
 
-+ (instancetype)selectFromDatabase:(FMDatabase *)db where:(const condition &)cond
++ (instancetype)selectFromDatabase:(FMDatabase *)db where:(const __condition &)cond
 {
     return [[self alloc] initWithDatabase:db where:cond];
 }
 
-- (instancetype)initWithDatabase:(FMDatabase *)db  where:(const condition &)cond
+- (instancetype)initWithDatabase:(FMDatabase *)db  where:(const __condition &)cond
 {
     __NLDBDatabasePackage *handler = [[__NLDBDatabasePackage alloc] initWithDatabase:db modelClass:[self class]];
     NSArray *res = handler.db.select(nil).from(db).where(cond).result();
