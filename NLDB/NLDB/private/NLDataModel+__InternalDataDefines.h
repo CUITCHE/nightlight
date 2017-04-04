@@ -7,11 +7,12 @@
 //
 
 #import "NLDataModel.h"
-#import "__NLDBDatabasePackage.h"
+
+@class NLDBHandler;
 
 @interface NLDataModel (__InternalDataDefines)
 
-@property (nonatomic, strong) __NLDBDatabasePackage *databaseHanlder;
+@property (nonatomic, strong) NLDBHandler *databaseHanlder;
 @property (nonatomic, strong) NSMutableDictionary *propertyDiffer;
 
 @end

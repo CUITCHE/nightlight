@@ -11,12 +11,12 @@
 
 @implementation CHDBTeacherDataModel
 
-+ (tuple<Class, NSString *>)confirmForeignKeyConnectToKey:(NSString *)propertyName
++ (NSArray *)confirmForeignKeyConnectToKey:(NSString *)propertyName
 {
     if ([propertyName isEqualToString:@"courseId"]) {
-        return make_tuple([CHDBCourseDataModel class], @"id");
+        return @[[CHDBCourseDataModel class], @"id"];
     }
-    return {};
+    return nil;
 }
 
 @end

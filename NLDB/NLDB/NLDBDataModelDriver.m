@@ -10,7 +10,7 @@
 #include <objc/runtime.h>
 #import <FMDB/FMDB.h>
 #import "NLDataModel.h"
-#import "__constraints.h"
+#import "NLConstraints.h"
 #import "__NLDBModelModel.h"
 #import "__NLDBDataModelClassProperty.h"
 

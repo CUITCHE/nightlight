@@ -10,12 +10,9 @@
 #include <objc/runtime.h>
 #import "NLDataModel.h"
 #import "__NLDBDataModelClassProperty.h"
-#import "__SqlDDL.h"
 #import "__NLDBPrimitiveTypeTuple.h"
 
-using namespace std;
-
-extern __NLDBModelModel* contactClass(Class cls);
+FOUNDATION_EXTERN __NLDBModelModel* contactClass(Class cls);
 
 static NSArray<Class> *__NLDBDataModelAllowedTypes = @[[NSNumber class], [NSString class], [NSMutableString class],
                                                        [NSData class], [NSMutableData class], [NSDate class],
@@ -40,7 +37,7 @@ using __NLDBPropertyString = NSString *;
 
 @interface __NLDBModelModel ()
 
-@property (nonatomic) Class modelClass;
+@property (nonatomic, strong) Class modelClass;
 @property (nonatomic, strong) NSMutableDictionary<__NLDBPropertyString, __NLDBDataModelClassProperty *> *propertyIndex;
 @property (nonatomic, strong) NSMutableArray<__NLDBDataModelClassProperty *> *order_property;
 @property (nonatomic, copy) NSString *sqliteSql;
@@ -205,12 +202,13 @@ using __NLDBPropertyString = NSString *;
 
 - (void)__columnToNSStringClass:(__NLDBDataModelClassProperty *)mcp maker:(__SqlDDL &)maker
 {
-    tuple<NLDBStringType, NSUInteger> capacity(NLDBStringTypePureText, -1);
+//    tuple<NLDBStringType, NSUInteger> capacity(NLDBStringTypePureText, -1);
+    NSArray *capacity = @[@(NLDBStringTypePureText), @(-1)];
     if (self.flag_confirmNSStringSizeConnectsToKey) {
         capacity = [self.modelClass confirmNSStringSizeConnectsToKey:mcp.name];
     }
     __SqlType sqlType = __SqlType::Int;
-    switch (get<0>(capacity)) {
+    switch ((NLDBStringType)[capacity[0] unsignedIntegerValue]) {
         case NLDBStringTypePureText:
             sqlType = __SqlType::Text;
             break;
@@ -229,7 +227,9 @@ using __NLDBPropertyString = NSString *;
         default:
             break;
     }
-    maker.column(mcp.name, sqlType, capacity);
+    tuple<NLDBStringType, NSUInteger> __capacity((NLDBStringType)[capacity[0] unsignedIntegerValue],
+                                                 [capacity[1] unsignedIntegerValue]);
+    maker.column(mcp.name, sqlType, __capacity);
 }
 
 - (void)__columnToNSDataClass:(__NLDBDataModelClassProperty *)mcp maker:(__SqlDDL &)maker
@@ -347,10 +347,10 @@ using __NLDBPropertyString = NSString *;
                 continue;
             }
             if (self.flag_confirmForeignKeyConnectToKey) {
-                tuple<Class, NSString *> package = [self.modelClass confirmForeignKeyConnectToKey:obj.name];
-                Class __cls = get<0>(package);
+                NSArray *package = [self.modelClass confirmForeignKeyConnectToKey:obj.name];
+                Class __cls = package[0];
                 __NLDBModelModel *mm = contactClass(__cls);
-                NSString *field = get<1>(package);
+                NSString *field = package[1];
                 if (!mm.propertyIndex[field]) {
                     [NSException raise:@"NLDB SQL Sytax Error" format:@"Target model(%@) has not a property named %@", NSStringFromClass(__cls), field];
                 }

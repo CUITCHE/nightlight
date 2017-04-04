@@ -10,9 +10,9 @@
 #import "NLDataModel+__InternalDataDefines.h"
 #import "NLDataModel+DML.h"
 #import "__NLDBModelModel.h"
-#import "nldb.hpp"
+#import "NLDBHandler.h"
 
-extern __NLDBModelModel* contactClass(Class cls);
+FOUNDATION_EXTERN __NLDBModelModel* contactClass(Class cls);
 
 @protocol __NLDataModelFake1Protocol <NSObject>
 
@@ -27,7 +27,7 @@ extern __NLDBModelModel* contactClass(Class cls);
     for (id obj in self) {
         if ([obj isKindOfClass:[NLDataModel class]] &&
             ![obj isMemberOfClass:[NLDataModel class]]) {
-            if (![obj insert]) {
+            if (![(NLDataModel *)obj insert]) {
                 return NO;
             }
         }
@@ -35,7 +35,7 @@ extern __NLDBModelModel* contactClass(Class cls);
     return YES;
 }
 
-- (BOOL)insertCongenerModelWithDatabase:(nldb &)db
+- (BOOL)insertCongenerModelWithDatabase:(NLDBHandler *)db
 {
     if (self.count == 0) {
         return YES;

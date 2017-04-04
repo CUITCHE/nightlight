@@ -8,24 +8,25 @@
 
 #import "NLDataModel+DML.h"
 #import <FMDB/FMDB.h>
-#import "nldb.hpp"
+#import "NLDBHandler.h"
 #import "__NLDBModelModel.h"
 #import "NLDataModel+__InternalDataDefines.h"
+#import "NLCondition.h"
 
-extern __NLDBModelModel* contactClass(Class cls);
+FOUNDATION_EXTERN __NLDBModelModel* contactClass(Class cls);
 
 
 @implementation NLDataModel (DML)
 
-+ (instancetype)selectFromDatabase:(FMDatabase *)db where:(const __condition &)cond
++ (instancetype)selectFromDatabase:(FMDatabase *)db where:(NLCondition *)cond
 {
     return [[self alloc] initWithDatabase:db where:cond];
 }
 
-- (instancetype)initWithDatabase:(FMDatabase *)db  where:(const __condition &)cond
+- (instancetype)initWithDatabase:(FMDatabase *)db  where:(NLCondition *)cond
 {
-    __NLDBDatabasePackage *handler = [[__NLDBDatabasePackage alloc] initWithDatabase:db modelClass:[self class]];
-    NSArray *res = handler.db.select(nil).from(db).where(cond).result();
+    NLDBHandler *handler = [[NLDBHandler alloc] initWithModelClass:[self class] database:db];
+    NSArray *res = handler.select(nil).from(db).where(cond).result;
     if (res.count) {
         self = res.firstObject;
         self.databaseHanlder = handler;
@@ -39,14 +40,14 @@ extern __NLDBModelModel* contactClass(Class cls);
 - (BOOL)update
 {
     NSArray<NSString *> *properties = [self propertyExcludesAutomaticIncreasement];
-    BOOL suc = self.databaseHanlder.db.update(properties).values([self changedValuesWithSpecifiedProperties:properties]);
+    BOOL suc = self.databaseHanlder.update(properties).values([self changedValuesWithSpecifiedProperties:properties]);
     return suc;
 }
 
 - (BOOL)insert
 {
     NSArray<NSString *> *properties = [self propertyExcludesAutomaticIncreasement];
-    BOOL suc = self.databaseHanlder.db.insert(properties).values([self changedValuesWithSpecifiedProperties:properties]);
+    BOOL suc = self.databaseHanlder.insert(properties).values([self changedValuesWithSpecifiedProperties:properties]);
     return suc;
 }
 
@@ -64,7 +65,7 @@ extern __NLDBModelModel* contactClass(Class cls);
     }];
     NSAssert(differKey.count == differObj.count, @"Must be equaled.");
     if (differKey.count) {
-        BOOL suc = self.databaseHanlder.db.update(differKey).values(differObj);
+        BOOL suc = self.databaseHanlder.update(differKey).values(differObj);
         return suc;
     }
     return YES;

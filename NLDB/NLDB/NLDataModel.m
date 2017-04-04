@@ -8,7 +8,7 @@
 
 #import "NLDataModel.h"
 
-extern NSString *__log(Class modelClass, NSArray *modelObject, int flag);
+FOUNDATION_EXTERN NSString *__log(Class modelClass, NSArray *modelObject, int flag);
 
 static NSDateFormatter *__NLDBDateformatter;
 

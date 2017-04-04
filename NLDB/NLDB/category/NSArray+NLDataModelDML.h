@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-class nldb;
+@class NLDBHandler;
 
 @interface NSArray (NLDataModelDML)
 
 - (BOOL)insert;
-- (BOOL)insertCongenerModelWithDatabase:(nldb &)db;
+- (BOOL)insertCongenerModelWithDatabase:(NLDBHandler *)db;
 
 @end

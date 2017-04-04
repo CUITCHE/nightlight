@@ -7,13 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#include <tuple>
-#import "__constraints.h"
 #import "NLSqlFunctionPackage.h"
-
-using std::make_tuple;
-using std::tuple;
-
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -68,7 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param propertyName A property name of data model.
  @return A tuple contains outter table class and target field property name.
  */
-+ (tuple<Class, NSString *>)confirmForeignKeyConnectToKey:(NSString *)propertyName;
++ (NSArray/*[Class, NSString]*/ *)confirmForeignKeyConnectToKey:(NSString *)propertyName;
 @end
 
 @protocol Check <_check>
@@ -161,7 +155,7 @@ typedef NS_ENUM(NSUInteger, NLDBStringType) {
  @return A tuple which at 0 is string type and at 1 is string size. If tuple 0 position is NLDBStringTypePureText,
  the string size will be ignored.
  */
-+ (tuple<NLDBStringType, NSUInteger>)confirmNSStringSizeConnectsToKey:(NSString *)propertyName;
++ (NSArray/*NLDBStringType, NSUInteger*/ *)confirmNSStringSizeConnectsToKey:(NSString *)propertyName;
 
 /**
  To confirm a table name for this model. Subclass can override it. This is an optional method,

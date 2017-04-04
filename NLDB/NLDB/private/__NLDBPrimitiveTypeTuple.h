@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "__SqlDDL.h"
 
-
 @interface __NLDBPrimitiveTypeTuple : NSObject
 
 @property (nonatomic) __SqlType type;

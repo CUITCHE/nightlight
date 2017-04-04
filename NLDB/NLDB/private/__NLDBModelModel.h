@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface __NLDBModelModel : NSObject
 
-@property (nonatomic, readonly) Class modelClass;
+@property (nonatomic, strong, readonly) Class modelClass;
 @property (nonatomic, strong, readonly) NSDictionary<NSString *, __NLDBDataModelClassProperty *> *propertyIndex;
 
 @property (nonatomic, copy, readonly) NSString *sqliteSql;
@@ -26,5 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithModelClass:(Class)cls;
 
 @end
+
+FOUNDATION_EXTERN NSString *__log(Class modelClass, NSArray *modelObject, int flag);
 
 NS_ASSUME_NONNULL_END

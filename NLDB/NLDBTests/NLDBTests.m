@@ -46,48 +46,48 @@ NSString *const kPath = @"/tmp/tmp.db";
 }
 
 - (void)testInsert {
-    nldb nldb([CHDBCourseDataModel class], _db);
-    nldb.insert(@[@"field0"]).values(@[@8]);
-    nldb.insert(@[@"field0"]).values(@[@9]);
-    nldb.insert(@[@"field0"]).values(@[@10]);
-    nldb.insert(@[@"field0"]).values(@[@11]);
+    NLDBHandler *db = nldb([CHDBCourseDataModel class], _db);
+    db.insert(@[@"field0"]).values(@[@8]);
+    db.insert(@[@"field0"]).values(@[@9]);
+    db.insert(@[@"field0"]).values(@[@10]);
+    db.insert(@[@"field0"]).values(@[@11]);
 }
 
 - (void)testMeasureInsert {
-    __block nldb nldb([CHDBCourseDataModel class], _db);
+    NLDBHandler *db = nldb([CHDBCourseDataModel class], _db);
     [self measureBlock:^{
         int i = 1001;
         while (--i) {
-            nldb.insert(@[@"field0"]).values(@[@(i)]);
+            db.insert(@[@"field0"]).values(@[@(i)]);
         }
     }];
-    NSArray *res = nldb.select().where(__SqlBuildBase()).result();
+    NSArray *res = db.select(nil).where(condition()).result;
     NSLog(@"%@", res.descriptionWithDataModels);
 }
 
 - (void)testMeasureInsertMultiLines2 {
-    __block nldb nldb([CHDBCourseDataModel class], _db);
+    NLDBHandler *db = nldb([CHDBCourseDataModel class], _db);
     [self measureBlock:^{
         int i = 501;
         while (--i) {
-            nldb.insert(@[@"field0"]).valuesMulti(@[@1], @[@1], nil);
+            db.insert(@[@"field0"]).valuesMulti(@[@1], @[@1], nil);
         }
     }];
 }
 
 - (void)testMeasureInsertMultiLines4 {
-    __block nldb nldb([CHDBCourseDataModel class], _db);
+    NLDBHandler *db = nldb([CHDBCourseDataModel class], _db);
     [self measureBlock:^{
         int i = 251;
         while (--i) {
-            nldb.insert(@[@"field0"]).valuesMulti(@[@1], @[@1], @[@1], @[@1], nil);
+            db.insert(@[@"field0"]).valuesMulti(@[@1], @[@1], @[@1], @[@1], nil);
         }
     }];
 }
 
 - (void)testInsertMultiLines {
-    nldb nldb([CHDBCourseDataModel class], _db);
-    nldb.insert(@[@"field0"]).valuesMulti(@[@4], @[@5], @[@6], @[@7], nil);
+    NLDBHandler *db = nldb([CHDBCourseDataModel class], _db);
+    db.insert(@[@"field0"]).valuesMulti(@[@4], @[@5], @[@6], @[@7], nil);
 }
 
 @end

@@ -14,13 +14,13 @@ const char kNLDataModelDMLPropertyDifferKey = 0;
 
 @implementation NLDataModel (__InternalDataDefines)
 
-- (__NLDBDatabasePackage *)databaseHanlder
+- (NLDBHandler *)databaseHanlder
 {
-    __NLDBDatabasePackage *handler = objc_getAssociatedObject(self, &kNLDataModelDMLDatabaseHanlderKey);
+    NLDBHandler *handler = objc_getAssociatedObject(self, &kNLDataModelDMLDatabaseHanlderKey);
     return handler;
 }
 
-- (void)setDatabaseHanlder:(__NLDBDatabasePackage *)databaseHanlder
+- (void)setDatabaseHanlder:(NLDBHandler *)databaseHanlder
 {
     if (self.databaseHanlder != databaseHanlder) {
         objc_setAssociatedObject(self, &kNLDataModelDMLDatabaseHanlderKey, databaseHanlder, OBJC_ASSOCIATION_RETAIN_NONATOMIC);

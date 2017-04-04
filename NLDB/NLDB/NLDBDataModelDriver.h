@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class FMDatabase;
+@class __NLDBModelModel;
 
 @interface NLDBDataModelDriver : NSObject
 
@@ -17,4 +18,7 @@
 + (FMDatabase *)createDatabaseWithModels:(NSArray<Class> *)classes databasePath:(NSString *)filepath;
 
 + (void)createTablesWithModels:(NSArray<Class> *)classes database:(FMDatabase *)db;
+
 @end
+
+FOUNDATION_EXTERN __NLDBModelModel* contactClass(Class cls);
