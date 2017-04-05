@@ -207,10 +207,16 @@ NS_INLINE BOOL executeUpateInsert(NSString *sql, FMDatabase *db, NSArray *values
         __NLDBModelModel *mm = contactClass(strongSelf.modelClass);
         strongSelf.cond = condition;
         NSString *condi = condition.clause;
-        if (condi.length == 0) {
-            [strongSelf.sql appendFormat:@"FROM %@ ", mm.tableName];
+        if ([strongSelf->_sql hasPrefix:@"UPDATE"]) {
+            if (condi.length != 0) {
+                [strongSelf.sql appendFormat:@" WHERE %@", condi];
+            }
         } else {
-            [strongSelf.sql appendFormat:@"FROM %@ WHERE %@", mm.tableName, condi];
+            if (condi.length == 0) {
+                [strongSelf.sql appendFormat:@"FROM %@ ", mm.tableName];
+            } else {
+                [strongSelf.sql appendFormat:@"FROM %@ WHERE %@", mm.tableName, condi];
+            }
         }
         return strongSelf;
     };

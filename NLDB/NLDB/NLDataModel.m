@@ -35,12 +35,3 @@ static NSDateFormatter *__NLDBDateformatter;
 }
 
 @end
-
-@implementation NSArray (NLDataModelExtend)
-
-- (NSString *)descriptionWithDataModels
-{
-    return [NLDataModel arrayObjectDescription:self];
-}
-
-@end

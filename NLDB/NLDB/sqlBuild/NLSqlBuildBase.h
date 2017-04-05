@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NLSqlBuildBase : NSObject
 {
-    @package
+    @protected
     NSMutableString *_sql;
     NSMutableArray *_values;
 }

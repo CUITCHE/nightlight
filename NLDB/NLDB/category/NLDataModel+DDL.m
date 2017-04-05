@@ -16,4 +16,9 @@
     return [NLDBDataModelDriver createDatabaseWithModels:classes databasePath:filepath];
 }
 
+- (FMDatabase *)createDatabaseWithDatabasePath:(NSString *)filepath
+{
+    return [NLDBDataModelDriver createDatabaseWithModels:@[[self class]] databasePath:filepath];
+}
+
 @end

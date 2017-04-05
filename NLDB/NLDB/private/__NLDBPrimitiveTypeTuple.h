@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "__SqlDDL.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface __NLDBPrimitiveTypeTuple : NSObject
 
 @property (nonatomic) __SqlType type;
@@ -17,3 +19,5 @@
 + (instancetype)tupleWithType:(__SqlType)type typeString:(NSString *)ts;
 
 @end
+
+NS_ASSUME_NONNULL_END

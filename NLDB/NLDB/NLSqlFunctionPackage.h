@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NLSqlFunctionPackage : NSObject
 
 @property (nonatomic, strong) NSString *functionName;
@@ -19,3 +21,5 @@
 
 // C-stlye constructor
 FOUNDATION_EXTERN NLSqlFunctionPackage* sqlFunctionPackage(NSString *functionName);
+
+NS_ASSUME_NONNULL_END

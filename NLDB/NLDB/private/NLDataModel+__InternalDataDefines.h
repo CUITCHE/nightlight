@@ -8,6 +8,8 @@
 
 #import "NLDataModel.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @class NLDBHandler;
 
 @interface NLDataModel (__InternalDataDefines)
@@ -16,3 +18,5 @@
 @property (nonatomic, strong) NSMutableDictionary *propertyDiffer;
 
 @end
+
+NS_ASSUME_NONNULL_END

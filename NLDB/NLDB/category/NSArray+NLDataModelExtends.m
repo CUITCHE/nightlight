@@ -1,12 +1,12 @@
 //
-//  NSArray+NLDataModelDML.m
+//  NSArray+NLDataModelExtends.m
 //  NLDB
 //
 //  Created by hejunqiu on 2017/4/3.
 //  Copyright © 2017年 CHE. All rights reserved.
 //
 
-#import "NSArray+NLDataModelDML.h"
+#import "NSArray+NLDataModelExtends.h"
 #import "NLDataModel+__InternalDataDefines.h"
 #import "NLDataModel+DML.h"
 #import "__NLDBModelModel.h"
@@ -49,6 +49,15 @@ FOUNDATION_EXTERN __NLDBModelModel* contactClass(Class cls);
         }
     }
     return YES;
+}
+
+@end
+
+@implementation NSArray (NLDataModelDescription)
+
+- (NSString *)descriptionWithDataModels
+{
+    return [NLDataModel arrayObjectDescription:self];
 }
 
 @end

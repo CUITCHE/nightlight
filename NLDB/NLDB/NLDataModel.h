@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NLSqlFunctionPackage.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -186,13 +185,6 @@ typedef NS_ENUM(NSUInteger, NLDBStringType) {
 - (NSString *)description;
 
 + (NSString *)arrayObjectDescription:(NSArray *)object;
-
-@end
-
-
-@interface NSArray (NLDataModelExtend)
-
-@property (nonatomic, strong, readonly) NSString *descriptionWithDataModels;
 
 @end
 

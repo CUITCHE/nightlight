@@ -9,16 +9,17 @@
 #import <Foundation/Foundation.h>
 
 @class FMDatabase;
-@class __NLDBModelModel;
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface NLDBDataModelDriver : NSObject
 
-+ (NSString *)createSingleDatabaseWithModel:(Class)cls;
++ (nullable NSString *)createSingleDatabaseWithModel:(Class)cls;
 
-+ (FMDatabase *)createDatabaseWithModels:(NSArray<Class> *)classes databasePath:(NSString *)filepath;
++ (nullable FMDatabase *)createDatabaseWithModels:(NSArray<Class> *)classes databasePath:(nullable NSString *)filepath;
 
 + (void)createTablesWithModels:(NSArray<Class> *)classes database:(FMDatabase *)db;
 
 @end
 
-FOUNDATION_EXTERN __NLDBModelModel* contactClass(Class cls);
+NS_ASSUME_NONNULL_END

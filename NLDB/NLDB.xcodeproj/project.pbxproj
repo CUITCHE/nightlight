@@ -13,8 +13,8 @@
 		FB29AF401E9249E700A1D955 /* NLDataModel+DDL.m in Sources */ = {isa = PBXBuildFile; fileRef = FB29AF3A1E9249E700A1D955 /* NLDataModel+DDL.m */; };
 		FB29AF411E9249E700A1D955 /* NLDataModel+DML.h in Headers */ = {isa = PBXBuildFile; fileRef = FB29AF3B1E9249E700A1D955 /* NLDataModel+DML.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB29AF421E9249E700A1D955 /* NLDataModel+DML.m in Sources */ = {isa = PBXBuildFile; fileRef = FB29AF3C1E9249E700A1D955 /* NLDataModel+DML.m */; };
-		FB29AF431E9249E700A1D955 /* NSArray+NLDataModelDML.h in Headers */ = {isa = PBXBuildFile; fileRef = FB29AF3D1E9249E700A1D955 /* NSArray+NLDataModelDML.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FB29AF441E9249E700A1D955 /* NSArray+NLDataModelDML.m in Sources */ = {isa = PBXBuildFile; fileRef = FB29AF3E1E9249E700A1D955 /* NSArray+NLDataModelDML.m */; };
+		FB29AF431E9249E700A1D955 /* NSArray+NLDataModelExtends.h in Headers */ = {isa = PBXBuildFile; fileRef = FB29AF3D1E9249E700A1D955 /* NSArray+NLDataModelExtends.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FB29AF441E9249E700A1D955 /* NSArray+NLDataModelExtends.m in Sources */ = {isa = PBXBuildFile; fileRef = FB29AF3E1E9249E700A1D955 /* NSArray+NLDataModelExtends.m */; };
 		FB29AF541E9367D600A1D955 /* __SqlDDL.h in Headers */ = {isa = PBXBuildFile; fileRef = FB29AF4C1E9367D600A1D955 /* __SqlDDL.h */; };
 		FB29AF551E9367D600A1D955 /* __SqlDDL.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB29AF4D1E9367D600A1D955 /* __SqlDDL.mm */; };
 		FB29AF581E936B5C00A1D955 /* NLSqlBuildBase.h in Headers */ = {isa = PBXBuildFile; fileRef = FB29AF561E936B5C00A1D955 /* NLSqlBuildBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -68,8 +68,8 @@
 		FB29AF3A1E9249E700A1D955 /* NLDataModel+DDL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NLDataModel+DDL.m"; sourceTree = "<group>"; };
 		FB29AF3B1E9249E700A1D955 /* NLDataModel+DML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NLDataModel+DML.h"; sourceTree = "<group>"; };
 		FB29AF3C1E9249E700A1D955 /* NLDataModel+DML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NLDataModel+DML.m"; sourceTree = "<group>"; };
-		FB29AF3D1E9249E700A1D955 /* NSArray+NLDataModelDML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+NLDataModelDML.h"; sourceTree = "<group>"; };
-		FB29AF3E1E9249E700A1D955 /* NSArray+NLDataModelDML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+NLDataModelDML.m"; sourceTree = "<group>"; };
+		FB29AF3D1E9249E700A1D955 /* NSArray+NLDataModelExtends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+NLDataModelExtends.h"; sourceTree = "<group>"; };
+		FB29AF3E1E9249E700A1D955 /* NSArray+NLDataModelExtends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+NLDataModelExtends.m"; sourceTree = "<group>"; };
 		FB29AF4C1E9367D600A1D955 /* __SqlDDL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __SqlDDL.h; sourceTree = "<group>"; };
 		FB29AF4D1E9367D600A1D955 /* __SqlDDL.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = __SqlDDL.mm; sourceTree = "<group>"; };
 		FB29AF561E936B5C00A1D955 /* NLSqlBuildBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLSqlBuildBase.h; sourceTree = "<group>"; };
@@ -177,8 +177,8 @@
 				FB29AF3A1E9249E700A1D955 /* NLDataModel+DDL.m */,
 				FB29AF3B1E9249E700A1D955 /* NLDataModel+DML.h */,
 				FB29AF3C1E9249E700A1D955 /* NLDataModel+DML.m */,
-				FB29AF3D1E9249E700A1D955 /* NSArray+NLDataModelDML.h */,
-				FB29AF3E1E9249E700A1D955 /* NSArray+NLDataModelDML.m */,
+				FB29AF3D1E9249E700A1D955 /* NSArray+NLDataModelExtends.h */,
+				FB29AF3E1E9249E700A1D955 /* NSArray+NLDataModelExtends.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -259,7 +259,7 @@
 				FBC5406C1E8E5D580092886D /* NLDB.h in Headers */,
 				FB97451F1E8E3AA3001FE67F /* NLDataModel.h in Headers */,
 				FB9745341E8E3AA3001FE67F /* __NLDBPrimitiveTypeTuple.h in Headers */,
-				FB29AF431E9249E700A1D955 /* NSArray+NLDataModelDML.h in Headers */,
+				FB29AF431E9249E700A1D955 /* NSArray+NLDataModelExtends.h in Headers */,
 				FB29AF411E9249E700A1D955 /* NLDataModel+DML.h in Headers */,
 				FBD920871E93945000EF605B /* NLDBHandler.h in Headers */,
 				FBD9207F1E938D4700EF605B /* NLConstraints.h in Headers */,
@@ -387,7 +387,7 @@
 				FBD920841E938F5D00EF605B /* __SqlBuildBase.mm in Sources */,
 				FBD920881E93945000EF605B /* NLDBHandler.m in Sources */,
 				FB9745201E8E3AA3001FE67F /* NLDataModel.m in Sources */,
-				FB29AF441E9249E700A1D955 /* NSArray+NLDataModelDML.m in Sources */,
+				FB29AF441E9249E700A1D955 /* NSArray+NLDataModelExtends.m in Sources */,
 				FB9745351E8E3AA3001FE67F /* __NLDBPrimitiveTypeTuple.mm in Sources */,
 				FB9745251E8E3AA3001FE67F /* NLDBDataModelDriver.m in Sources */,
 				FB29AF401E9249E700A1D955 /* NLDataModel+DDL.m in Sources */,

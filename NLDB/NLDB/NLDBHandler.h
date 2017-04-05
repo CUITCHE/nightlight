@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong, readonly) NLDBHandler*(^select)(NSString * _Nullable field0, ...);
 @property (nonatomic, strong, readonly) NLDBHandler*(^from)(FMDatabase *db);
-@property (nonatomic, strong, readonly) NLDBHandler*(^where)(NLSqlBuildBase *condition);
+@property (nonatomic, strong, readonly) NLDBHandler*(^where)( NLSqlBuildBase * _Nullable condition);
 @property (nonatomic, strong, readonly, nullable) id result;
 
 @property (nonatomic, strong, readonly) NLDBHandler*(^insert)(NSArray<NSString *> *fields);

@@ -23,7 +23,7 @@ FOUNDATION_EXTERN __NLDBModelModel* contactClass(Class cls);
     return [[self alloc] initWithDatabase:db where:cond];
 }
 
-- (instancetype)initWithDatabase:(FMDatabase *)db  where:(NLCondition *)cond
+- (nullable instancetype)initWithDatabase:(FMDatabase *)db  where:(NLCondition *)cond
 {
     NLDBHandler *handler = [[NLDBHandler alloc] initWithModelClass:[self class] database:db];
     NSArray *res = handler.select(nil).from(db).where(cond).result;
@@ -37,22 +37,47 @@ FOUNDATION_EXTERN __NLDBModelModel* contactClass(Class cls);
     return self;
 }
 
-- (BOOL)update
+- (instancetype)initWithExistsDatabase:(FMDatabase *)db
 {
+    if (self = [super init]) {
+        NLDBHandler *handler = [[NLDBHandler alloc] initWithModelClass:[self class] database:db];
+        self.databaseHanlder = handler;
+    }
+    return self;
+}
+
+- (BOOL)updateAtWhere:(NLCondition *)cond
+{
+    if (!self.propertyDiffer) {
+        NSAssert(NO, @"This is a new model. NOT NEEDS TO UPDATE or your code logic is wrong. Only the model which is generated from a database needs to update.");
+        return NO;
+    }
     NSArray<NSString *> *properties = [self propertyExcludesAutomaticIncreasement];
-    BOOL suc = self.databaseHanlder.update(properties).values([self changedValuesWithSpecifiedProperties:properties]);
+    BOOL suc = self.databaseHanlder.update(properties).where(cond).values([self changedValuesWithSpecifiedProperties:properties]);
     return suc;
 }
 
 - (BOOL)insert
 {
+    if (!self.databaseHanlder) {
+        NSAssert(NO, @"Not found database handler.");
+        return NO;
+    }
+    if (self.propertyDiffer) {
+        NSAssert(NO, @"This is an exists model. CAN NOT INSERT.");
+        return NO;
+    }
     NSArray<NSString *> *properties = [self propertyExcludesAutomaticIncreasement];
     BOOL suc = self.databaseHanlder.insert(properties).values([self changedValuesWithSpecifiedProperties:properties]);
     return suc;
 }
 
-- (BOOL)updateDiffer
+- (BOOL)updateDifferAtWhere:(NLCondition *)cond
 {
+    if (!self.propertyDiffer) {
+        NSAssert(NO, @"Couldn't find differ data.");
+        return NO;
+    }
     NSMutableDictionary *freezeNow = [self freezeFrame];
     NSMutableArray *differKey = [NSMutableArray array];
     NSMutableArray *differObj = [NSMutableArray array];
@@ -65,7 +90,7 @@ FOUNDATION_EXTERN __NLDBModelModel* contactClass(Class cls);
     }];
     NSAssert(differKey.count == differObj.count, @"Must be equaled.");
     if (differKey.count) {
-        BOOL suc = self.databaseHanlder.update(differKey).values(differObj);
+        BOOL suc = self.databaseHanlder.update(differKey).where(cond).values(differObj);
         return suc;
     }
     return YES;
