@@ -24,10 +24,10 @@ NSString *const kPath = @"/tmp/tmp.db";
 
 - (void)setUp {
     [super setUp];
-    _db = [[FMDatabase alloc] initWithPath:@""];
+    _db = [[FMDatabase alloc] initWithPath:kPath];
     XCTAssertTrue([_db open], @"%@", _db.lastErrorMessage);
-//    [_db executeUpdate:@"drop table teacher;"];
-//    [_db executeUpdate:@"drop table course;"];
+    [_db executeUpdate:@"drop table if EXISTS teacher;"];
+    [_db executeUpdate:@"drop table if EXISTS course;"];
     [NLDBDataModelDriver createTablesWithModels:@[[CHDBCourseDataModel class],
                                                   [CHDBTeacherDataModel class]]
                                        database:_db];
@@ -61,8 +61,6 @@ NSString *const kPath = @"/tmp/tmp.db";
             db.insert(@[@"field0"]).values(@[@(i)]);
         }
     }];
-    NSArray *res = db.select(nil).where(condition()).result;
-    NSLog(@"%@", res.descriptionWithDataModels);
 }
 
 - (void)testMeasureInsertMultiLines2 {

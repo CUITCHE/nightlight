@@ -21,8 +21,8 @@
 		FB29AF591E936B5C00A1D955 /* NLSqlBuildBase.m in Sources */ = {isa = PBXBuildFile; fileRef = FB29AF571E936B5C00A1D955 /* NLSqlBuildBase.m */; };
 		FB4624871E9381300096543C /* NLCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = FB4624851E9381300096543C /* NLCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB4624881E9381300096543C /* NLCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4624861E9381300096543C /* NLCondition.m */; };
-		FB8FAA8E1E8F7EF60049D868 /* CHDBTeacherDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8FAA8D1E8F7EF60049D868 /* CHDBTeacherDataModel.m */; };
-		FB8FAA911E8F80D80049D868 /* CHDBCourseDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8FAA901E8F80D80049D868 /* CHDBCourseDataModel.m */; };
+		FB6D76A51E94DE9A0047A709 /* CHDBCourseDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6D76A21E94DE9A0047A709 /* CHDBCourseDataModel.m */; };
+		FB6D76A61E94DE9A0047A709 /* CHDBTeacherDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6D76A41E94DE9A0047A709 /* CHDBTeacherDataModel.m */; };
 		FB8FDBCB1E8264E0007A6228 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FB8FDBCA1E8264E0007A6228 /* libsqlite3.tbd */; };
 		FB97451F1E8E3AA3001FE67F /* NLDataModel.h in Headers */ = {isa = PBXBuildFile; fileRef = FB9745031E8E3AA3001FE67F /* NLDataModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB9745201E8E3AA3001FE67F /* NLDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB9745041E8E3AA3001FE67F /* NLDataModel.m */; };
@@ -77,10 +77,10 @@
 		FB4624851E9381300096543C /* NLCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLCondition.h; sourceTree = "<group>"; };
 		FB4624861E9381300096543C /* NLCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLCondition.m; sourceTree = "<group>"; };
 		FB5933681E8126D6002482DF /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/lib/libsqlite3.tbd; sourceTree = DEVELOPER_DIR; };
-		FB8FAA8C1E8F7EF60049D868 /* CHDBTeacherDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHDBTeacherDataModel.h; sourceTree = "<group>"; };
-		FB8FAA8D1E8F7EF60049D868 /* CHDBTeacherDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHDBTeacherDataModel.m; sourceTree = "<group>"; };
-		FB8FAA8F1E8F80D80049D868 /* CHDBCourseDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHDBCourseDataModel.h; sourceTree = "<group>"; };
-		FB8FAA901E8F80D80049D868 /* CHDBCourseDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHDBCourseDataModel.m; sourceTree = "<group>"; };
+		FB6D76A11E94DE9A0047A709 /* CHDBCourseDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHDBCourseDataModel.h; sourceTree = "<group>"; };
+		FB6D76A21E94DE9A0047A709 /* CHDBCourseDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHDBCourseDataModel.m; sourceTree = "<group>"; };
+		FB6D76A31E94DE9A0047A709 /* CHDBTeacherDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHDBTeacherDataModel.h; sourceTree = "<group>"; };
+		FB6D76A41E94DE9A0047A709 /* CHDBTeacherDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHDBTeacherDataModel.m; sourceTree = "<group>"; };
 		FB8FDBCA1E8264E0007A6228 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		FB9745031E8E3AA3001FE67F /* NLDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = NLDataModel.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		FB9745041E8E3AA3001FE67F /* NLDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLDataModel.m; sourceTree = "<group>"; };
@@ -206,6 +206,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FB6D76A01E94DE9A0047A709 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				FB6D76A11E94DE9A0047A709 /* CHDBCourseDataModel.h */,
+				FB6D76A21E94DE9A0047A709 /* CHDBCourseDataModel.m */,
+				FB6D76A31E94DE9A0047A709 /* CHDBTeacherDataModel.h */,
+				FB6D76A41E94DE9A0047A709 /* CHDBTeacherDataModel.m */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
 		FB97450A1E8E3AA3001FE67F /* private */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,12 +249,9 @@
 		FBC541321E8E7BDA0092886D /* NLDBTests */ = {
 			isa = PBXGroup;
 			children = (
+				FB6D76A01E94DE9A0047A709 /* models */,
 				FBC541331E8E7BDA0092886D /* NLDBTests.m */,
 				FBC541351E8E7BDA0092886D /* Info.plist */,
-				FB8FAA8C1E8F7EF60049D868 /* CHDBTeacherDataModel.h */,
-				FB8FAA8D1E8F7EF60049D868 /* CHDBTeacherDataModel.m */,
-				FB8FAA8F1E8F80D80049D868 /* CHDBCourseDataModel.h */,
-				FB8FAA901E8F80D80049D868 /* CHDBCourseDataModel.m */,
 			);
 			path = NLDBTests;
 			sourceTree = "<group>";
@@ -398,8 +406,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB8FAA8E1E8F7EF60049D868 /* CHDBTeacherDataModel.m in Sources */,
-				FB8FAA911E8F80D80049D868 /* CHDBCourseDataModel.m in Sources */,
+				FB6D76A51E94DE9A0047A709 /* CHDBCourseDataModel.m in Sources */,
+				FB6D76A61E94DE9A0047A709 /* CHDBTeacherDataModel.m in Sources */,
 				FBC541341E8E7BDA0092886D /* NLDBTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

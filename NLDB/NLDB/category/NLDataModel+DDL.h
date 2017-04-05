@@ -14,7 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NLDataModel (DDL)
 
-
 /**
  Create FMDatabase object with model class and file path.
 

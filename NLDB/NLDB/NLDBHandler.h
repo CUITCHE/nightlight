@@ -30,6 +30,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-FOUNDATION_EXTERN NLDBHandler *nldb(Class modelClass, FMDatabase *db);
+FOUNDATION_EXTERN NLDBHandler *nldb(Class modelClass, FMDatabase * _Nullable db);
 
 NS_ASSUME_NONNULL_END
