@@ -1,12 +1,12 @@
 //
-//  NLDBDataModelDriver.m
+//  NLDataModelDriver.m
 //  NLDB
 //
 //  Created by hejunqiu on 2017/3/27.
 //  Copyright © 2017年 CHE. All rights reserved.
 //
 
-#import "NLDBDataModelDriver.h"
+#import "NLDataModelDriver.h"
 #include <objc/runtime.h>
 #import <FMDB/FMDB.h>
 #import "NLDataModel.h"
@@ -16,7 +16,7 @@
 
 const char __kNLDBDataModelClassKey = 0;
 
-@implementation NLDBDataModelDriver
+@implementation NLDataModelDriver
 
 __NLDBModelModel* contactClass(Class cls)
 {

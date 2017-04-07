@@ -19,7 +19,7 @@ FOUNDATION_EXPORT const unsigned char NLDBVersionString[];
 #import "NLDataModel+DDL.h"
 #import "NLDataModel+DML.h"
 #import "NSArray+NLDataModelExtends.h"
-#import "NLDBDataModelDriver.h"
+#import "NLDataModelDriver.h"
 #import "NLSqlFunctionPackage.h"
 #import "NLDBHandler.h"
 #import "NLConstraints.h"

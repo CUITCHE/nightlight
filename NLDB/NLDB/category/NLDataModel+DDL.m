@@ -7,18 +7,18 @@
 //
 
 #import "NLDataModel+DDL.h"
-#import "NLDBDataModelDriver.h"
+#import "NLDataModelDriver.h"
 
 @implementation NLDataModel (DDL)
 
 + (FMDatabase *)createDatabaseWithModels:(NSArray<Class> *)classes databasePath:(NSString *)filepath
 {
-    return [NLDBDataModelDriver createDatabaseWithModels:classes databasePath:filepath];
+    return [NLDataModelDriver createDatabaseWithModels:classes databasePath:filepath];
 }
 
 - (FMDatabase *)createDatabaseWithDatabasePath:(NSString *)filepath
 {
-    return [NLDBDataModelDriver createDatabaseWithModels:@[[self class]] databasePath:filepath];
+    return [NLDataModelDriver createDatabaseWithModels:@[[self class]] databasePath:filepath];
 }
 
 @end

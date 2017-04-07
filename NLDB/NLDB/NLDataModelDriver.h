@@ -1,5 +1,5 @@
 //
-//  NLDBDataModelDriver.h
+//  NLDataModelDriver.h
 //  NLDB
 //
 //  Created by hejunqiu on 2017/3/27.
@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NLDBDataModelDriver : NSObject
+@interface NLDataModelDriver : NSObject
 
 + (nullable NSString *)createSingleDatabaseWithModel:(Class)cls;
 

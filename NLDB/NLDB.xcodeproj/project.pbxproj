@@ -26,8 +26,8 @@
 		FB8FDBCB1E8264E0007A6228 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FB8FDBCA1E8264E0007A6228 /* libsqlite3.tbd */; };
 		FB97451F1E8E3AA3001FE67F /* NLDataModel.h in Headers */ = {isa = PBXBuildFile; fileRef = FB9745031E8E3AA3001FE67F /* NLDataModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB9745201E8E3AA3001FE67F /* NLDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB9745041E8E3AA3001FE67F /* NLDataModel.m */; };
-		FB9745241E8E3AA3001FE67F /* NLDBDataModelDriver.h in Headers */ = {isa = PBXBuildFile; fileRef = FB9745061E8E3AA3001FE67F /* NLDBDataModelDriver.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FB9745251E8E3AA3001FE67F /* NLDBDataModelDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = FB9745071E8E3AA3001FE67F /* NLDBDataModelDriver.m */; };
+		FB9745241E8E3AA3001FE67F /* NLDataModelDriver.h in Headers */ = {isa = PBXBuildFile; fileRef = FB9745061E8E3AA3001FE67F /* NLDataModelDriver.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FB9745251E8E3AA3001FE67F /* NLDataModelDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = FB9745071E8E3AA3001FE67F /* NLDataModelDriver.m */; };
 		FB9745281E8E3AA3001FE67F /* NLSqlFunctionPackage.h in Headers */ = {isa = PBXBuildFile; fileRef = FB9745081E8E3AA3001FE67F /* NLSqlFunctionPackage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB9745291E8E3AA3001FE67F /* NLSqlFunctionPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = FB9745091E8E3AA3001FE67F /* NLSqlFunctionPackage.m */; };
 		FB97452C1E8E3AA3001FE67F /* __NLDBDataModelClassProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = FB97450B1E8E3AA3001FE67F /* __NLDBDataModelClassProperty.h */; };
@@ -85,8 +85,8 @@
 		FB9745031E8E3AA3001FE67F /* NLDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = NLDataModel.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		FB9745041E8E3AA3001FE67F /* NLDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLDataModel.m; sourceTree = "<group>"; };
 		FB9745051E8E3AA3001FE67F /* NLDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = NLDB.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		FB9745061E8E3AA3001FE67F /* NLDBDataModelDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLDBDataModelDriver.h; sourceTree = "<group>"; };
-		FB9745071E8E3AA3001FE67F /* NLDBDataModelDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NLDBDataModelDriver.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		FB9745061E8E3AA3001FE67F /* NLDataModelDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLDataModelDriver.h; sourceTree = "<group>"; };
+		FB9745071E8E3AA3001FE67F /* NLDataModelDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = NLDataModelDriver.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		FB9745081E8E3AA3001FE67F /* NLSqlFunctionPackage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLSqlFunctionPackage.h; sourceTree = "<group>"; };
 		FB9745091E8E3AA3001FE67F /* NLSqlFunctionPackage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLSqlFunctionPackage.m; sourceTree = "<group>"; };
 		FB97450B1E8E3AA3001FE67F /* __NLDBDataModelClassProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __NLDBDataModelClassProperty.h; sourceTree = "<group>"; };
@@ -160,8 +160,8 @@
 				FB9745031E8E3AA3001FE67F /* NLDataModel.h */,
 				FB9745041E8E3AA3001FE67F /* NLDataModel.m */,
 				FB9745051E8E3AA3001FE67F /* NLDB.h */,
-				FB9745061E8E3AA3001FE67F /* NLDBDataModelDriver.h */,
-				FB9745071E8E3AA3001FE67F /* NLDBDataModelDriver.m */,
+				FB9745061E8E3AA3001FE67F /* NLDataModelDriver.h */,
+				FB9745071E8E3AA3001FE67F /* NLDataModelDriver.m */,
 				FB9745081E8E3AA3001FE67F /* NLSqlFunctionPackage.h */,
 				FB9745091E8E3AA3001FE67F /* NLSqlFunctionPackage.m */,
 				FB9745111E8E3AA3001FE67F /* sqlBuild */,
@@ -278,7 +278,7 @@
 				FB97452C1E8E3AA3001FE67F /* __NLDBDataModelClassProperty.h in Headers */,
 				FB9745281E8E3AA3001FE67F /* NLSqlFunctionPackage.h in Headers */,
 				FBD920831E938F5D00EF605B /* __SqlBuildBase.h in Headers */,
-				FB9745241E8E3AA3001FE67F /* NLDBDataModelDriver.h in Headers */,
+				FB9745241E8E3AA3001FE67F /* NLDataModelDriver.h in Headers */,
 				FB29AF541E9367D600A1D955 /* __SqlDDL.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,7 +397,7 @@
 				FB9745201E8E3AA3001FE67F /* NLDataModel.m in Sources */,
 				FB29AF441E9249E700A1D955 /* NSArray+NLDataModelExtends.m in Sources */,
 				FB9745351E8E3AA3001FE67F /* __NLDBPrimitiveTypeTuple.mm in Sources */,
-				FB9745251E8E3AA3001FE67F /* NLDBDataModelDriver.m in Sources */,
+				FB9745251E8E3AA3001FE67F /* NLDataModelDriver.m in Sources */,
 				FB29AF401E9249E700A1D955 /* NLDataModel+DDL.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

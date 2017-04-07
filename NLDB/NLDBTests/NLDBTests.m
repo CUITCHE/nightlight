@@ -28,7 +28,7 @@ NSString *const kPath = @"/tmp/tmp.db";
     XCTAssertTrue([_db open], @"%@", _db.lastErrorMessage);
     [_db executeUpdate:@"drop table if EXISTS teacher;"];
     [_db executeUpdate:@"drop table if EXISTS course;"];
-    [NLDBDataModelDriver createTablesWithModels:@[[CHDBCourseDataModel class],
+    [NLDataModelDriver createTablesWithModels:@[[CHDBCourseDataModel class],
                                                   [CHDBTeacherDataModel class]]
                                        database:_db];
 }
