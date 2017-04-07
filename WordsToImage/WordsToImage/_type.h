@@ -9,7 +9,7 @@
 #ifndef _TYPE_H
 #define _TYPE_H
 
-#include "types.h"
+#include <Base/types.h>
 
 CC_BEGIN
 

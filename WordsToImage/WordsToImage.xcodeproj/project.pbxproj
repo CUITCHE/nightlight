@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FB0711C41E80F81E00F4B16C /* Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9EDF451E7FA36300B437CA /* Base.framework */; };
-		FB0711C91E80FAFA00F4B16C /* HeaderBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = FB0711C81E80FAFA00F4B16C /* HeaderBridge.h */; };
-		FB0711D51E80FE7200F4B16C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB0711D41E80FE7200F4B16C /* main.cpp */; };
-		FB0711DB1E80FEB300F4B16C /* BaseMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB0711CC1E80FB8E00F4B16C /* BaseMac.framework */; };
-		FB0711DE1E80FF5000F4B16C /* WordsImageConvertor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB93EEEE1E7FCE76003762FD /* WordsImageConvertor.cpp */; };
+		FB8E5B851E977A1D0094545E /* Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB8E5B841E977A1D0094545E /* Base.framework */; };
+		FB8E5B861E977B920094545E /* _type.h in Headers */ = {isa = PBXBuildFile; fileRef = FB93EE5C1E7FCA70003762FD /* _type.h */; };
+		FB8E5B8E1E977BED0094545E /* WordsToImageTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB8E5B8D1E977BED0094545E /* WordsToImageTests.mm */; };
+		FB8E5B901E977BED0094545E /* WordsToImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9EDF111E7FA15C00B437CA /* WordsToImage.framework */; };
+		FB8E5B961E977CBE0094545E /* Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9EDF451E7FA36300B437CA /* Base.framework */; };
 		FB93EE5B1E7FC788003762FD /* WordsImageConvertor.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FB93EE561E7FC788003762FD /* WordsImageConvertor.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB93EEEF1E7FCE76003762FD /* WordsImageConvertor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB93EEEE1E7FCE76003762FD /* WordsImageConvertor.cpp */; };
 		FB9EDF221E7FA15C00B437CA /* WordsToImage.h in Headers */ = {isa = PBXBuildFile; fileRef = FB9EDF141E7FA15C00B437CA /* WordsToImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -19,64 +19,22 @@
 		FB9EDF4A1E7FA3D000B437CA /* BMPInfoHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = FB9EDF491E7FA3D000B437CA /* BMPInfoHeader.h */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		FB0711D01E80FE7200F4B16C /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
+/* Begin PBXContainerItemProxy section */
+		FB8E5B911E977BED0094545E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB9EDF081E7FA15C00B437CA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB9EDF101E7FA15C00B437CA;
+			remoteInfo = WordsToImage;
 		};
-/* End PBXCopyFilesBuildPhase section */
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FB0711C81E80FAFA00F4B16C /* HeaderBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderBridge.h; sourceTree = "<group>"; };
 		FB0711CC1E80FB8E00F4B16C /* BaseMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BaseMac.framework; path = "../../../Library/Developer/Xcode/DerivedData/nightlight-dftdiqmqmbbgaweswrlohfqjnrdw/Build/Products/Debug/BaseMac.framework"; sourceTree = "<group>"; };
-		FB0711D21E80FE7200F4B16C /* WordsToImageMac */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = WordsToImageMac; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB0711D41E80FE7200F4B16C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		FB0711DF1E8103FF00F4B16C /* Base */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Base; path = ../../Base/Base; sourceTree = "<group>"; };
-		FB0711E31E81056700F4B16C /* _double */ = {isa = PBXFileReference; lastKnownFileType = text; path = _double; sourceTree = "<group>"; };
-		FB0711E41E81056700F4B16C /* _float */ = {isa = PBXFileReference; lastKnownFileType = text; path = _float; sourceTree = "<group>"; };
-		FB0711E51E81056700F4B16C /* Algorithm.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Algorithm.cpp; sourceTree = "<group>"; };
-		FB0711E61E81056700F4B16C /* Algorithm.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Algorithm.hpp; sourceTree = "<group>"; };
-		FB0711E71E81056700F4B16C /* assert */ = {isa = PBXFileReference; lastKnownFileType = text; path = assert; sourceTree = "<group>"; };
-		FB0711E81E81056700F4B16C /* Base.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
-		FB0711E91E81056700F4B16C /* BufferInternal */ = {isa = PBXFileReference; lastKnownFileType = text; path = BufferInternal; sourceTree = "<group>"; };
-		FB0711EA1E81056700F4B16C /* ComparisonResult */ = {isa = PBXFileReference; lastKnownFileType = text; path = ComparisonResult; sourceTree = "<group>"; };
-		FB0711EB1E81056700F4B16C /* Data.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Data.cpp; sourceTree = "<group>"; };
-		FB0711EC1E81056700F4B16C /* Data.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Data.hpp; sourceTree = "<group>"; };
-		FB0711ED1E81056700F4B16C /* Date.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Date.cpp; sourceTree = "<group>"; };
-		FB0711EE1E81056700F4B16C /* Date.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Date.hpp; sourceTree = "<group>"; };
-		FB0711EF1E81056700F4B16C /* defines */ = {isa = PBXFileReference; lastKnownFileType = text; path = defines; sourceTree = "<group>"; };
-		FB0711F01E81056700F4B16C /* Error.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Error.cpp; sourceTree = "<group>"; };
-		FB0711F11E81056700F4B16C /* Error.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Error.hpp; sourceTree = "<group>"; };
-		FB0711F21E81056700F4B16C /* Exception.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Exception.cpp; sourceTree = "<group>"; };
-		FB0711F31E81056700F4B16C /* Exception.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Exception.hpp; sourceTree = "<group>"; };
-		FB0711F41E81056700F4B16C /* global.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = global.h; sourceTree = "<group>"; };
-		FB0711F51E81056700F4B16C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FB0711F61E81056700F4B16C /* iterator */ = {isa = PBXFileReference; lastKnownFileType = text; path = iterator; sourceTree = "<group>"; };
-		FB0711F71E81056700F4B16C /* log.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = log.cpp; sourceTree = "<group>"; };
-		FB0711F81E81056700F4B16C /* log.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = log.hpp; sourceTree = "<group>"; };
-		FB0711F91E81056700F4B16C /* Number.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Number.cpp; sourceTree = "<group>"; };
-		FB0711FA1E81056700F4B16C /* Number.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Number.hpp; sourceTree = "<group>"; };
-		FB0711FB1E81056700F4B16C /* Object.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Object.cpp; sourceTree = "<group>"; };
-		FB0711FC1E81056700F4B16C /* Object.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Object.hpp; sourceTree = "<group>"; };
-		FB0711FD1E81056700F4B16C /* ObjectPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectPrivate.h; sourceTree = "<group>"; };
-		FB0711FE1E81056700F4B16C /* Range.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Range.cpp; sourceTree = "<group>"; };
-		FB0711FF1E81056700F4B16C /* Range.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Range.hpp; sourceTree = "<group>"; };
-		FB0712001E81056700F4B16C /* String.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = String.cpp; sourceTree = "<group>"; };
-		FB0712011E81056700F4B16C /* String.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = String.hpp; sourceTree = "<group>"; };
-		FB0712021E81056700F4B16C /* TaggedPointer */ = {isa = PBXFileReference; lastKnownFileType = text; path = TaggedPointer; sourceTree = "<group>"; };
-		FB0712031E81056700F4B16C /* TaggedPointer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TaggedPointer.cpp; sourceTree = "<group>"; };
-		FB0712041E81056700F4B16C /* TaggedPointer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaggedPointer.h; sourceTree = "<group>"; };
-		FB0712051E81056700F4B16C /* tprintf.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = tprintf.cpp; sourceTree = "<group>"; };
-		FB0712061E81056700F4B16C /* tprintf.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = tprintf.hpp; sourceTree = "<group>"; };
-		FB0712071E81056700F4B16C /* types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
-		FB0712081E81056700F4B16C /* usings */ = {isa = PBXFileReference; lastKnownFileType = text; path = usings; sourceTree = "<group>"; };
-		FB0712091E81056700F4B16C /* Variant.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Variant.cpp; sourceTree = "<group>"; };
-		FB07120A1E81056700F4B16C /* Variant.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Variant.hpp; sourceTree = "<group>"; };
+		FB8E5B841E977A1D0094545E /* Base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Base.framework; path = "../Base/build/Debug-iphoneos/Base.framework"; sourceTree = "<group>"; };
+		FB8E5B8B1E977BED0094545E /* WordsToImageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WordsToImageTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB8E5B8D1E977BED0094545E /* WordsToImageTests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WordsToImageTests.mm; sourceTree = "<group>"; };
+		FB8E5B8F1E977BED0094545E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB93EE561E7FC788003762FD /* WordsImageConvertor.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = WordsImageConvertor.hpp; sourceTree = "<group>"; };
 		FB93EE5C1E7FCA70003762FD /* _type.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _type.h; sourceTree = "<group>"; };
 		FB93EEEE1E7FCE76003762FD /* WordsImageConvertor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WordsImageConvertor.cpp; sourceTree = "<group>"; };
@@ -89,11 +47,12 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		FB0711CF1E80FE7200F4B16C /* Frameworks */ = {
+		FB8E5B881E977BED0094545E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB0711DB1E80FEB300F4B16C /* BaseMac.framework in Frameworks */,
+				FB8E5B961E977CBE0094545E /* Base.framework in Frameworks */,
+				FB8E5B901E977BED0094545E /* WordsToImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,74 +60,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB0711C41E80F81E00F4B16C /* Base.framework in Frameworks */,
+				FB8E5B851E977A1D0094545E /* Base.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FB0711D31E80FE7200F4B16C /* WordsToImageMac */ = {
+		FB8E5B8C1E977BED0094545E /* WordsToImageTests */ = {
 			isa = PBXGroup;
 			children = (
-				FB0711E21E81056700F4B16C /* Base */,
-				FB0711D41E80FE7200F4B16C /* main.cpp */,
+				FB8E5B8D1E977BED0094545E /* WordsToImageTests.mm */,
+				FB8E5B8F1E977BED0094545E /* Info.plist */,
 			);
-			path = WordsToImageMac;
-			sourceTree = "<group>";
-		};
-		FB0711E21E81056700F4B16C /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				FB0711E31E81056700F4B16C /* _double */,
-				FB0711E41E81056700F4B16C /* _float */,
-				FB0711E51E81056700F4B16C /* Algorithm.cpp */,
-				FB0711E61E81056700F4B16C /* Algorithm.hpp */,
-				FB0711E71E81056700F4B16C /* assert */,
-				FB0711E81E81056700F4B16C /* Base.h */,
-				FB0711E91E81056700F4B16C /* BufferInternal */,
-				FB0711EA1E81056700F4B16C /* ComparisonResult */,
-				FB0711EB1E81056700F4B16C /* Data.cpp */,
-				FB0711EC1E81056700F4B16C /* Data.hpp */,
-				FB0711ED1E81056700F4B16C /* Date.cpp */,
-				FB0711EE1E81056700F4B16C /* Date.hpp */,
-				FB0711EF1E81056700F4B16C /* defines */,
-				FB0711F01E81056700F4B16C /* Error.cpp */,
-				FB0711F11E81056700F4B16C /* Error.hpp */,
-				FB0711F21E81056700F4B16C /* Exception.cpp */,
-				FB0711F31E81056700F4B16C /* Exception.hpp */,
-				FB0711F41E81056700F4B16C /* global.h */,
-				FB0711F51E81056700F4B16C /* Info.plist */,
-				FB0711F61E81056700F4B16C /* iterator */,
-				FB0711F71E81056700F4B16C /* log.cpp */,
-				FB0711F81E81056700F4B16C /* log.hpp */,
-				FB0711F91E81056700F4B16C /* Number.cpp */,
-				FB0711FA1E81056700F4B16C /* Number.hpp */,
-				FB0711FB1E81056700F4B16C /* Object.cpp */,
-				FB0711FC1E81056700F4B16C /* Object.hpp */,
-				FB0711FD1E81056700F4B16C /* ObjectPrivate.h */,
-				FB0711FE1E81056700F4B16C /* Range.cpp */,
-				FB0711FF1E81056700F4B16C /* Range.hpp */,
-				FB0712001E81056700F4B16C /* String.cpp */,
-				FB0712011E81056700F4B16C /* String.hpp */,
-				FB0712021E81056700F4B16C /* TaggedPointer */,
-				FB0712031E81056700F4B16C /* TaggedPointer.cpp */,
-				FB0712041E81056700F4B16C /* TaggedPointer.h */,
-				FB0712051E81056700F4B16C /* tprintf.cpp */,
-				FB0712061E81056700F4B16C /* tprintf.hpp */,
-				FB0712071E81056700F4B16C /* types.h */,
-				FB0712081E81056700F4B16C /* usings */,
-				FB0712091E81056700F4B16C /* Variant.cpp */,
-				FB07120A1E81056700F4B16C /* Variant.hpp */,
-			);
-			path = Base;
+			path = WordsToImageTests;
 			sourceTree = "<group>";
 		};
 		FB9EDF071E7FA15C00B437CA = {
 			isa = PBXGroup;
 			children = (
 				FB9EDF131E7FA15C00B437CA /* WordsToImage */,
-				FB0711D31E80FE7200F4B16C /* WordsToImageMac */,
+				FB8E5B8C1E977BED0094545E /* WordsToImageTests */,
 				FB9EDF121E7FA15C00B437CA /* Products */,
 				FB9EDF441E7FA36300B437CA /* Frameworks */,
 			);
@@ -178,7 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				FB9EDF111E7FA15C00B437CA /* WordsToImage.framework */,
-				FB0711D21E80FE7200F4B16C /* WordsToImageMac */,
+				FB8E5B8B1E977BED0094545E /* WordsToImageTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -186,7 +98,6 @@
 		FB9EDF131E7FA15C00B437CA /* WordsToImage */ = {
 			isa = PBXGroup;
 			children = (
-				FB0711DF1E8103FF00F4B16C /* Base */,
 				FB9EDF141E7FA15C00B437CA /* WordsToImage.h */,
 				FB9EDF151E7FA15C00B437CA /* Info.plist */,
 				FB9EDF471E7FA3A700B437CA /* BMPFileHeader.h */,
@@ -194,7 +105,6 @@
 				FB93EEEE1E7FCE76003762FD /* WordsImageConvertor.cpp */,
 				FB93EE561E7FC788003762FD /* WordsImageConvertor.hpp */,
 				FB93EE5C1E7FCA70003762FD /* _type.h */,
-				FB0711C81E80FAFA00F4B16C /* HeaderBridge.h */,
 			);
 			path = WordsToImage;
 			sourceTree = "<group>";
@@ -202,6 +112,7 @@
 		FB9EDF441E7FA36300B437CA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FB8E5B841E977A1D0094545E /* Base.framework */,
 				FB0711CC1E80FB8E00F4B16C /* BaseMac.framework */,
 				FB9EDF451E7FA36300B437CA /* Base.framework */,
 			);
@@ -216,8 +127,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB9EDF481E7FA3A700B437CA /* BMPFileHeader.h in Headers */,
-				FB0711C91E80FAFA00F4B16C /* HeaderBridge.h in Headers */,
 				FB93EE5B1E7FC788003762FD /* WordsImageConvertor.hpp in Headers */,
+				FB8E5B861E977B920094545E /* _type.h in Headers */,
 				FB9EDF221E7FA15C00B437CA /* WordsToImage.h in Headers */,
 				FB9EDF4A1E7FA3D000B437CA /* BMPInfoHeader.h in Headers */,
 			);
@@ -226,22 +137,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		FB0711D11E80FE7200F4B16C /* WordsToImageMac */ = {
+		FB8E5B8A1E977BED0094545E /* WordsToImageTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FB0711D61E80FE7200F4B16C /* Build configuration list for PBXNativeTarget "WordsToImageMac" */;
+			buildConfigurationList = FB8E5B931E977BED0094545E /* Build configuration list for PBXNativeTarget "WordsToImageTests" */;
 			buildPhases = (
-				FB0711CE1E80FE7200F4B16C /* Sources */,
-				FB0711CF1E80FE7200F4B16C /* Frameworks */,
-				FB0711D01E80FE7200F4B16C /* CopyFiles */,
+				FB8E5B871E977BED0094545E /* Sources */,
+				FB8E5B881E977BED0094545E /* Frameworks */,
+				FB8E5B891E977BED0094545E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FB8E5B921E977BED0094545E /* PBXTargetDependency */,
 			);
-			name = WordsToImageMac;
-			productName = WordsToImageMac;
-			productReference = FB0711D21E80FE7200F4B16C /* WordsToImageMac */;
-			productType = "com.apple.product-type.tool";
+			name = WordsToImageTests;
+			productName = WordsToImageTests;
+			productReference = FB8E5B8B1E977BED0094545E /* WordsToImageTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		FB9EDF101E7FA15C00B437CA /* WordsToImage */ = {
 			isa = PBXNativeTarget;
@@ -270,9 +182,8 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = CHE;
 				TargetAttributes = {
-					FB0711D11E80FE7200F4B16C = {
-						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 8652TQR753;
+					FB8E5B8A1E977BED0094545E = {
+						CreatedOnToolsVersion = 8.3;
 						ProvisioningStyle = Automatic;
 					};
 					FB9EDF101E7FA15C00B437CA = {
@@ -295,12 +206,19 @@
 			projectRoot = "";
 			targets = (
 				FB9EDF101E7FA15C00B437CA /* WordsToImage */,
-				FB0711D11E80FE7200F4B16C /* WordsToImageMac */,
+				FB8E5B8A1E977BED0094545E /* WordsToImageTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		FB8E5B891E977BED0094545E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FB9EDF0F1E7FA15C00B437CA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -311,12 +229,11 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		FB0711CE1E80FE7200F4B16C /* Sources */ = {
+		FB8E5B871E977BED0094545E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB0711DE1E80FF5000F4B16C /* WordsImageConvertor.cpp in Sources */,
-				FB0711D51E80FE7200F4B16C /* main.cpp in Sources */,
+				FB8E5B8E1E977BED0094545E /* WordsToImageTests.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,28 +247,38 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		FB8E5B921E977BED0094545E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB9EDF101E7FA15C00B437CA /* WordsToImage */;
+			targetProxy = FB8E5B911E977BED0094545E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		FB0711D71E80FE7200F4B16C /* Debug */ = {
+		FB8E5B941E977BED0094545E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CODE_SIGN_IDENTITY = "-";
-				DEVELOPMENT_TEAM = 8652TQR753;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				INFOPLIST_FILE = WordsToImageTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hejunqiu.WordsToImageTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
-		FB0711D81E80FE7200F4B16C /* Release */ = {
+		FB8E5B951E977BED0094545E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CODE_SIGN_IDENTITY = "-";
-				DEVELOPMENT_TEAM = 8652TQR753;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				INFOPLIST_FILE = WordsToImageTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hejunqiu.WordsToImageTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -455,6 +382,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 8652TQR753;
@@ -476,6 +404,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 8652TQR753;
@@ -496,11 +425,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FB0711D61E80FE7200F4B16C /* Build configuration list for PBXNativeTarget "WordsToImageMac" */ = {
+		FB8E5B931E977BED0094545E /* Build configuration list for PBXNativeTarget "WordsToImageTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FB0711D71E80FE7200F4B16C /* Debug */,
-				FB0711D81E80FE7200F4B16C /* Release */,
+				FB8E5B941E977BED0094545E /* Debug */,
+				FB8E5B951E977BED0094545E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

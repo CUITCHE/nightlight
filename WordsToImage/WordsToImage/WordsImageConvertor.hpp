@@ -9,7 +9,7 @@
 #ifndef WordsImageConvertor_hpp
 #define WordsImageConvertor_hpp
 
-#include "Object.hpp"
+#include <Base/Object.hpp>
 
 CC_BEGIN
 

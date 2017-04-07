@@ -9,9 +9,9 @@
 #include "WordsImageConvertor.hpp"
 #include "BMPFileHeader.h"
 #include "BMPInfoHeader.h"
-#include "HeaderBridge.h"
-#include "Data.hpp"
-#include "String.hpp"
+#include <Base/ObjectPrivate.h>
+#include <Base/Data.hpp>
+#include <Base/String.hpp>
 
 #include <limits>
 

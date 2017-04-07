@@ -6,7 +6,7 @@
 //  Copyright © 2017年 CHE. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for WordsToImage.
 FOUNDATION_EXPORT double WordsToImageVersionNumber;
@@ -14,6 +14,5 @@ FOUNDATION_EXPORT double WordsToImageVersionNumber;
 //! Project version string for WordsToImage.
 FOUNDATION_EXPORT const unsigned char WordsToImageVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <WordsToImage/PublicHeader.h>
 
-
+#import "WordsImageConvertor.hpp"
